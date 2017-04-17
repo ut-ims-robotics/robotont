@@ -15,7 +15,7 @@
 */
 
 // The String that contains the command that is being broadcasted to hardware
-std::string output_cmd = "a0b0c0\n";
+std::string output_cmd = "0:0:0\n";
 
 void format_cmd(const geometry_msgs::Twist& cmd_vel_msg){
     
@@ -61,7 +61,8 @@ void format_cmd(const geometry_msgs::Twist& cmd_vel_msg){
     // important note about speed
 
     std::stringstream sstm;
-    sstm << 'a' << static_cast<int>(m0) << 'b' << static_cast<int>(m1) << 'c' << static_cast<int>(m2) << '\n';
+//    sstm << 'a' << static_cast<int>(m0) << 'b' << static_cast<int>(m1) << 'c' << static_cast<int>(m2) << '\n';
+    sstm << static_cast<int>(m0) << ':' << static_cast<int>(m1) << ':' << static_cast<int>(m2) << '\n';
 //    ROS_INFO_STREAM("I calculated: \n" << sstm.str());
     output_cmd = sstm.str();
 }
@@ -94,7 +95,7 @@ int main (int argc, char** argv){
     ros::Subscriber teleop_sub = nh.subscribe("turtlebot_teleop/cmd_vel", 1000, teleop_callback);
 
     // Publisher that publishes correctly formated command to serial
-    ros::Publisher formated_cmd_pub = nh.advertise<std_msgs::String>("write", 1000);
+    ros::Publisher formated_cmd_pub = nh.advertise<std_msgs::String>("serial_write", 1000);
 
     // The rate at which the program publishes to serial
     ros::Rate loop_rate(10);
