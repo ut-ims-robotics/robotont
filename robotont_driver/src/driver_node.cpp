@@ -42,19 +42,19 @@ void format_cmd(const geometry_msgs::Twist& cmd_vel_msg){
     float vel_t = cmd_vel_msg.angular.z; 
 
 //    ROS_INFO_STREAM("I heard: \n" << cmd_vel_msg);
-    m0 += vel_x * unitV;
-    m1 += vel_x * unitV;// * (-1);
-    m2 += vel_x * unitV * 0;
+    m0 += vel_x * unitV * (-1);
+    m2 += vel_x * unitV;// * (-1);
+    m1 += vel_x * unitV * 0;
 
 //    ROS_INFO_STREAM("I calculated: \n" << unitV);
 
     m0 += vel_y * unitV * 0.866;// * (-1);
-    m1 += vel_y * unitV * 0.866;
-    m2 += vel_y * unitV;// * (-1);
+    m2 += vel_y * unitV * 0.866;
+    m1 += vel_y * unitV;// * (-1);
 
-    m0 += vel_t * unitRV;
-    m1 += vel_t * unitRV;
-    m2 += vel_t * unitRV;
+    m0 += vel_t * unitRV * (-1);
+    m2 += vel_t * unitRV * (-1);
+    m1 += vel_t * unitRV * (-1);
 
 
     // http://stackoverflow.com/questions/191757/how-to-concatenate-a-stdstring-and-an-int 
@@ -92,10 +92,10 @@ int main (int argc, char** argv){
     ros::NodeHandle nh;
     
     // Subscriber that subscribes to cmd_vel
-    ros::Subscriber teleop_sub = nh.subscribe("turtlebot_teleop/cmd_vel", 1000, teleop_callback);
+    ros::Subscriber teleop_sub = nh.subscribe("turtlebot_teleop/cmd_vel", 1, teleop_callback);
 
     // Publisher that publishes correctly formated command to serial
-    ros::Publisher formated_cmd_pub = nh.advertise<std_msgs::String>("serial_write", 1000);
+    ros::Publisher formated_cmd_pub = nh.advertise<std_msgs::String>("serial_write", 1);
 
     // The rate at which the program publishes to serial
     ros::Rate loop_rate(10);
