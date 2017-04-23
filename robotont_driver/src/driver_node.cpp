@@ -92,7 +92,7 @@ int main (int argc, char** argv){
     ros::NodeHandle nh;
     
     // Subscriber that subscribes to cmd_vel
-    ros::Subscriber teleop_sub = nh.subscribe("turtlebot_teleop/cmd_vel", 1, teleop_callback);
+    ros::Subscriber teleop_sub = nh.subscribe("cmd_vel", 1, teleop_callback); //"turtlebot_teleop/cmd_vel"
 
     // Publisher that publishes correctly formated command to serial
     ros::Publisher formated_cmd_pub = nh.advertise<std_msgs::String>("serial_write", 1);

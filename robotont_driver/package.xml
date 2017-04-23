@@ -17,12 +17,14 @@
   <build_depend>rospy</build_depend>
   <build_depend>std_msgs</build_depend>
   <build_depend>serial</build_depend>
+  <build_depend>joy</build_depend>
 
   <run_depend>geometry_msgs</run_depend>
   <run_depend>roscpp</run_depend>
   <run_depend>rospy</run_depend>
   <run_depend>std_msgs</run_depend>
   <run_depend>serial</run_depend>
+  <run_depend>joy</run_depend>
 
   <export>
     <!-- Other tools can request additional information be placed here -->

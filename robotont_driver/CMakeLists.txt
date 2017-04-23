@@ -6,6 +6,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   serial
+  joy
 )
 
 catkin_package(
@@ -13,6 +14,7 @@ catkin_package(
     geometry_msgs
     std_msgs
     serial
+    joy
 )
 
 include_directories(
@@ -21,7 +23,9 @@ include_directories(
 
 add_executable(serial_com_node src/serial_com_node.cpp)
 add_executable(driver_node src/driver_node.cpp)
+add_executable(robotont_teleop_joy src/robotont_teleop_joy.cpp)
 
 target_link_libraries(serial_com_node ${catkin_LIBRARIES})
 target_link_libraries(driver_node ${catkin_LIBRARIES})
+target_link_libraries(robotont_teleop_joy ${catkin_LIBRARIES})
 
