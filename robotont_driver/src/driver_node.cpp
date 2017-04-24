@@ -22,7 +22,7 @@ void format_cmd(const geometry_msgs::Twist& cmd_vel_msg){
     float maxV = 1.0; // maximum linear velocity
     float radius = 0.15;
     float maxRV = maxV/radius; // angular velocity that cossesponds to the steps
-    float steps = 255; // maximum value to send to motors
+    float steps = 80; // maximum value to send to motors
     float unitV = steps/maxV; // value for velocity 1 m/s
     float unitRV = steps/maxRV; // value for angular velocity 1 rad/s
 

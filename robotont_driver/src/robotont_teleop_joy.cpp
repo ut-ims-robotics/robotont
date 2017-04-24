@@ -23,7 +23,7 @@ private:
 
 TeleopRobotont::TeleopRobotont():
   linear_(1),
-  angular_(2)
+  angular_(0)
 {
 
   nh_.param("axis_linear", linear_, linear_);
@@ -42,8 +42,11 @@ TeleopRobotont::TeleopRobotont():
 void TeleopRobotont::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 {
   geometry_msgs::Twist twist;
-  twist.angular.z = a_scale_*joy->axes[angular_];
-  twist.linear.x = l_scale_*joy->axes[linear_];
+  //twist.angular.z = a_scale_*joy->axes[angular_];
+  //twist.linear.x = l_scale_*joy->axes[linear_];
+  twist.angular.z = joy->axes[angular_];
+  twist.linear.x = joy->axes[linear_];
+
   vel_pub_.publish(twist);
   ROS_INFO_STREAM(twist);
 }
