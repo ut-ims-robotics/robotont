@@ -1,6 +1,7 @@
 /***
- >
- */
+* This node listens to topic serial_write and forwards everything to serialport
+* Everything that the node reads from serialport will be published on the topic serial_read
+*/
 
 #include <ros/ros.h>
 #include <serial/serial.h>
@@ -21,7 +22,7 @@ int main (int argc, char** argv){
     ros::Subscriber write_sub = nh.subscribe("serial_write", 1000, write_callback);
     ros::Publisher read_pub = nh.advertise<std_msgs::String>("serial_read", 1000);
 
-    try
+    try // Open serial communication
     {
         ser.setPort("/dev/ttyACM0");
         ser.setBaudrate(9600);

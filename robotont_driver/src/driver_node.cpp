@@ -1,18 +1,11 @@
 /* 
 * This node listens to teleop (cmd_vel), then formats the command accordingly 
-* and publishes the formatted string to serial (topic:'write')
+* and publishes the formatted string to serial (topic:'serial_write')
 */
 #include <ros/ros.h>
 #include <std_msgs/String.h>
 #include <geometry_msgs/Twist.h>
 #include <string>
-
-/*
-* THINGS TO CONSIDER
-*
-* Maybe a std_msg::String should also be declared in the beginning (doea it update
-* the data if it is done so?)
-*/
 
 // The String that contains the command that is being broadcasted to hardware
 std::string output_cmd = "0:0:0\n";
@@ -30,7 +23,7 @@ void format_cmd(const geometry_msgs::Twist& cmd_vel_msg){
     Don't have to provide maximum values actually - it would be easier to check if
     sent value is too big or not.
     But it is important that the maxV and steps values correspond to each other
-    eg. if you send motor dac value 255, it rotates at a velocity of 0.2 m/s
+    eg. if you send motor value 20, it rotates at a velocity of 0.25 m/s
     */
 
     float m0 = 0;
@@ -41,29 +34,25 @@ void format_cmd(const geometry_msgs::Twist& cmd_vel_msg){
     float vel_y = cmd_vel_msg.linear.y; 
     float vel_t = cmd_vel_msg.angular.z; 
 
-//    ROS_INFO_STREAM("I heard: \n" << cmd_vel_msg);
     m0 += vel_x * unitV * (-1);
-    m2 += vel_x * unitV;// * (-1);
+    m2 += vel_x * unitV;
     m1 += vel_x * unitV * 0;
 
-//    ROS_INFO_STREAM("I calculated: \n" << unitV);
-
-    m0 += vel_y * unitV * 0.866;// * (-1);
+    m0 += vel_y * unitV * 0.866;
     m2 += vel_y * unitV * 0.866;
-    m1 += vel_y * unitV;// * (-1);
+    m1 += vel_y * unitV;
 
     m0 += vel_t * unitRV * (-1);
     m2 += vel_t * unitRV * (-1);
     m1 += vel_t * unitRV * (-1);
 
-
     // http://stackoverflow.com/questions/191757/how-to-concatenate-a-stdstring-and-an-int 
     // important note about speed
 
     std::stringstream sstm;
-//    sstm << 'a' << static_cast<int>(m0) << 'b' << static_cast<int>(m1) << 'c' << static_cast<int>(m2) << '\n';
+//    sstm << 'a' << static_cast<int>(m0) << 'b' << static_cast<int>(m1) << 'c' << static_cast<int>(m2) << '\n'; // for previous firmware implementation
     sstm << static_cast<int>(m0) << ':' << static_cast<int>(m1) << ':' << static_cast<int>(m2) << '\n';
-//    ROS_INFO_STREAM("I calculated: \n" << sstm.str());
+//    ROS_INFO_STREAM("I calculated: \n" << sstm.str()); // debug purpouse
     output_cmd = sstm.str();
 }
 
@@ -73,10 +62,9 @@ void format_cmd(const geometry_msgs::Twist& cmd_vel_msg){
 * The function starts everytime there is a new message published to given topic
 */
 void teleop_callback(const geometry_msgs::Twist& cmd_vel_msg){
-    // TODO: take cmd_vel and format it to a00b00c00. Write the value to output_cmd
-    ROS_INFO_STREAM("I heard: \n" << cmd_vel_msg);
+    ROS_INFO_STREAM("I heard: \n" << cmd_vel_msg); // cmd_vel input
     format_cmd(cmd_vel_msg);
-    ROS_INFO_STREAM("I will publish: \n" << output_cmd);
+    ROS_INFO_STREAM("I will publish: \n" << output_cmd); // "m0:m1:m2\n" output
 }
 
 
@@ -92,7 +80,7 @@ int main (int argc, char** argv){
     ros::NodeHandle nh;
     
     // Subscriber that subscribes to cmd_vel
-    ros::Subscriber teleop_sub = nh.subscribe("cmd_vel", 1, teleop_callback); //"turtlebot_teleop/cmd_vel"
+    ros::Subscriber teleop_sub = nh.subscribe("cmd_vel", 1, teleop_callback); // alternatively "turtlebot_teleop/cmd_vel"
 
     // Publisher that publishes correctly formated command to serial
     ros::Publisher formated_cmd_pub = nh.advertise<std_msgs::String>("serial_write", 1);
@@ -103,10 +91,10 @@ int main (int argc, char** argv){
         // Check for new messages in queue
         ros::spinOnce();
 
-        //ROS_INFO_STREAM("Reading velocity..");
+        //ROS_INFO_STREAM("Reading velocity.."); // debug purpouse
         std_msgs::String result;
         result.data = output_cmd;
-        ROS_INFO_STREAM("Publishing: " << result);
+        ROS_INFO_STREAM("Publishing: " << result); // debug purpouse
         formated_cmd_pub.publish(result);
 
         loop_rate.sleep();
