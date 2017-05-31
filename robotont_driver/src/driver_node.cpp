@@ -34,12 +34,12 @@ void format_cmd(const geometry_msgs::Twist& cmd_vel_msg){
     float vel_y = cmd_vel_msg.linear.y; 
     float vel_t = cmd_vel_msg.angular.z; 
 
-    m0 += vel_x * unitV * (-1);
-    m2 += vel_x * unitV;
+    m0 += vel_x * unitV * 1.155 * (-1);
+    m2 += vel_x * unitV * 1.155;
     m1 += vel_x * unitV * 0;
 
-    m0 += vel_y * unitV * 0.866;
-    m2 += vel_y * unitV * 0.866;
+    m0 += vel_y * unitV * 2;
+    m2 += vel_y * unitV * 2;
     m1 += vel_y * unitV;
 
     m0 += vel_t * unitRV * (-1);
