@@ -25,7 +25,7 @@ int main (int argc, char** argv){
     try // Open serial communication
     {
         ser.setPort("/dev/ttyACM0");
-        ser.setBaudrate(115200);
+	ser.setBaudrate(115200);
         serial::Timeout to = serial::Timeout::simpleTimeout(1000);
         ser.setTimeout(to);
         ser.open();

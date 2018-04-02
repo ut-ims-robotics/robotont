@@ -12,7 +12,7 @@
 std::string output_cmd = "0:0:0;\n";
 
 // The amount of wheels on the robot
-int wheel_amount;
+int wheelAmount;
 
 // initial list for the angles of the wheels
 std::vector<float> wheelAngles;
@@ -63,37 +63,43 @@ void format_cmd(const geometry_msgs::Twist& cmd_vel_msg){
     float vel_y = cmd_vel_msg.linear.y;
     float vel_t = cmd_vel_msg.angular.z;
 
-    int motorCount = wheel_amount;
+    int motorCount = wheelAmount;
 
-    float robotSpeed = (std::abs(vel_x) + std::abs(vel_y))/2;
-    if (vel_x != 0){
-	robotSpeed = std::abs(vel_x);
-    }
-    else if (vel_y != 0){
+    float robotSpeed;
+    
+    if (vel_x == 0){
 	robotSpeed = std::abs(vel_y);
     }
+    else if (vel_y == 0){
+	robotSpeed = std::abs(vel_x);
+    }
+    else{
+        robotSpeed = (std::abs(vel_x)+std::abs(vel_y))/2;
+    }    
+
     float const wheelDistanceFromCenter = 0.125;
     float const wheelRadius = 0.035;
     float const gearboxReductionRatio = 18.75;
     float const encoderEdgesPerMotorRevolution = 64;
-    int const pidControlFrequency = 60;
+    int const pidControlFrequency = 20;
 
-    float robotDirectionAngle = atan2(vel_x, vel_y);
+    float robotDirectionAngle = -atan2(vel_x, vel_y);
+	
 
     //ROS_INFO_STREAM("robotDirectionAngle: " << (float)wheelAngles[0]); //debug purpouse
 
     float robotAngularVelocity = vel_t;
 
-    float wheelLinearVelocity[3];
-    float wheelAngularVelocity[3];
+    float wheelLinearVelocity[motorCount];
+    float wheelAngularVelocity[motorCount];
 
     for(int i= 0; i < motorCount; i++){
-	wheelLinearVelocity[i] = robotSpeed * cos(robotDirectionAngle - wheelAngles[i]) + wheelDistanceFromCenter * robotAngularVelocity;
+		wheelLinearVelocity[i] = robotSpeed * cos(robotDirectionAngle - wheelAngles[i]) + wheelDistanceFromCenter * robotAngularVelocity;
     }
 
     float wheelSpeedToMainboardUnits = gearboxReductionRatio * encoderEdgesPerMotorRevolution / (2 * M_PI * wheelRadius * pidControlFrequency);
 
-    float wheelAngularSpeedMainboardUnits[3];
+    float wheelAngularSpeedMainboardUnits[motorCount];
 
     for(int i= 0; i < motorCount; i++){
 	wheelAngularSpeedMainboardUnits[i] = wheelLinearVelocity[i] * wheelSpeedToMainboardUnits;
@@ -103,9 +109,9 @@ void format_cmd(const geometry_msgs::Twist& cmd_vel_msg){
 	m0 = m1 = m2 = 0;
     }
     else {
-	m0 = wheelLinearVelocity[0] * 25;
-	m2 = wheelLinearVelocity[2] * 25;
-	m1 = wheelLinearVelocity[1] * 25;
+	m0 = wheelAngularSpeedMainboardUnits[0];
+	m2 = wheelAngularSpeedMainboardUnits[2];
+	m1 = wheelAngularSpeedMainboardUnits[1];
     }
 
     /*
@@ -127,7 +133,7 @@ void format_cmd(const geometry_msgs::Twist& cmd_vel_msg){
 
     std::stringstream sstm;
 //    sstm << 'a' << static_cast<int>(m0) << 'b' << static_cast<int>(m1) << 'c' << static_cast<int>(m2) << '\n'; // for previous firmware implementation
-    sstm << static_cast<int>(m0) << ':' << static_cast<int>(m1) << ':' << static_cast<int>(m2) << ';';
+    sstm << static_cast<int>(m0) << ':' << static_cast<int>(m1) << ':' << static_cast<int>(m2) << ';' << '\n';
 //    ROS_INFO_STREAM("I calculated: \n" << sstm.str()); // debug purpouse
     output_cmd = sstm.str();
 }
@@ -155,7 +161,7 @@ int main (int argc, char** argv){
     ros::init(argc, argv, "driver_node");
     ros::NodeHandle nh;
     
-    nh.getParam("/wheel_amount", wheel_amount);
+    nh.getParam("/wheel_amount", wheelAmount);
     
     nh.getParam("/wheel_rads", wheelAngles);
     //ROS_INFO_STREAM("WheelAnges " << wheelAngles[0]); //debug purpouse

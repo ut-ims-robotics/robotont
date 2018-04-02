@@ -1,6 +1,5 @@
 # Robot onmi-wheel parameters.
 # wheel_amount is the amount of onmiwheels the robot has.
-# wheel_rads are the values of wheels_degs converted to radians.
-# wheel_rads values must contain atleast one number with a decimal
+# wheel_rads are the wheel positive speed direction in relation to x-axis
 wheel_amount: 3
 wheel_rads: [5.235988, 3.141593, 1.047198]
