@@ -12,4 +12,4 @@ wheelDistanceFromCenter: 0.125
 wheelRadius: 0.035
 gearboxReductionRatio: 18.75
 encoderEdgesPerMotorRevolution: 64
-pidControlFrequency: 20
+pidControlFrequency: 50

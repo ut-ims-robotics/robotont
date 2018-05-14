@@ -59,9 +59,9 @@ void format_input(std_msgs::String msg){
 
 	//ROS_INFO_STREAM("matrix :" << odomMatrixInv); //debug purpose
 
-	vy = (odomMatrixInv(0,0)*phi0 + odomMatrixInv(0,1)*phi1 + odomMatrixInv(0,2)*phi2);
+	vy = (-1)*(odomMatrixInv(0,0)*phi0 + odomMatrixInv(0,1)*phi1 + odomMatrixInv(0,2)*phi2);
 	vx = (odomMatrixInv(1,0)*phi0 + odomMatrixInv(1,1)*phi1 + odomMatrixInv(1,2)*phi2);
-	vth = (odomMatrixInv(2,0)*phi0 + odomMatrixInv(2,1)*phi1 + odomMatrixInv(2,2)*phi2);
+	vth = (-1)*(odomMatrixInv(2,0)*phi0 + odomMatrixInv(2,1)*phi1 + odomMatrixInv(2,2)*phi2);
 
 	//ROS_INFO_STREAM("ODOMETRY FOMRAT INPUT: " << vx << " " << vy << " " << vth << "\n"); //debug purpose
 }
@@ -115,7 +115,7 @@ int main(int argc, char** argv) {
 
 	    x += delta_x;
 	    y += delta_y;
-	    th -= delta_th;
+	    th += delta_th;
 	    
 	    geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(th);
 	    
@@ -142,7 +142,7 @@ int main(int argc, char** argv) {
 	    
 	    odom.child_frame_id = "base_link";
 	    odom.twist.twist.linear.x = vx;
-	    odom.twist.twist.linear.y = vy;
+	    odom.twist.twist.linear.y = (-1)*vy;
 	    odom.twist.twist.angular.z = vth;
 	    
 	    odom_pub.publish(odom);

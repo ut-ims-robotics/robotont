@@ -9,7 +9,7 @@
 #include <cmath>
 
 // The String that contains the command that is being broadcasted to hardware
-std::string output_cmd = "20:20:20;\n";
+std::string output_cmd = "0:0:0;\n";
 
 int wheelAmount;
 
@@ -32,7 +32,7 @@ void format_cmd(const geometry_msgs::Twist& cmd_vel_msg){
     float m2 = 0;
 
     float vel_x = cmd_vel_msg.linear.x;
-    float vel_y = cmd_vel_msg.linear.y;
+    float vel_y = -cmd_vel_msg.linear.y;
     float vel_t = cmd_vel_msg.angular.z;
 
     int motorCount = wheelAmount;
