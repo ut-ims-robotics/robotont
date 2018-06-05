@@ -30,18 +30,32 @@ void format_input(std_msgs::String msg){
 	int encIn[3] = {0, 0, 0};
 	char c;
 	float phi0, phi1, phi2;
-	
-	std::string t0, t1, t2, t3;
 
-	std::stringstream(msg.data) >> encIn[0] >> t1;
-	t1.erase(t1.begin());
-	std::stringstream(t1) >> encIn[1] >> t2;
-	t2.erase(t2.begin());
-	std::stringstream(t2) >> encIn[2] >> t3;
+  char cmd_str[20];
+  int num1 = 0;
+  int num2 = 0;
+  int num3 = 0;
+  if (sscanf(msg.data.c_str(), "%s %d:%d:%d",cmd_str, &num1, &num2, &num3) == 4)
+  {
+    //ROS_WARN("HERE '%s'", cmd_str);
+    if (strcmp(cmd_str,"Encoders")==0)
+    {
+      ROS_ERROR("HERE '%s'", msg.data.c_str());
+      encIn[0] = num1;
+      encIn[1] = num2;
+      encIn[2] = num3;
+    }
+    else
+    {
+      return; // some other command was received
+    }
+  }
+  else
+  {
+    return;
+  }
 
-	//ROS_INFO_STREAM("sstm: " << t1 << " " << t2);
-
-	//ROS_INFO_STREAM("ODOMETRY motors: " << encIn[0] << " " << encIn[1] << " " << encIn[2] << "\n"); //debug purpose
+	ROS_INFO_STREAM("ODOMETRY motors: " << encIn[0] << " " << encIn[1] << " " << encIn[2] << "\n"); //debug purpose
 
 	phi0 = (encIn[0])/wheelSpeedToMainboardUnits;
 	phi1 = (encIn[1])/wheelSpeedToMainboardUnits;
@@ -66,8 +80,8 @@ void format_input(std_msgs::String msg){
 	//ROS_INFO_STREAM("ODOMETRY FOMRAT INPUT: " << vx << " " << vy << " " << vth << "\n"); //debug purpose
 }
 
-void write_callback(std_msgs::String msg){
-	ROS_INFO_STREAM("I heard: \n" << msg);
+void read_callback(std_msgs::String msg){
+//	ROS_INFO_STREAM("I heard: \n" << msg);
 	format_input(msg);
 	//ROS_INFO_STREAM("I will publish: \n" << output_cmd);
 }
@@ -88,8 +102,8 @@ int main(int argc, char** argv) {
 
 	wheelSpeedToMainboardUnits = gearboxReductionRatio * encoderEdgesPerMotorRevolution / (2 * M_PI * wheelRadius * pidControlFrequency);
 
-	ros::Subscriber serial_sub = nh.subscribe("serial_write", 50, write_callback);
-	ros::Publisher odom_pub = nh.advertise<nav_msgs::Odometry>("odom", 50);
+	ros::Subscriber serial_sub = nh.subscribe("serial_read", 10, read_callback);
+	ros::Publisher odom_pub = nh.advertise<nav_msgs::Odometry>("odom", 2);
 	tf::TransformBroadcaster odom_broadcaster;
 	
 	float x = 0.0;
@@ -102,10 +116,8 @@ int main(int argc, char** argv) {
 
 	ROS_INFO_STREAM("ODOMETRY START!\n");
 	
-	ros::Rate loop_rate(10);
+	ros::Rate loop_rate(100);
 	while(ros::ok()){
-	    
-	    ros::spinOnce();
 	    current_time = ros::Time::now();
 	    
 	    float dt = (current_time - last_time).toSec();
@@ -122,7 +134,7 @@ int main(int argc, char** argv) {
 	    geometry_msgs::TransformStamped odom_trans;
 	    odom_trans.header.stamp = current_time;
 	    odom_trans.header.frame_id = "odom";
-	    odom_trans.child_frame_id = "base_link";
+	    odom_trans.child_frame_id = "base_base_link";
 	    
 	    odom_trans.transform.translation.x = x;
 	    odom_trans.transform.translation.y = y;
@@ -140,13 +152,14 @@ int main(int argc, char** argv) {
 	    odom.pose.pose.position.z = 0.0;
 	    odom.pose.pose.orientation = odom_quat;
 	    
-	    odom.child_frame_id = "base_link";
+	    odom.child_frame_id = "base_base_link";
 	    odom.twist.twist.linear.x = vx;
 	    odom.twist.twist.linear.y = (-1)*vy;
 	    odom.twist.twist.angular.z = vth;
 	    
 	    odom_pub.publish(odom);
 	    
+	    ros::spinOnce();
 	    last_time = current_time;
 	    loop_rate.sleep();    
 	}

@@ -11,7 +11,7 @@
 serial::Serial ser;
 
 void write_callback(const std_msgs::String::ConstPtr& msg){
-    ROS_INFO_STREAM("Writing to serial port" << msg->data);
+//    ROS_INFO_STREAM("Writing to serial port" << msg->data);
     ser.write(msg->data);
 }
 
@@ -19,8 +19,8 @@ int main (int argc, char** argv){
     ros::init(argc, argv, "serial_com_node");
     ros::NodeHandle nh;
 
-    ros::Subscriber write_sub = nh.subscribe("serial_write", 1000, write_callback);
-    ros::Publisher read_pub = nh.advertise<std_msgs::String>("serial_read", 1000);
+    ros::Subscriber write_sub = nh.subscribe("serial_write", 10, write_callback);
+    ros::Publisher read_pub = nh.advertise<std_msgs::String>("serial_read", 10);
 
     try // Open serial communication
     {
@@ -42,20 +42,18 @@ int main (int argc, char** argv){
         return -1;
     }
 
-    ros::Rate loop_rate(100);
+    ros::Rate loop_rate(500);
     while(ros::ok()){
-
+        if(ser.available()){
+        ROS_INFO("Available: %ld", ser.available());
+            //ROS_INFO_STREAM("Reading from serial port");
+            std_msgs::String result;
+            result.data = ser.readline();
+//            ROS_INFO_STREAM("Read data: " << result.data);
+            read_pub.publish(result);
+        }
         ros::spinOnce();
-
-        //if(ser.available() > 6){
-        //    //ROS_INFO_STREAM("Reading from serial port");
-        //    std_msgs::String result;
-        //    result.data = ser.readline();
-        //    ROS_INFO_STREAM("Read data: " << result.data);
-        //    read_pub.publish(result);
-        //}
         loop_rate.sleep();
-
     }
 }
 
