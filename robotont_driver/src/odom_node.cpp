@@ -37,10 +37,8 @@ void format_input(std_msgs::String msg){
   int num3 = 0;
   if (sscanf(msg.data.c_str(), "%s %d:%d:%d",cmd_str, &num1, &num2, &num3) == 4)
   {
-    //ROS_WARN("HERE '%s'", cmd_str);
     if (strcmp(cmd_str,"Encoders")==0)
     {
-      ROS_ERROR("HERE '%s'", msg.data.c_str());
       encIn[0] = num1;
       encIn[1] = num2;
       encIn[2] = num3;
@@ -55,13 +53,13 @@ void format_input(std_msgs::String msg){
     return;
   }
 
-	ROS_INFO_STREAM("ODOMETRY motors: " << encIn[0] << " " << encIn[1] << " " << encIn[2] << "\n"); //debug purpose
+//	ROS_INFO_STREAM("ODOMETRY motors: " << encIn[0] << " " << encIn[1] << " " << encIn[2] << "\n"); //debug purpose
 
 	phi0 = (encIn[0])/wheelSpeedToMainboardUnits;
 	phi1 = (encIn[1])/wheelSpeedToMainboardUnits;
 	phi2 = (encIn[2])/wheelSpeedToMainboardUnits;
 
-	ROS_INFO_STREAM("phi: " << phi0 << " " << phi1 << " " << phi2);
+//	ROS_INFO_STREAM("phi: " << phi0 << " " << phi1 << " " << phi2);
 
 	int motorCount = wheelAmount;
 
