@@ -2,6 +2,16 @@
 <robot
   name="test">
   <link name="base_base_link" />
+  <link name="camera_link" />
+  <joint name="camera_joint" type="fixed">
+    <origin
+      xyz="-0.1 0 0.2"
+      rpy="0 0.05 0" />
+    <parent
+      link="base_base_link" />
+    <child
+      link="camera_link" />
+  </joint>
 
   <link
     name="base_link">
