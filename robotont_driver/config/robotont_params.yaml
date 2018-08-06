@@ -1,0 +1,12 @@
+# Parameters for Robotont.
+
+# Serial connection
+serial:
+  port: "/dev/ttyACM0"
+  baudrate: 115200
+
+# Frame names for odometry
+odom:
+  frame: "odom"
+  child_frame: "base_base_link"
+
