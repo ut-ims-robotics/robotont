@@ -3,8 +3,8 @@
   <env name="ROSCONSOLE_FORMAT" value="[${function}] ${message}" />
   <env name="ROSCONSOLE_CONFIG_FILE" value="$(find robotont_driver)/config/console.conf" />
 
-  <rosparam ns="robotont" file="$(find robotont_driver)/config/robotont_params.yaml" command="load" />
-  <node ns="robotont" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
+  <!-- <rosparam ns="robotont" file="$(find robotont_driver)/config/robotont_params.yaml" command="load" />
+  <node ns="robotont" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" /> -->
   <node ns="robotont" pkg="teleop_twist_keyboard" name="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
     <param name='~speed' value="0.1" />
     <param name='~turn' value="0.3" />

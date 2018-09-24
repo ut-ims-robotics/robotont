@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<robot
+	xmlns:xacro="http://www.ros.org/wiki/xacro"
+	name="robotont"
+>
+	<xacro:include filename="$(find robotont_description)/xacro/rim.urdf.xacro"/>
+	<xacro:property name="wheel_distance" value="0.12" />
+	<xacro:property name="wheel_center_height" value="0.021" />
+
+	<link name="footprint_link"/>
+	<link name="base_link">
+
+	<inertial>
+
+		<mass value="0.07862944645"/>
+		<inertia
+			ixx="0.00002035985530754"
+			ixy="0"
+			ixz="0"
+			iyy="0.00002035985530754"
+			iyz="0"
+			izz="0.00003945961663220"
+		/>
+
+	</inertial>
+	<visual>
+
+		<geometry>
+
+			<mesh scale="0.001 0.001 0.001" filename="package://robotont_description/meshes/body.stl"/>
+
+		</geometry>
+		<material name="base_material">
+
+			<color rgba="1 1 1 1"/>
+
+		</material>
+
+	</visual>
+	<collision>
+
+		<geometry>
+
+			<mesh scale="0.001 0.001 0.001" filename="package://robotont_description/meshes/body.stl"/>
+
+		</geometry>
+
+	</collision>
+
+	</link>
+	<joint
+		name="base_joint"
+		type="fixed"
+	>
+
+		<parent link="footprint_link" />
+		<child link="base_link" />
+		<origin
+			xyz="0 0 0.009"
+			rpy="${pi/2} 0 ${-pi/2}" 
+		/>
+
+	</joint>
+	<xacro:rim_macro
+		name="back"
+		color="0 0.3 0"
+		angle="${pi}"
+		wheel_distance = "${wheel_distance}"
+		wheel_center_height = "${wheel_center_height}"
+	/>
+	<xacro:rim_macro
+		name="left"
+		color="0 0.3 0"
+		angle="${-1/3*pi}"
+		wheel_distance = "${wheel_distance}"
+		wheel_center_height = "${wheel_center_height}"
+	/>
+	<xacro:rim_macro
+		name="right"
+		color="0 0.3 0"
+		angle="${1/3*pi}"
+		wheel_distance = "${wheel_distance}"
+		wheel_center_height = "${wheel_center_height}"
+	/>
+	
+	<!-- <xacro:rim_macro
+		name="right"
+		color="0 0 0.3"
+		xyz="0.03464101615 0.02 0"
+		rpy="1.570796326794896 0 -1.047197551196597"
+	/> -->
+	<!-- <gazebo>
+
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+
+			<robotNamespace>/robotont</robotNamespace>
+
+		</plugin>
+
+	</gazebo> -->
+
+</robot>

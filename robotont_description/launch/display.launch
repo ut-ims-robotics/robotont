@@ -1,10 +1,12 @@
 <?xml version="1.0" ?>
 <launch>
   <arg name="model" />
-  <arg name="gui" default="False" />
-  <param name="robot_description" textfile="$(find robotont_description)/urdf/robotont_description.urdf" />
+  <arg name="gui" default="True" />
+  <param name="robot_description" command="$(find xacro)/xacro.py $(find robotont_description)/xacro/main.urdf.xacro" />
   <param name="use_gui" value="$(arg gui)" />
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robotont_description)/config/robotont_description.rviz" output="screen" />
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robotont_description)/config/robotont_description.rviz" output="screen" /> -->
+  <node name="rviz" pkg="rviz" type="rviz" output="screen" />
+
 </launch>
