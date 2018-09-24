@@ -7,7 +7,7 @@
 	<xacro:property name="wheel_distance" value="0.12" />
 	<xacro:property name="wheel_center_height" value="0.021" />
 
-	<link name="footprint_link"/>
+	<link name="base_footprint"/>
 	<link name="base_link">
 
 	<inertial>
@@ -53,7 +53,7 @@
 		type="fixed"
 	>
 
-		<parent link="footprint_link" />
+		<parent link="base_footprint" />
 		<child link="base_link" />
 		<origin
 			xyz="0 0 0.009"
@@ -82,14 +82,7 @@
 		wheel_distance = "${wheel_distance}"
 		wheel_center_height = "${wheel_center_height}"
 	/>
-	
-	<!-- <xacro:rim_macro
-		name="right"
-		color="0 0 0.3"
-		xyz="0.03464101615 0.02 0"
-		rpy="1.570796326794896 0 -1.047197551196597"
-	/> -->
-	<!-- <gazebo>
+	<gazebo>
 
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
 
@@ -97,6 +90,6 @@
 
 		</plugin>
 
-	</gazebo> -->
+	</gazebo>
 
 </robot>

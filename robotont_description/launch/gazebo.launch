@@ -1,20 +1,10 @@
 <launch>
   <include
     file="$(find gazebo_ros)/launch/empty_world.launch" />
-  <node
-    name="tf_footprint_base"
-    pkg="tf"
-    type="static_transform_publisher"
-    args="0 0 0 0 0 0 base_link base_footprint 40" />
-  <node
-    name="spawn_model"
-    pkg="gazebo_ros"
-    type="spawn_model"
-    args="-file $(find robot_assembly2)/robots/robot_assembly2.urdf -urdf -model robot_assembly2"
-    output="screen" />
-  <node
-    name="fake_joint_calibration"
-    pkg="rostopic"
-    type="rostopic"
-    args="pub /calibrated std_msgs/Bool true" />
+    <!-- Convert an xacro and put on parameter server -->
+  <param name="robot_description" command="$(find xacro)/xacro.py $(find robotont_description)/xacro/main.urdf.xacro" />
+
+  <!-- Spawn a robot into Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model robotont" />
+  
 </launch>
