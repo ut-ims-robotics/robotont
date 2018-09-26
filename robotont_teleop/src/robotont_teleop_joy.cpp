@@ -8,6 +8,8 @@
 #include <sensor_msgs/Joy.h>
 
 #define JOY_TIMEOUT_SEC 0.5
+#define MAX_TRANSLATION_SPEED 0.5
+#define MAX_ROTATION_SPEED 1.57
 
 
 class TeleopRobotont
@@ -48,9 +50,9 @@ void TeleopRobotont::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
   last_joy_time = ros::Time::now();
 
   geometry_msgs::Twist twist;
-  twist.linear.x = joy->axes[1];
-  twist.linear.y = joy->axes[0];
-  twist.angular.z = joy->axes[3];
+  twist.linear.x = joy->axes[1]*MAX_TRANSLATION_SPEED;
+  twist.linear.y = joy->axes[0]*MAX_TRANSLATION_SPEED;
+  twist.angular.z = joy->axes[3]*MAX_ROTATION_SPEED;
 
   vel_pub_.publish(twist);
   ROS_INFO_STREAM(twist);

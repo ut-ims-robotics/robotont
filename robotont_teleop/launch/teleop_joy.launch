@@ -9,4 +9,5 @@
     <param name="deadzone" value="0.25" />
     <param name="autorepeat_rate" value="5" />
   </node>
+  <node ns="robotont" pkg="robotont_teleop" name="robotont_teleop_joy" type="robotont_teleop_joy" output="screen" />
 </launch>
