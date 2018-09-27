@@ -9,3 +9,4 @@
   <rosparam ns="robotont" file="$(find robotont_driver)/config/robotont_params.yaml" command="load" />
   <node ns="robotont" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
 </launch>
+

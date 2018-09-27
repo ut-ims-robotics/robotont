@@ -7,7 +7,8 @@ source ~/catkin_ws/devel/setup.bash
 export ROS_MASTER_URI=http://10.42.0.${HOSTNAME:10:1}:11311
 
 # Use ifconfig to get the wifi interface IP
-export ROS_IP=$(ifconfig wlp62s0 | grep -oP 'inet addr:\K\S+') # ethernet
+#robotont wlp62s0, computer wlo1
+export ROS_IP=$(ifconfig wlo1 | grep -oP 'inet addr:\K\S+') # ethernet
 
   echo -e "ROS_MASTER_URI  =  $ROS_MASTER_URI"
   echo -e "ROS_IP          =  $ROS_IP"
