@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<launch>
+  <include file="$(find realsense2_camera)/launch/rs_aligned_depth.launch">
+	</include>
+
+  <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
+
+		<arg
+			name="rtabmap_args"
+			value="--delete_db_on_start"
+		/>
+		<arg
+			name="rviz"
+			value="false"
+		/>
+
+    <arg
+			name="rtabmapviz"
+			value="false"
+		/>
+    <arg
+			name="depth_topic"
+			value="/camera/aligned_depth_to_color/image_raw"
+		/>
+    <arg
+			name="rgb_topic"
+			value="/camera/color/image_raw"
+		/>
+    <arg
+			name="camera_info_topic"
+			value="/camera/color/camera_info"
+		/>
+    <arg
+			name="odom"
+			value="/robotont/odom"
+		/>
+    <arg
+			name="queue_size"
+			value="50"
+		/>
+    <arg
+			name="map_filter_radius"
+			value="0.8"
+		/>
+    <arg
+			name="cloud_max_depth"
+			value="2.5"
+		/>
+    <arg
+			name="grid_cell_size"
+			value="0.1"
+		/>
+	</include>
+
+  <env name="ROSCONSOLE_FORMAT" value="[${function}] ${message}" />
+  <env name="ROSCONSOLE_CONFIG_FILE" value="$(find robotont_driver)/config/console.conf" />
+
+  <rosparam ns="robotont" file="$(find robotont_driver)/config/robotont_params.yaml" command="load" />
+  <node ns="robotont" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
+  <node ns="robotont" pkg="joy" name="joy_node" type="joy_node">
+    <param name="deadzone" value="0.25" />
+    <param name="autorepeat_rate" value="5" />
+  </node>
+  <node ns="robotont" pkg="robotont_teleop" name="robotont_teleop_joy" type="robotont_teleop_joy" output="screen" />
+</launch>
