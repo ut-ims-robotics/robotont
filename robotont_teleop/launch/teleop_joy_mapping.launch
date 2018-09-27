@@ -31,13 +31,14 @@
 			value="/camera/color/camera_info"
 		/>
     <arg
-			name="odom"
-			value="/robotont/odom"
-		/>
-    <arg
 			name="queue_size"
 			value="50"
 		/>
+    <!-- <arg
+			name="odom"
+			value="/robotont/odom"
+		/>
+  
     <arg
 			name="map_filter_radius"
 			value="0.8"
@@ -49,7 +50,7 @@
     <arg
 			name="grid_cell_size"
 			value="0.1"
-		/>
+		/> -->
 	</include>
 
   <env name="ROSCONSOLE_FORMAT" value="[${function}] ${message}" />
