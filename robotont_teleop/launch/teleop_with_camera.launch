@@ -2,8 +2,7 @@
 <launch>
 
   <include file="$(find robotont_teleop)/launch/teleop_joy.launch" />
-  <include file="$(find realsense2_camera)/launch/rs_rgbd.launch">
-    <param name="align_depth" value="true" />
+  <include file="$(find realsense2_camera)/launch/rs_aligned_depth.launch">
   </include>
 
 </launch>
