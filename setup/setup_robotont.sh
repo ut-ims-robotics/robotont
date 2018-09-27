@@ -1,5 +1,5 @@
 #!/bin/bash
-echo 'This script configures ROS_PACKAGE_PATH, ROS_MASTER_URI, and ROS_IP'
+#echo 'This script configures ROS_PACKAGE_PATH, ROS_MASTER_URI, and ROS_IP'
 
 source ~/catkin_ws/devel/setup.bash
 
