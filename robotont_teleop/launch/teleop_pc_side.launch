@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<launch>
+  <node ns="robotont" pkg="teleop_twist_keyboard" name="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
+    <param name='~speed' value="0.1" />
+    <param name='~turn' value="0.3" />
+  </node>
+</launch>
