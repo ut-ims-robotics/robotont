@@ -2,9 +2,17 @@
   <include
     file="$(find gazebo_ros)/launch/empty_world.launch" />
     <!-- Convert an xacro and put on parameter server -->
-  <param name="robot_description" command="$(find xacro)/xacro.py $(find robotont_description)/xacro/main.urdf.xacro" />
+  <param name="/robotont/robot_description" command="$(find xacro)/xacro.py $(find robotont_description)/xacro/main.urdf.xacro" />
+
+   <!-- Load controller configuration -->
+  <rosparam ns="/robotont" command="load" file="$(find robotont_description)/config/control.yaml" />
+
+  <!-- Spawn controllers -->
+  <node ns="/robotont" name="base_controller_spawner" pkg="controller_manager" type="spawner"
+        args="joint_state_controller left_joint_velocity_controller back_joint_velocity_controller right_joint_velocity_controller"/>
+
 
   <!-- Spawn a robot into Gazebo -->
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model robotont" />
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param /robotont/robot_description -urdf -model robotont" />
   
 </launch>

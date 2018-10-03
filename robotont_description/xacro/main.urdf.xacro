@@ -69,14 +69,14 @@
 		wheel_center_height = "${wheel_center_height}"
 	/>
 	<xacro:rim_macro
-		name="left"
+		name="right"
 		color="0 0.3 0"
 		angle="${-1/3*pi}"
 		wheel_distance = "${wheel_distance}"
 		wheel_center_height = "${wheel_center_height}"
 	/>
 	<xacro:rim_macro
-		name="right"
+		name="left"
 		color="0 0.3 0"
 		angle="${1/3*pi}"
 		wheel_distance = "${wheel_distance}"

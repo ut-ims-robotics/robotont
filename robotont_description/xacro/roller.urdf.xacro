@@ -1,22 +1,20 @@
 <?xml version="1.0" ?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-
-	<xacro:macro
+<robot
+    xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro
 		name="roller_macro"
 		params="parent radial_dist z_distance z_distance_reflect init_angle no_of_roller"
 	>
-		<xacro:if value="${z_distance_reflect==-1}">
-  			<xacro:property name="name" value="front_${no_of_roller}" />
-	</xacro:if>
-	<xacro:unless value="${z_distance_reflect==-1}">
-  		<xacro:property name="name" value="back_${no_of_roller}" />
-	</xacro:unless>
-		<link name="roller_${name}_rim_${parent}_link">
-
-			<inertial>
-
-				<mass value="0.00113845"/>
-				<inertia
+        <xacro:if value="${z_distance_reflect==-1}">
+            <xacro:property name="name" value="front_${no_of_roller}" />
+        </xacro:if>
+        <xacro:unless value="${z_distance_reflect==-1}">
+            <xacro:property name="name" value="back_${no_of_roller}" />
+        </xacro:unless>
+        <link name="roller_${name}_rim_${parent}_link">
+            <inertial>
+                <mass value="0.00113845"/>
+                <inertia
 					ixx="2.53776e-08"
 					ixy="0"
 					ixz="0"
@@ -24,48 +22,35 @@
 					iyz="0"
 					izz="1.47666e-08"
 				/>
-
-			</inertial>
-			<visual>
-
-				<geometry>
-
-					<mesh scale="0.001 0.001 0.001" filename="package://robotont_description/meshes/roller.stl"/>
-
-				</geometry>
-				<material name="roller_material">
-
-					<color rgba="0.1 1 0.3 1"/>
-
-				</material>
-
-			</visual>
-			<collision>
-
-				<geometry>
-
-					<mesh scale="0.001 0.001 0.001" filename="package://robotont_description/meshes/roller.stl"/>
-
-				</geometry>
-
-			</collision>
-
-		</link>
-		<joint
+            </inertial>
+            <visual>
+                <geometry>
+                    <mesh scale="0.001 0.001 0.001" filename="package://robotont_description/meshes/roller.stl"/>
+                </geometry>
+                <material name="roller_material">
+                    <color rgba="0.1 1 0.3 1"/>
+                </material>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh scale="0.001 0.001 0.001" filename="package://robotont_description/meshes/roller.stl"/>
+                </geometry>
+            </collision>
+        </link>
+        <joint
 			name="roller_${name}_rim_${parent}_joint"
 			type="continuous"
 		>
-
-			<parent link="rim_${parent}_link"/>
-			<child link="roller_${name}_rim_${parent}_link"/>
-			<axis xyz="1 0 0"/>
-			<origin
+            <parent link="rim_${parent}_link"/>
+            <child link="roller_${name}_rim_${parent}_link"/>
+            <axis xyz="1 0 0"/>
+            <origin
 				xyz="${radial_dist*sin(-1*z_distance_reflect*(init_angle+no_of_roller*2*pi/7))} ${z_distance*z_distance_reflect} ${radial_dist*cos(-1*z_distance_reflect*(init_angle+no_of_roller*2*pi/7))}"
 				rpy="0 ${-1*z_distance_reflect*(init_angle+no_of_roller*2*pi/7)} 0"
 			/>
-
-		</joint>
-
-	</xacro:macro>
-
+        </joint>
+        <gazebo reference="roller_${name}_rim_${parent}_link">
+            <material>Gazebo/Green</material>
+        </gazebo>
+    </xacro:macro>
 </robot>
