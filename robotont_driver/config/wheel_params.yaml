@@ -1,0 +1,15 @@
+# Robot onmi-wheel parameters.
+# wheelAmount is the amount of onmiwheels the robot has
+# wheelRads are the angles of the wheel positive speed direction in relation to x-axis
+# wheelDistanceFromCenter is the distance of the wheel from the center of the robot in meters
+# wheelRadius is the radius of the wheel in meters
+# gearboxReductionRatio is the ratio of the gears
+# encoderEdgesPerMotorRevolution is the amount of encoder counts per revolution (CPR)
+# pidControlFrequency is the frequency at which the PID calculation is performed at
+wheelAmount: 3
+wheelRads: [5.235988, 3.141593, 1.047198]
+wheelDistanceFromCenter: 0.125
+wheelRadius: 0.035
+gearboxReductionRatio: 18.75
+encoderEdgesPerMotorRevolution: 64
+pidControlFrequency: 50

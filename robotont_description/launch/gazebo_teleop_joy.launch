@@ -1,0 +1,22 @@
+<launch>
+    <include
+    file="$(find gazebo_ros)/launch/empty_world.launch" />
+    <!-- Convert an xacro and put on parameter server -->
+    <param name="/robotont/robot_description" command="$(find xacro)/xacro.py $(find robotont_description)/xacro/main.urdf.xacro" />
+    <!-- Load controller configuration -->
+    <rosparam ns="/robotont" command="load" file="$(find robotont_description)/config/control.yaml" />
+    <!-- Spawn controllers -->
+    <node ns="/robotont" name="base_controller_spawner" pkg="controller_manager" type="spawner"
+        args="joint_state_controller left_joint_velocity_controller back_joint_velocity_controller right_joint_velocity_controller"/>
+    <!-- Gazebo driver -->
+    <rosparam file="$(find robotont_driver)/config/wheel_params.yaml" command="load" />
+    <node ns="/robotont" pkg="robotont_driver" name="gazebo_driver_node" type="gazebo_driver_node" output="screen" />
+    <!-- Spawn a robot into Gazebo -->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param /robotont/robot_description -urdf -model robotont" />
+    <!-- Teleop joy -->
+    <node ns="robotont" pkg="joy" name="joy_node" type="joy_node">
+    <param name="deadzone" value="0.25" />
+    <param name="autorepeat_rate" value="5" />
+  </node>
+  <node ns="robotont" pkg="robotont_teleop" name="robotont_teleop_joy" type="robotont_teleop_joy" output="screen" />
+</launch>
