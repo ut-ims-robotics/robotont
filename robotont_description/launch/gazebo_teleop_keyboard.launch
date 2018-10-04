@@ -9,7 +9,6 @@
     <node ns="/robotont" name="base_controller_spawner" pkg="controller_manager" type="spawner"
         args="joint_state_controller left_joint_velocity_controller back_joint_velocity_controller right_joint_velocity_controller"/>
     <!-- Gazebo driver -->
-    <rosparam file="$(find robotont_driver)/config/wheel_params.yaml" command="load" />
     <node ns="/robotont" pkg="robotont_driver" name="gazebo_driver_node" type="gazebo_driver_node" output="screen" />
     <!-- Spawn a robot into Gazebo -->
     <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param /robotont/robot_description -urdf -model robotont" />
