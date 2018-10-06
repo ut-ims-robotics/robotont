@@ -3,9 +3,9 @@
     xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:include filename="$(find robotont_description)/xacro/roller.urdf.xacro"/>
     <!-- Roller positioning -->
-    <xacro:property name="roller_radial_dist" value="0.0255" />
+    <xacro:property name="roller_radial_dist" value="0.0275" />
     <xacro:property name="roller_z_distance" value="0.008" />
-    <xacro:property name="roller_init_angle" value="${pi/14}" />
+    <xacro:property name="roller_init_angle" value="0" />
     <xacro:macro
 		name="rim_macro"
 		params="name color angle wheel_distance wheel_center_height"
@@ -25,7 +25,7 @@
             </inertial>
             <visual>
                 <geometry>
-                    <mesh scale="0.001 0.001 0.001" filename="package://robotont_description/meshes/rim.stl"/>
+                    <mesh filename="package://robotont_description/meshes/rim.stl"/>
                 </geometry>
                 <material name="rim_${name}_material">
                     <color rgba="${color} 1"/>
@@ -33,7 +33,7 @@
             </visual>
             <collision>
                 <geometry>
-                    <mesh scale="0.001 0.001 0.001" filename="package://robotont_description/meshes/rim.stl"/>
+                    <mesh filename="package://robotont_description/meshes/rim.stl"/>
                 </geometry>
             </collision>
         </link>
@@ -43,10 +43,10 @@
 		>
             <parent link="base_link" />
             <child link="rim_${name}_link" />
-            <axis xyz="0 1 0"/>
+            <axis xyz="0 0 1"/>
             <origin
 				xyz="${wheel_distance*sin(angle)} ${wheel_center_height} ${wheel_distance*cos(angle)}"
-				rpy="${pi/2} ${angle+pi} 0"
+				rpy="0 ${angle+pi} 0"
 			/>
         </joint>
         <!-- Front rollers -->
