@@ -172,5 +172,8 @@
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
+		<gazebo reference="rim_${name}_link">
+        	<material>Gazebo/DarkGrey</material>
+    	</gazebo>
     </xacro:macro>
 </robot>

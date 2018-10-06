@@ -52,7 +52,7 @@
 			/>
         </joint>
         <gazebo reference="roller_${name}_rim_${parent}_link">
-            <material>Gazebo/Green</material>
+            <material>Robotont/DarkGreen</material>
         </gazebo>
     </xacro:macro>
 </robot>

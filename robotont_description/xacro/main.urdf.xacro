@@ -101,8 +101,7 @@
 			rpy="0 0 0" 
 		/>
     </joint>
-
-	<link name="camera_link">
+    <link name="camera_link">
         <visual>
             <geometry>
                 <box size="0.1 0.02 0.02"/>
@@ -131,7 +130,7 @@
 		/>
     </joint>
     <!-- Computer -->
-	<link name="computer_link">
+    <link name="computer_link">
         <visual>
             <geometry>
                 <box size="0.11 0.04 0.11"/>
@@ -187,6 +186,18 @@
         </plugin>
     </gazebo>
     <gazebo reference="base_link">
-        <material>Gazebo/BlueTransparent</material>
+        <material>Robotont/BlueishTransparent</material>
+    </gazebo>
+    <gazebo reference="camera_link">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="computer_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="right_camera_boom">
+        <material>Robotont/BlueishTransparent</material>
+    </gazebo>
+    <gazebo reference="left_camera_boom">
+        <material>Robotont/BlueishTransparent</material>
     </gazebo>
 </robot>
