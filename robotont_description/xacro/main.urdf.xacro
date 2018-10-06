@@ -73,6 +73,92 @@
 			rpy="0 0 0" 
 		/>
     </joint>
+    <link name="left_camera_boom">
+        <visual>
+            <geometry>
+                <box size="0.005 0.16 0.01"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="boom_material">
+                <color rgba="1 1 1 0.7"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.005 0.16 0.01"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+        </collision>
+    </link>
+    <joint
+		name="left_camera_boom_joint"
+		type="fixed"
+	>
+        <parent link="base_link" />
+        <child link="left_camera_boom" />
+        <origin
+			xyz="0.05 0.145 -0.1"
+			rpy="0 0 0" 
+		/>
+    </joint>
+
+	<link name="camera_link">
+        <visual>
+            <geometry>
+                <box size="0.1 0.02 0.02"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="camera_material">
+                <color rgba="0.1 0.1 0.1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.1 0.02 0.02"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+        </collision>
+    </link>
+    <joint
+		name="camera_joint"
+		type="fixed"
+	>
+        <parent link="right_camera_boom" />
+        <child link="camera_link" />
+        <origin
+			xyz="0.05 0.07 0.015"
+			rpy="0 0 0" 
+		/>
+    </joint>
+    <!-- Computer -->
+	<link name="computer_link">
+        <visual>
+            <geometry>
+                <box size="0.11 0.04 0.11"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="computer_material">
+                <color rgba="0.1 0.1 0.1 1"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.11 0.04 0.11"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+        </collision>
+    </link>
+    <joint
+		name="computer_joint"
+		type="fixed"
+	>
+        <parent link="base_link" />
+        <child link="computer_link" />
+        <origin
+			xyz="0 0.085 0.01"
+			rpy="0 0 0" 
+		/>
+    </joint>
     <!-- Wheels -->
     <xacro:rim_macro
 		name="back"
