@@ -5,12 +5,12 @@
 >
     <xacro:include filename="$(find robotont_description)/xacro/rim.urdf.xacro"/>
     <xacro:include filename="$(find realsense2_camera)/urdf/_d435.urdf.xacro"/>
-    <xacro:property name="wheel_distance" value="0.12" />
+    <xacro:property name="wheel_distance" value="0.146" />
     <xacro:property name="wheel_center_height" value="0.021" />
     <link name="base_footprint"/>
     <link name="base_link">
         <inertial>
-            <mass value="0.07862944645"/>
+            <mass value="0.1"/>
             <inertia
 			ixx="0.00002035985530754"
 			ixy="0"
@@ -30,7 +30,7 @@
         </visual>
         <collision>
             <geometry>
-                <mesh scale="0.001 0.001 0.001" filename="package://robotont_description/meshes/body.stl"/>
+                <mesh scale=" 0.001 0.001 0.001" filename="package://robotont_description/meshes/body.stl"/>
             </geometry>
         </collision>
     </link>
@@ -42,11 +42,11 @@
         <child link="base_link" />
         <origin
 			xyz="0 0 0.013"
-			rpy="${pi/2} 0 ${-pi/2}" 
+			rpy="0 0 0" 
 		/>
     </joint>
     <!-- Camera -->
-    <link name="right_camera_boom">
+    <!-- <link name="right_camera_boom">
         <visual>
             <geometry>
                 <box size="0.005 0.16 0.01"/>
@@ -123,9 +123,9 @@
 			xyz="0.0475 0.07 0"
 			rpy="0 0 0" 
 		/>
-    </joint>
-    <sensor_d435 parent="camera_base">
-        <origin xyz="0 -0.01 0.011" rpy="${-pi/2} ${-pi/2} 0"/>
+    </joint> -->
+    <sensor_d435 parent="base_link">
+        <origin xyz="0 0.12 0.21" rpy="0 0 ${-pi/2}"/>
     </sensor_d435>
     <!-- <link name="camera_link"><origin rpy="0 0 0" xyz="0 0 0"/></link><joint
 		name="camera_base_to_link_joint"
@@ -138,7 +138,7 @@
     <link name="computer_link">
         <visual>
             <geometry>
-                <box size="0.11 0.04 0.11"/>
+                <box size="0.11 0.11 0.04"/>
             </geometry>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <material name="computer_material">
@@ -159,7 +159,7 @@
         <parent link="base_link" />
         <child link="computer_link" />
         <origin
-			xyz="0 0.085 0.01"
+			xyz="0 0.01 0.085"
 			rpy="0 0 0" 
 		/>
     </joint>
@@ -200,15 +200,6 @@
     </gazebo>
     <gazebo reference="computer_link">
         <material>Gazebo/Black</material>
-    </gazebo>
-    <gazebo reference="right_camera_boom">
-        <material>Robotont/BlueishTransparent</material>
-    </gazebo>
-    <gazebo reference="left_camera_boom">
-        <material>Robotont/BlueishTransparent</material>
-    </gazebo>
-    <gazebo reference="camera_base">
-        <material>Robotont/BlueishTransparent</material>
     </gazebo>
     <!-- Depth camera plugin -->
     <gazebo reference="camera_link">

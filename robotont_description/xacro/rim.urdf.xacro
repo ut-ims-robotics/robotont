@@ -13,7 +13,7 @@
         <link name="rim_${name}_link">
             <inertial>
                 <origin xyz="0 0 -0.000343"/>
-                <mass value="0.00835758"/>
+                <mass value="0.001"/>
                 <inertia
 					ixx="6.63684e-07"
 					ixy="0"
@@ -45,8 +45,8 @@
             <child link="rim_${name}_link" />
             <axis xyz="0 0 1"/>
             <origin
-				xyz="${wheel_distance*sin(angle)} ${wheel_center_height} ${wheel_distance*cos(angle)}"
-				rpy="0 ${angle+pi} 0"
+				xyz="${wheel_distance*sin(angle)} ${-wheel_distance*cos(angle)} ${wheel_center_height}"
+				rpy="${pi/2} 0 ${angle+pi}"
 			/>
         </joint>
         <!-- Front rollers -->
