@@ -46,84 +46,25 @@
 		/>
     </joint>
     <!-- Camera -->
-    <!-- <link name="right_camera_boom">
-        <visual>
-            <geometry>
-                <box size="0.005 0.16 0.01"/>
-            </geometry>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-            <material name="boom_material">
-                <color rgba="1 1 1 0.7"/>
-            </material>
-        </visual>
-        <collision>
-            <geometry>
-                <box size="0.005 0.16 0.01"/>
-            </geometry>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-        </collision>
-    </link>
-    <joint
+    <!-- <link name="right_camera_boom"><visual><geometry><box size="0.005 0.16 0.01"/></geometry><origin rpy="0 0 0" xyz="0 0 0"/><material name="boom_material"><color rgba="1 1 1 0.7"/></material></visual><collision><geometry><box size="0.005 0.16 0.01"/></geometry><origin rpy="0 0 0" xyz="0 0 0"/></collision></link><joint
 		name="right_camera_boom_joint"
 		type="fixed"
-	>
-        <parent link="base_link" />
-        <child link="right_camera_boom" />
-        <origin
+	><parent link="base_link" /><child link="right_camera_boom" /><origin
 			xyz="-0.05 0.145 -0.1"
 			rpy="0 0 0" 
-		/>
-    </joint>
-    <link name="left_camera_boom">
-        <visual>
-            <geometry>
-                <box size="0.005 0.16 0.01"/>
-            </geometry>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-            <material name="boom_material">
-                <color rgba="1 1 1 0.7"/>
-            </material>
-        </visual>
-        <collision>
-            <geometry>
-                <box size="0.005 0.16 0.01"/>
-            </geometry>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-        </collision>
-    </link>
-    <joint
+		/></joint><link name="left_camera_boom"><visual><geometry><box size="0.005 0.16 0.01"/></geometry><origin rpy="0 0 0" xyz="0 0 0"/><material name="boom_material"><color rgba="1 1 1 0.7"/></material></visual><collision><geometry><box size="0.005 0.16 0.01"/></geometry><origin rpy="0 0 0" xyz="0 0 0"/></collision></link><joint
 		name="left_camera_boom_joint"
 		type="fixed"
-	>
-        <parent link="base_link" />
-        <child link="left_camera_boom" />
-        <origin
+	><parent link="base_link" /><child link="left_camera_boom" /><origin
 			xyz="0.05 0.145 -0.1"
 			rpy="0 0 0" 
-		/>
-    </joint>
-    <link name="camera_base">
-        <visual>
-            <geometry>
-                <box size="0.1 0.02 0.005"/>
-            </geometry>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-            <material name="boom_material">
-                <color rgba="1 1 1 0.7"/>
-            </material>
-        </visual>
-    </link>
-    <joint
+		/></joint><link name="camera_base"><visual><geometry><box size="0.1 0.02 0.005"/></geometry><origin rpy="0 0 0" xyz="0 0 0"/><material name="boom_material"><color rgba="1 1 1 0.7"/></material></visual></link><joint
 		name="camera_boom_to_base_joint"
 		type="fixed"
-	>
-        <parent link="right_camera_boom" />
-        <child link="camera_base" />
-        <origin
+	><parent link="right_camera_boom" /><child link="camera_base" /><origin
 			xyz="0.0475 0.07 0"
 			rpy="0 0 0" 
-		/>
-    </joint> -->
+		/></joint> -->
     <sensor_d435 parent="base_link">
         <origin xyz="0 0.12 0.21" rpy="0 0 ${-pi/2}"/>
     </sensor_d435>
@@ -185,10 +126,20 @@
 		wheel_distance = "${wheel_distance}"
 		wheel_center_height = "${wheel_center_height}"
 	/>
-    <!-- Initialize controller manager -->
+    <!-- Initialize controller manager and odometry-->
     <gazebo>
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
             <robotNamespace>/robotont</robotNamespace>
+        </plugin>
+        <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+            <alwaysOn>true</alwaysOn>
+            <updateRate>50.0</updateRate>
+            <bodyName>base_link</bodyName>
+            <topicName>/robotont/odom</topicName>
+            <gaussianNoise>0</gaussianNoise>
+            <frameName>world</frameName>
+            <xyzOffsets>0 0 0</xyzOffsets>
+            <rpyOffsets>0 0 0</rpyOffsets>
         </plugin>
     </gazebo>
     <!-- Give materials to links -->

@@ -17,8 +17,11 @@
     <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param /robotont/robot_description -urdf -model robotont" />
     <!-- Teleop joy -->
     <node ns="robotont" pkg="joy" name="joy_node" type="joy_node">
-    <param name="deadzone" value="0.25" />
-    <param name="autorepeat_rate" value="5" />
-  </node>
-  <node ns="robotont" pkg="robotont_teleop" name="robotont_teleop_joy" type="robotont_teleop_joy" output="screen" />
+        <param name="deadzone" value="0.25" />
+        <param name="autorepeat_rate" value="5" />
+    </node>
+    <!-- Odom -->
+    <node ns="robotont" pkg="robotont_driver" name="gazebo_odom_node" type="gazebo_odom_node"/>
+    <!-- Joystick -->
+    <node ns="robotont" pkg="robotont_teleop" name="robotont_teleop_joy" type="robotont_teleop_joy" output="screen" />
 </launch>
