@@ -4,13 +4,13 @@
 	name="robotont"
 >
     <xacro:include filename="$(find robotont_description)/xacro/rim.urdf.xacro"/>
-    <xacro:include filename="$(find realsense2_camera)/urdf/_d435.urdf.xacro"/>
+    <xacro:include filename="$(find robotont_description)/xacro/_d435.urdf.xacro"/>
     <xacro:property name="wheel_distance" value="0.146" />
     <xacro:property name="wheel_center_height" value="0.021" />
     <link name="base_footprint"/>
     <link name="base_link">
         <inertial>
-            <mass value="0.1"/>
+            <mass value="0.07862944645"/>
             <inertia
 			ixx="0.00002035985530754"
 			ixy="0"
