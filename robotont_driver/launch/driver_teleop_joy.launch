@@ -1,6 +1,0 @@
-<launch>
-  <node pkg="robotont_driver" name="driver_node" type="driver_node" />
-  <node pkg="robotont_driver" name="serial_com_node" type="serial_com_node" />
-  <node pkg="joy" name="joy_node" type="joy_node" />
-  <node pkg="robotont_driver" name="robotont_teleop_joy" type="robotont_teleop_joy" />
-</launch>
