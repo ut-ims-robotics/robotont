@@ -7,9 +7,9 @@ material Robotont/BlueishTransparent
       scene_blend alpha_blend
       depth_write off
 
-      ambient 0.3 0.3 0.3 0.1
-      diffuse 0.3 0.3 0.6 0.3
-      specular 0.1 0.1 0.6 -0.3
+      ambient 0.0 0.0 0.7 0.01
+      diffuse 0.1 0.1 0.8 0.1
+      specular 0.1 0.1 0.6 1.000000
 
       texture_unit
       {

@@ -40,7 +40,7 @@ void format_cmd(const geometry_msgs::Twist &cmd_vel_msg)
   for (int i = 0; i < 3; i++)
   {
     wheelLinearVelocity[i] =
-        (robotSpeed * sin(robotDirectionAngle - wheelAngles[i]) + robotAngularVelocity*0.12)*120; //Last multiplication is scaling
+        (robotSpeed * sin(robotDirectionAngle - wheelAngles[i]) + robotAngularVelocity*0.3)*80; //Last multiplication is scaling
   }
 
   m0 = wheelLinearVelocity[0];
