@@ -11,6 +11,13 @@
     <!-- Spawn controllers -->
     <node ns="/robotont" name="base_controller_spawner" pkg="controller_manager" type="spawner"
         args="joint_state_controller left_joint_velocity_controller back_joint_velocity_controller right_joint_velocity_controller"/>
+    <!-- Gazebo driver -->
+    <node ns="/robotont" pkg="robotont_driver" name="gazebo_driver_node" type="gazebo_driver_node" output="screen" />
     <!-- Spawn a robot into Gazebo -->
     <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param /robotont/robot_description -urdf -model robotont" />
+    <!-- Teleop keyboard -->
+    <node ns="robotont" pkg="teleop_twist_keyboard" name="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
+        <param name='~speed' value="0.5" />
+        <param name='~turn' value="0.8" />
+    </node>
 </launch>
