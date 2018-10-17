@@ -1,4 +1,6 @@
 <launch>
-  <node pkg="robotont_driver" name="driver_node" type="driver_node" />
+  <rosparam file="$(find robotont_driver)/config/wheel_params.yaml" command="load" />
+  <node pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
   <node pkg="robotont_driver" name="serial_com_node" type="serial_com_node" />
+  <node pkg="robotont_driver" name="odom_node" type="odom_node" output="screen"/>
 </launch>

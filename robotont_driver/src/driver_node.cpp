@@ -6,53 +6,81 @@
 #include <std_msgs/String.h>
 #include <geometry_msgs/Twist.h>
 #include <string>
+#include <cmath>
 
 // The String that contains the command that is being broadcasted to hardware
-std::string output_cmd = "0:0:0\n";
+std::string output_cmd = "0:0:0;\n";
+
+int wheelAmount;
+
+// initial list for the angles of the wheels
+std::vector<float> wheelAngles;
+
+//omniwheel data
+float wheelDistanceFromCenter;
+float wheelRadius;
+float gearboxReductionRatio;
+float encoderEdgesPerMotorRevolution;
+int pidControlFrequency;
+
+float wheelSpeedToMainboardUnits;
 
 void format_cmd(const geometry_msgs::Twist& cmd_vel_msg){
-    
-    float maxV = 1.0; // maximum linear velocity
-    float radius = 0.15;
-    float maxRV = maxV/radius; // angular velocity that cossesponds to the steps
-    float steps = 80; // maximum value to send to motors
-    float unitV = steps/maxV; // value for velocity 1 m/s
-    float unitRV = steps/maxRV; // value for angular velocity 1 rad/s
-
-    /* 
-    Don't have to provide maximum values actually - it would be easier to check if
-    sent value is too big or not.
-    But it is important that the maxV and steps values correspond to each other
-    eg. if you send motor value 20, it rotates at a velocity of 0.25 m/s
-    */
 
     float m0 = 0;
     float m1 = 0;
     float m2 = 0;
 
-    float vel_x = cmd_vel_msg.linear.x; 
-    float vel_y = cmd_vel_msg.linear.y; 
-    float vel_t = cmd_vel_msg.angular.z; 
+    float vel_x = cmd_vel_msg.linear.x;
+    float vel_y = -cmd_vel_msg.linear.y;
+    float vel_t = cmd_vel_msg.angular.z;
 
-    m0 += vel_x * unitV * 1.155 * (-1);
-    m2 += vel_x * unitV * 1.155;
-    m1 += vel_x * unitV * 0;
+    int motorCount = wheelAmount;
 
-    m0 += vel_y * unitV * 2;
-    m2 += vel_y * unitV * 2;
-    m1 += vel_y * unitV;
+    float robotSpeed;
+    
+    if (vel_x == 0){
+		robotSpeed = std::abs(vel_y);
+    }
+    else if (vel_y == 0){
+		robotSpeed = std::abs(vel_x);
+    }
+    else{
+        robotSpeed = sqrt(vel_x*vel_x + vel_y*vel_y);
+    }   
 
-    m0 += vel_t * unitRV * (-1);
-    m2 += vel_t * unitRV * (-1);
-    m1 += vel_t * unitRV * (-1);
+    float robotDirectionAngle = atan2(vel_x, vel_y);	
+
+    //ROS_INFO_STREAM("robotDirectionAngle: " << (float)wheelAngles[0]); //debug purpouse
+
+    float robotAngularVelocity = -vel_t;
+
+    float wheelLinearVelocity[motorCount];
+	float wheelAngularSpeedMainboardUnits[motorCount];
+
+    for(int i= 0; i < motorCount; i++){
+		wheelLinearVelocity[i] = robotSpeed * cos(robotDirectionAngle - wheelAngles[i]) + wheelDistanceFromCenter * robotAngularVelocity;
+		wheelAngularSpeedMainboardUnits[i] = wheelLinearVelocity[i] * wheelSpeedToMainboardUnits;
+    }
+
+    if (vel_x == 0 and vel_y == 0 and vel_t == 0){
+		m0 = m1 = m2 = 0;
+    }
+    else {
+		m0 = wheelAngularSpeedMainboardUnits[0];
+		m2 = wheelAngularSpeedMainboardUnits[2];
+		m1 = wheelAngularSpeedMainboardUnits[1];
+    }
 
     // http://stackoverflow.com/questions/191757/how-to-concatenate-a-stdstring-and-an-int 
     // important note about speed
 
     std::stringstream sstm;
 //    sstm << 'a' << static_cast<int>(m0) << 'b' << static_cast<int>(m1) << 'c' << static_cast<int>(m2) << '\n'; // for previous firmware implementation
-    sstm << static_cast<int>(m0) << ':' << static_cast<int>(m1) << ':' << static_cast<int>(m2) << '\n';
+    sstm << static_cast<int>(m0) << ':' << static_cast<int>(m1) << ':' << static_cast<int>(m2) << ';' << '\n';
 //    ROS_INFO_STREAM("I calculated: \n" << sstm.str()); // debug purpouse
+    //output_cmd = sstm.str();
+
     output_cmd = sstm.str();
 }
 
@@ -79,6 +107,18 @@ int main (int argc, char** argv){
     ros::init(argc, argv, "driver_node");
     ros::NodeHandle nh;
     
+    nh.getParam("/wheelAmount", wheelAmount);    
+    nh.getParam("/wheelRads", wheelAngles);
+	nh.getParam("/wheelDistanceFromCenter", wheelDistanceFromCenter);
+	nh.getParam("/wheelRadius", wheelRadius);
+	nh.getParam("/gearboxReductionRatio", gearboxReductionRatio);
+	nh.getParam("/encoderEdgesPerMotorRevolution", encoderEdgesPerMotorRevolution);
+	nh.getParam("/pidControlFrequency", pidControlFrequency);
+
+	wheelSpeedToMainboardUnits = gearboxReductionRatio * encoderEdgesPerMotorRevolution / (2 * M_PI * wheelRadius * pidControlFrequency);
+
+    //ROS_INFO_STREAM("WheelAnges " << wheelAngles[0]); //debug purpouse
+    
     // Subscriber that subscribes to cmd_vel
     ros::Subscriber teleop_sub = nh.subscribe("cmd_vel", 1, teleop_callback); // alternatively "turtlebot_teleop/cmd_vel"
 
@@ -88,6 +128,13 @@ int main (int argc, char** argv){
     // The rate at which the program publishes to serial
     ros::Rate loop_rate(10);
     while(ros::ok()){
+	/*
+	if (format_var == 1){
+	    format_cmd(cmd_vel_msg);
+	    format_var = 0;
+	}
+	*/
+
         // Check for new messages in queue
         ros::spinOnce();
 
