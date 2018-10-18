@@ -2,11 +2,6 @@
 <launch>
     <env name="ROSCONSOLE_FORMAT" value="[${function}] ${message}" />
     <env name="ROSCONSOLE_CONFIG_FILE" value="$(find robotont_driver)/config/console.conf" />
-    <!-- Convert an xacro and put on parameter server -->
-    <param name="/robotont/robot_description" command="$(find xacro)/xacro --inorder $(find robotont_description)/xacro/main.urdf.xacro" />
-    <!-- State publishers -->
-    <node ns="/robotont" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
-    <node ns="/robotont" name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
     <rosparam>
       /camera/aligned_depth_to_color/image_raw/compressedDepth/png_level: 5
     </rosparam>
@@ -18,5 +13,9 @@
         <remap from="camera_info" to="/camera/depth/camera_info"/>
         <rosparam command="load" file="$(find robotont_teleop)/config/laser_params.yaml" />
     </node>
-  
+    <node pkg="gmapping" type="slam_gmapping" name="gmapping_thing" output="screen" >
+        <remap from="scan" to="/scan" />
+        <param name="odom_frame" value="/robotont/odom" />
+        <param name="base_frame" value="/base_link" />
+    </node>
 </launch>
