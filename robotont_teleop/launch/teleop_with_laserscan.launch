@@ -9,7 +9,7 @@
     <rosparam ns="robotont" file="$(find robotont_driver)/config/robotont_params.yaml" command="load" />
     <node ns="robotont" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
     <node pkg="depthimage_to_laserscan" name="depthimage_to_laserscan" type="depthimage_to_laserscan">
-        <remap from="image" to="/camera/aligned_depth_to_color/image_raw"/>
+        <remap from="image" to="/camera/depth/image_rect_raw"/>
         <rosparam>
       /depthimage_to_laserscan/scan_height: 20
     </rosparam>
