@@ -19,8 +19,8 @@
         <rosparam command="load" file="$(find robotont_teleop)/config/laser_params.yaml" />
     </node>
     <node pkg="gmapping" type="slam_gmapping" name="gmapping_thing" output="screen" >
-        <remap from="scan" to="/scan" />
+        <!-- <remap from="scan" to="/scan" /> -->
         <param name="odom_frame" value="odom" />
-        <param name="base_frame" value="base_link" />
+        <param name="base_frame" value="base_footprint" />
     </node>
 </launch>
