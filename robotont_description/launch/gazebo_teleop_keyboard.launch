@@ -1,6 +1,7 @@
 <launch>
-    <include
-    file="$(find gazebo_ros)/launch/empty_world.launch" />
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="worlds/empty.world"/>
+    </include>
     <!-- Convert an xacro and put on parameter server -->
     <param name="/robotont/robot_description" command="$(find xacro)/xacro --inorder $(find robotont_description)/xacro/main.urdf.xacro" />
     <!-- Load controller configuration -->
@@ -15,9 +16,11 @@
     <node ns="/robotont" pkg="robotont_driver" name="gazebo_driver_node" type="gazebo_driver_node" output="screen" />
     <!-- Spawn a robot into Gazebo -->
     <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param /robotont/robot_description -urdf -model robotont" />
+    <!-- Odom -->
+    <node ns="robotont" pkg="robotont_driver" name="gazebo_odom_node" type="gazebo_odom_node"/>
     <!-- Teleop keyboard -->
     <node ns="robotont" pkg="teleop_twist_keyboard" name="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
-        <param name='~speed' value="0.5" />
-        <param name='~turn' value="0.8" />
+        <param name='~speed' value="0.52" />
+        <param name='~turn' value="1.3" />
     </node>
 </launch>
