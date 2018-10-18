@@ -14,7 +14,7 @@
             <xacro:property name="offset" value="${pi}" />
         </xacro:unless>
         <link name="roller_${name}_rim_${parent}_link">
-            <inertial>
+            <!-- <inertial>
                 <mass value="0.00113845"/>
                 <inertia
 					ixx="2.53776e-08"
@@ -24,7 +24,7 @@
 					iyz="0"
 					izz="1.47666e-08"
 				/>
-            </inertial>
+            </inertial> -->
             <visual>
                 <geometry>
                     <mesh scale="0.001 0.001 0.001" filename="package://robotont_description/meshes/roller.stl"/>
@@ -53,6 +53,14 @@
         </joint>
         <gazebo reference="roller_${name}_rim_${parent}_link">
             <material>Robotont/DarkGreen</material>
+        </gazebo>
+        <gazebo>
+            <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+                <robotNamespace>/robotont</robotNamespace>
+                <jointName>roller_${name}_rim_${parent}_joint</jointName>
+                <updateRate>20.0</updateRate>
+                <alwaysOn>true</alwaysOn>
+            </plugin>
         </gazebo>
     </xacro:macro>
 </robot>
