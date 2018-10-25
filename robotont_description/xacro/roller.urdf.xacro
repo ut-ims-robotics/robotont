@@ -14,17 +14,14 @@
             <xacro:property name="offset" value="${pi}" />
         </xacro:unless>
         <link name="roller_${name}_rim_${parent}_link">
-            <!-- <inertial>
-                <mass value="0.00113845"/>
-                <inertia
+            <!-- <inertial><mass value="0.00113845"/><inertia
 					ixx="2.53776e-08"
 					ixy="0"
 					ixz="0"
 					iyy="2.53776e-08"
 					iyz="0"
 					izz="1.47666e-08"
-				/>
-            </inertial> -->
+				/></inertial> -->
             <visual>
                 <geometry>
                     <mesh scale="0.001 0.001 0.001" filename="package://robotont_description/meshes/roller.stl"/>
@@ -33,19 +30,14 @@
                     <color rgba="0.1 1 0.3 1"/>
                 </material>
             </visual>
-            <collision>
-                <geometry>
-                    <mesh scale="0.001 0.001 0.001" filename="package://robotont_description/meshes/roller.stl"/>
-                </geometry>
-            </collision>
         </link>
         <joint
 			name="roller_${name}_rim_${parent}_joint"
-			type="continuous"
+			type="fixed"
 		>
             <parent link="rim_${parent}_link"/>
             <child link="roller_${name}_rim_${parent}_link"/>
-            <axis xyz="1 0 0"/>
+            <!-- <axis xyz="1 0 0"/> -->
             <origin
 				xyz="${radial_dist*sin(-1*z_distance_reflect*(init_angle+offset+no_of_roller*2*pi/7))} ${-radial_dist*cos(-1*z_distance_reflect*(init_angle+offset+no_of_roller*2*pi/7))} ${z_distance*z_distance_reflect}"
 				rpy="0 0 ${-1*z_distance_reflect*(init_angle+no_of_roller*2*pi/7)}"
@@ -53,14 +45,6 @@
         </joint>
         <gazebo reference="roller_${name}_rim_${parent}_link">
             <material>Robotont/DarkGreen</material>
-        </gazebo>
-        <gazebo>
-            <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
-                <robotNamespace>/robotont</robotNamespace>
-                <jointName>roller_${name}_rim_${parent}_joint</jointName>
-                <updateRate>20.0</updateRate>
-                <alwaysOn>true</alwaysOn>
-            </plugin>
         </gazebo>
     </xacro:macro>
 </robot>
