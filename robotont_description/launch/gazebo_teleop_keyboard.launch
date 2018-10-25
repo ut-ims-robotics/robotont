@@ -20,7 +20,7 @@
     <!-- <node ns="robotont" pkg="robotont_driver" name="gazebo_odom_node" type="gazebo_odom_node"/> -->
     <!-- Teleop keyboard -->
     <node ns="robotont" pkg="teleop_twist_keyboard" name="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
-        <param name='~speed' value="0.52" />
-        <param name='~turn' value="1.3" />
+        <param name='~speed' value="1.2" />
+        <param name='~turn' value="35" />
     </node>
 </launch>

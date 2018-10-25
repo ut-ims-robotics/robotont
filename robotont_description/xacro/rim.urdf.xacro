@@ -12,7 +12,7 @@
 	>
         <link name="rim_${name}_link">
             <inertial>
-                <origin xyz="0 0 -0.000343"/>
+                <origin xyz="0 0 0"/>
                 <mass value="0.00835758"/>
                 <inertia
 					ixx="6.63684e-07"
@@ -33,7 +33,7 @@
             </visual>
             <collision>
                 <geometry>
-                    <mesh filename="package://robotont_description/meshes/rim.stl"/>
+                    <cylinder radius="0.035" length="0.03"/>
                 </geometry>
             </collision>
         </link>
@@ -163,17 +163,10 @@
 			init_angle="${roller_init_angle}"
 			no_of_roller="6"
 		/>
-        <transmission name="rim_${name}_transmission">
-            <type>transmission_interface/SimpleTransmission</type>
-            <joint name="rim_${name}_joint">
-                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            </joint>
-            <actuator name="rim_${name}_motor">
-                <mechanicalReduction>1</mechanicalReduction>
-            </actuator>
-        </transmission>
+        <!-- <transmission name="rim_${name}_transmission"><type>transmission_interface/SimpleTransmission</type><joint name="rim_${name}_joint"><hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface></joint><actuator name="rim_${name}_motor"><mechanicalReduction>1</mechanicalReduction></actuator></transmission> -->
         <gazebo reference="rim_${name}_link">
             <material>Gazebo/DarkGrey</material>
+            <!-- <kp>1000000</kp><kd>100</kd> -->
         </gazebo>
     </xacro:macro>
 </robot>

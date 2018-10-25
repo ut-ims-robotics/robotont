@@ -30,19 +30,14 @@
                     <color rgba="0.1 1 0.3 1"/>
                 </material>
             </visual>
-            <collision>
-                <geometry>
-                    <mesh scale="0.001 0.001 0.001" filename="package://robotont_description/meshes/roller.stl"/>
-                </geometry>
-            </collision>
         </link>
         <joint
 			name="roller_${name}_rim_${parent}_joint"
-			type="continuous"
+			type="fixed"
 		>
             <parent link="rim_${parent}_link"/>
             <child link="roller_${name}_rim_${parent}_link"/>
-            <axis xyz="1 0 0"/>
+            <!-- <axis xyz="1 0 0"/> -->
             <origin
 				xyz="${radial_dist*sin(-1*z_distance_reflect*(init_angle+offset+no_of_roller*2*pi/7))} ${-radial_dist*cos(-1*z_distance_reflect*(init_angle+offset+no_of_roller*2*pi/7))} ${z_distance*z_distance_reflect}"
 				rpy="0 0 ${-1*z_distance_reflect*(init_angle+no_of_roller*2*pi/7)}"
