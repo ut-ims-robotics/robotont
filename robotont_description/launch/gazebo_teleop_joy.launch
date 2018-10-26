@@ -4,15 +4,15 @@
     <!-- Convert an xacro and put on parameter server -->
     <param name="/robotont/robot_description" command="$(find xacro)/xacro --inorder $(find robotont_description)/xacro/main.urdf.xacro" />
     <!-- Load controller configuration -->
-    <rosparam ns="/robotont" command="load" file="$(find robotont_description)/config/control.yaml" />
+    <!-- <rosparam ns="/robotont" command="load" file="$(find robotont_description)/config/control.yaml" /> -->
     <!-- State publishers -->
     <node ns="/robotont" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
     <node ns="/robotont" name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
     <!-- Spawn controllers -->
-    <node ns="/robotont" name="base_controller_spawner" pkg="controller_manager" type="spawner"
-        args="joint_state_controller left_joint_velocity_controller back_joint_velocity_controller right_joint_velocity_controller"/>
+    <!-- <node ns="/robotont" name="base_controller_spawner" pkg="controller_manager" type="spawner"
+        args="joint_state_controller left_joint_velocity_controller back_joint_velocity_controller right_joint_velocity_controller"/> -->
     <!-- Gazebo driver -->
-    <node ns="/robotont" pkg="robotont_driver" name="gazebo_driver_node" type="gazebo_driver_node" output="screen" />
+    <!-- <node ns="/robotont" pkg="robotont_driver" name="gazebo_driver_node" type="gazebo_driver_node" output="screen" /> -->
     <!-- Spawn a robot into Gazebo -->
     <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param /robotont/robot_description -urdf -model robotont" />
     <!-- Teleop joy -->
@@ -20,8 +20,8 @@
         <param name="deadzone" value="0.25" />
         <param name="autorepeat_rate" value="5" />
     </node>
-    <!-- Odom -->
-    <node ns="robotont" pkg="robotont_driver" name="gazebo_odom_node" type="gazebo_odom_node"/>
+    <!-- Odom
+    <node ns="robotont" pkg="robotont_driver" name="gazebo_odom_node" type="gazebo_odom_node"/> -->
     <!-- Joystick -->
-    <node ns="robotont" pkg="robotont_teleop" name="robotont_teleop_joy" type="robotont_teleop_joy" output="screen" />
+    <node ns="robotont" pkg="robotont_description" name="gazebo_robotont_teleop_joy" type="gazebo_robotont_teleop_joy" output="screen" />
 </launch>
