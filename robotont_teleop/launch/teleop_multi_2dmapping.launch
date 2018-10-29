@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<launch>
+    <arg name="robotont_ns" default="/robotont4"/>
+    <env name="ROSCONSOLE_FORMAT" value="[${function}] ${message}" />
+    <env name="ROSCONSOLE_CONFIG_FILE" value="$(find robotont_driver)/config/console.conf" />
+    <!-- Convert an xacro and put on parameter server -->
+    <param name="$(arg robotont_ns)/robot_description" command="$(find xacro)/xacro --inorder $(find robotont_description)/xacro/main.urdf.xacro" />
+    <!-- State publishers -->
+    <node ns="$(arg robotont_ns)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <node ns="$(arg robotont_ns)" name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+    <!-- For using with Realsense D435 -->
+    <rosparam>
+      /camera/aligned_depth_to_color/image_raw/compressedDepth/png_level: 5
+    </rosparam>
+    <include file="$(find realsense2_camera)/launch/rs_aligned_depth.launch" >
+        <arg name="camera"	value="$(arg robotont_ns)/camera"/>
+    </include>
+    <node ns="$(arg robotont_ns)" name="laserscan_kinect" pkg="laserscan_kinect" type="laserscan_kinect" >
+        <remap from="image" to="$(arg robotont_ns)/camera/depth/image_rect_raw"/>
+        <remap from="camera_info" to="$(arg robotont_ns)/camera/depth/camera_info"/>
+
+        <rosparam command="load" file="$(find robotont_teleop)/config/laser_params.yaml" />
+    </node>
+    <!-- Realsense END -->
+    <!-- Launch driver -->
+    <rosparam ns="$(arg robotont_ns)" file="$(find robotont_driver)/config/robotont_params.yaml" command="load" />
+    <node ns="$(arg robotont_ns)" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
+    <!-- Launch gmapping -->
+    <node ns = "$(arg robotont_ns)" pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+        <param name="base_frame" value="base_footprint"/>
+        <param name="odom_frame" value="odom"/>
+        <param name="map_update_interval" value="1.0"/>
+        <param name="maxUrange" value="6.0"/>
+        <param name="maxRange" value="8.0"/>
+        <param name="sigma" value="0.05"/>
+        <param name="kernelSize" value="1"/>
+        <param name="lstep" value="0.05"/>
+        <param name="astep" value="0.05"/>
+        <param name="iterations" value="5"/>
+        <param name="lsigma" value="0.075"/>
+        <param name="ogain" value="3.0"/>
+        <param name="lskip" value="0"/>
+        <param name="minimumScore" value="300"/>
+        <param name="srr" value="0.01"/>
+        <param name="srt" value="0.02"/>
+        <param name="str" value="0.01"/>
+        <param name="stt" value="0.02"/>
+        <param name="linearUpdate" value="0.5"/>
+        <param name="angularUpdate" value="0.436"/>
+        <param name="temporalUpdate" value="-1.0"/>
+        <param name="resampleThreshold" value="0.5"/>
+        <param name="particles" value="80"/>
+        <param name="xmin" value="-1.0"/>
+        <param name="ymin" value="-1.0"/>
+        <param name="xmax" value="1.0"/>
+        <param name="ymax" value="1.0"/>
+        <param name="delta" value="0.01"/>
+        <param name="llsamplerange" value="0.01"/>
+        <param name="llsamplestep" value="0.01"/>
+        <param name="lasamplerange" value="0.005"/>
+        <param name="lasamplestep" value="0.005"/>
+    </node>
+    <!-- Launch navigation stack -->
+    <!-- <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen"><remap from="/cmd_vel" to="/robotont/cmd_vel"/><remap from="/odom" to="/robotont/odom"/><rosparam file="$(find robotont_teleop)/param/costmap_common_params.yaml" command="load" ns="global_costmap"/><rosparam file="$(find robotont_teleop)/param/costmap_common_params.yaml" command="load" ns="local_costmap"/><rosparam file="$(find robotont_teleop)/param/local_costmap_params.yaml" command="load"/><rosparam file="$(find robotont_teleop)/param/global_costmap_params.yaml" command="load"/><rosparam file="$(find robotont_teleop)/param/base_local_planner_params.yaml" command="load"/><rosparam file="$(find robotont_teleop)/param/move_base_params.yaml" command="load"/></node> -->
+</launch>
