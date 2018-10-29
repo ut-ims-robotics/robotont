@@ -1,13 +1,20 @@
 <?xml version="1.0" ?>
 <launch>
-    <arg name="robotont_ns" default="/robotont4"/>
+    <arg name="robotont_ns" default="/robotont1"/>
+    <arg name="base_frame" default="base_footprint"/>
+    <arg name="odom_frame" default="odom"/>
+    <arg name="map_frame" default="map"/>
     <env name="ROSCONSOLE_FORMAT" value="[${function}] ${message}" />
     <env name="ROSCONSOLE_CONFIG_FILE" value="$(find robotont_driver)/config/console.conf" />
     <!-- Convert an xacro and put on parameter server -->
     <param name="$(arg robotont_ns)/robot_description" command="$(find xacro)/xacro --inorder $(find robotont_description)/xacro/main.urdf.xacro" />
     <!-- State publishers -->
-    <node ns="$(arg robotont_ns)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
-    <node ns="$(arg robotont_ns)" name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+    <node ns="$(arg robotont_ns)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"> 
+        <param name="tf_prefix" value="$(arg robotont_ns)" />
+    </node>
+    <node ns="$(arg robotont_ns)" name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" >
+         <param name="tf_prefix" value="$(arg robotont_ns)" />
+    </node>
     <!-- For using with Realsense D435 -->
     <rosparam>
       /camera/aligned_depth_to_color/image_raw/compressedDepth/png_level: 5
@@ -27,8 +34,9 @@
     <node ns="$(arg robotont_ns)" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
     <!-- Launch gmapping -->
     <node ns = "$(arg robotont_ns)" pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
-        <param name="base_frame" value="base_footprint"/>
-        <param name="odom_frame" value="odom"/>
+        <param name="base_frame" value="$(arg base_frame)"/>
+        <param name="odom_frame" value="$(arg odom_frame)"/>
+	<param name="map_frame" value="$(arg map_frame)"/>
         <param name="map_update_interval" value="1.0"/>
         <param name="maxUrange" value="6.0"/>
         <param name="maxRange" value="8.0"/>
