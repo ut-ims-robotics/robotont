@@ -27,8 +27,8 @@
     <node ns="$(arg robotont_ns)" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
     <!-- Launch gmapping -->
     <node ns = "$(arg robotont_ns)" pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
-        <param name="base_frame" value="base_footprint"/>
-        <param name="odom_frame" value="odom"/>
+        <param name="base_frame" value="$(arg robotont_ns)/base_footprint"/>
+        <param name="odom_frame" value="$(arg robotont_ns)/odom"/>
         <param name="map_update_interval" value="1.0"/>
         <param name="maxUrange" value="6.0"/>
         <param name="maxRange" value="8.0"/>
