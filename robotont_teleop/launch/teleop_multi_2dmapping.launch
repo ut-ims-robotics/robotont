@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <launch>
     <arg name="robotont_ns" default="robotont"/>
-    <arg name="base_frame" default="base_footprint"/>
-    <arg name="odom_frame" default="odom"/>
-    <arg name="map_frame" default="map"/>
+    <arg name="base_frame" default="$(arg robotont_ns)/base_footprint"/>
+    <arg name="odom_frame" default="$(arg robotont_ns)/odom"/>
+    <arg name="map_frame" default="$(arg robotont_ns)/map"/>
     <env name="ROSCONSOLE_FORMAT" value="[${function}] ${message}" />
     <env name="ROSCONSOLE_CONFIG_FILE" value="$(find robotont_driver)/config/console.conf" />
     <!-- Convert an xacro and put on parameter server -->
