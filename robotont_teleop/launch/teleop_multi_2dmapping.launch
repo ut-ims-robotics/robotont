@@ -23,10 +23,12 @@
         <arg name="camera"	value="$(arg robotont_ns)/camera"/>
     </include>
     <node ns="$(arg robotont_ns)" name="laserscan_kinect" pkg="laserscan_kinect" type="laserscan_kinect" >
-        <remap from="image" to="$(arg robotont_ns)/camera/depth/image_rect_raw"/>
-        <remap from="camera_info" to="$(arg robotont_ns)/camera/depth/camera_info"/>
+        <remap from="image" to="camera/depth/image_rect_raw"/>
+        <remap from="camera_info" to="camera/depth/camera_info"/>
 
         <rosparam command="load" file="$(find robotont_teleop)/config/laser_params.yaml" />
+	
+        <param name="output_frame_id" value="$(arg robotont_ns)/camera_depth_frame"/>
     </node>
     <!-- Realsense END -->
     <!-- Launch driver -->
