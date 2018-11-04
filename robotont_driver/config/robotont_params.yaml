@@ -8,5 +8,5 @@ serial:
 # Frame names for odometry
 odom:
   frame: "odom"
-  child_frame: "base_link"
+  child_frame: "base_footprint"
 
