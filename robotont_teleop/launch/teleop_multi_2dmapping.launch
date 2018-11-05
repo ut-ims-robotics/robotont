@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <launch>
     <arg name="robotont_ns" default="robotont"/>
-    <arg name="base_frame" default="base_footprint"/>
-    <arg name="odom_frame" default="odom"/>
-    <arg name="map_frame" default="map"/>
+    <arg name="base_frame" default="$(arg robotont_ns)/base_footprint"/>
+    <arg name="odom_frame" default="$(arg robotont_ns)/odom"/>
+    <arg name="map_frame" default="$(arg robotont_ns)/map"/>
     <env name="ROSCONSOLE_FORMAT" value="[${function}] ${message}" />
     <env name="ROSCONSOLE_CONFIG_FILE" value="$(find robotont_driver)/config/console.conf" />
     <!-- Convert an xacro and put on parameter server -->
@@ -23,14 +23,18 @@
         <arg name="camera"	value="$(arg robotont_ns)/camera"/>
     </include>
     <node ns="$(arg robotont_ns)" name="laserscan_kinect" pkg="laserscan_kinect" type="laserscan_kinect" >
-        <remap from="image" to="$(arg robotont_ns)/camera/depth/image_rect_raw"/>
-        <remap from="camera_info" to="$(arg robotont_ns)/camera/depth/camera_info"/>
+        <remap from="image" to="camera/depth/image_rect_raw"/>
+        <remap from="camera_info" to="camera/depth/camera_info"/>
 
         <rosparam command="load" file="$(find robotont_teleop)/config/laser_params.yaml" />
+	
+        <param name="output_frame_id" value="$(arg robotont_ns)/camera_depth_frame"/>
     </node>
     <!-- Realsense END -->
     <!-- Launch driver -->
-    <rosparam ns="$(arg robotont_ns)" file="$(find robotont_driver)/config/robotont_params.yaml" command="load" />
+
+    <param name="$(arg robotont_ns)/odom/child_frame" value="$(arg robotont_ns)/base_footprint"/>
+    <param name="$(arg robotont_ns)/odom/frame" value="$(arg robotont_ns)/odom"/>
     <node ns="$(arg robotont_ns)" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
     <!-- Launch gmapping -->
     <node ns = "$(arg robotont_ns)" pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
