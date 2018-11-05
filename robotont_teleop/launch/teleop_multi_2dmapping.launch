@@ -32,48 +32,54 @@
     </node>
     <!-- Realsense END -->
     <!-- Launch driver -->
-
+  
     <param name="$(arg robotont_ns)/odom/child_frame" value="$(arg robotont_ns)/base_footprint"/>
     <param name="$(arg robotont_ns)/odom/frame" value="$(arg robotont_ns)/odom"/>
     <node ns="$(arg robotont_ns)" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
-    <!-- Launch gmapping -->
-    <node ns = "$(arg robotont_ns)" pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
-        <param name="base_frame" value="$(arg base_frame)"/>
-        <param name="odom_frame" value="$(arg odom_frame)"/>
-	<param name="map_frame" value="$(arg map_frame)"/>
-        <param name="map_update_interval" value="1.0"/>
-        <param name="maxUrange" value="6.0"/>
-        <param name="maxRange" value="8.0"/>
-        <param name="sigma" value="0.05"/>
-        <param name="kernelSize" value="1"/>
-        <param name="lstep" value="0.05"/>
-        <param name="astep" value="0.05"/>
-        <param name="iterations" value="5"/>
-        <param name="lsigma" value="0.075"/>
-        <param name="ogain" value="3.0"/>
-        <param name="lskip" value="0"/>
-        <param name="minimumScore" value="300"/>
-        <param name="srr" value="0.01"/>
-        <param name="srt" value="0.02"/>
-        <param name="str" value="0.01"/>
-        <param name="stt" value="0.02"/>
-        <param name="linearUpdate" value="0.5"/>
-        <param name="angularUpdate" value="0.436"/>
-        <param name="temporalUpdate" value="-1.0"/>
-        <param name="resampleThreshold" value="0.5"/>
-        <param name="particles" value="80"/>
-        <param name="xmin" value="-1.0"/>
-        <param name="ymin" value="-1.0"/>
-        <param name="xmax" value="1.0"/>
-        <param name="ymax" value="1.0"/>
-        <param name="delta" value="0.01"/>
-        <param name="llsamplerange" value="0.01"/>
-        <param name="llsamplestep" value="0.01"/>
-        <param name="lasamplerange" value="0.005"/>
-        <param name="lasamplestep" value="0.005"/>
-    </node>
+   <!-- Launch hector mapping node--> 
+    <node ns="$(arg robotont_ns)" pkg="hector_mapping" type="hector_mapping" name="hector_mapping" output="screen">
+    	<!-- frame names -->
+    	<param name="map_frame" value="$(arg map_frame)" />
+    	<param name="base_frame" value="$(arg base_frame)" />
+    	<param name="odom_frame" value="$(arg odom_frame)" />
+    
+    	<!-- tf use -->
+    	<param name="use_tf_scan_transformation" value="false"/>
+    	<param name="use_tf_pose_start_estimate" value="false"/>
+    	<param name="pub_map_odom_transform" value="false"/>
+    
+    	<!-- map size / start point -->
+    	<param name="map_resolution" value="0.050"/>
+    	<param name="map_size" value="$(arg map_size)"/>
+    	<param name="map_start_x" value="0.5"/>
+    	<param name="map_start_y" value="0.5" />
+    	<param name="map_multi_res_levels" value="2" />
+    
+    	<!-- map update parameters -->
+    	<param name="update_factor_free" value="0.4"/>
+    	<param name="update_factor_occupied" value="0.9" />    
+    	<param name="map_update_distance_thresh" value="0.4"/>
+    	<param name="map_update_angle_thresh" value="0.06" />
+    	<param name="laser_z_min_value" value = "-1.0" />
+    	<param name="laser_z_max_value" value = "1.0" />
+    
+    	<!-- advertising config --> 
+    	<param name="advertise_map_service" value="true"/>
+    
+    	<param name="scan_subscriber_queue_size" value="$(arg scan_subscriber_queue_size)"/>
+    	<param name="scan_topic" value="scan"/>
+    
+    	<!-- debug parameters -->
+    	<!--
+      	<param name="output_timing" value="false"/>
+      	<param name="pub_drawings" value="true"/>
+      	<param name="pub_debug_output" value="true"/>
+    	-->
+    	<param name="tf_map_scanmatch_transform_frame_name" value="scanmatcher_frame"/>
+  </node>
+    <!-- Localisation node amcl -->
     <node ns="$(arg robotont_ns)" pkg="amcl" type="amcl" name="amcl">
-    <!-- Publish scans from best pose at a max of 10 Hz -->
+    <!-- publish scans from best pose at a max of 10 hz -->
   	<param name="odom_model_type" value="omni"/>
 	<remap from="map" to="/map"/>
   	<param name="odom_alpha5" value="0.1"/>
@@ -106,8 +112,8 @@
   	<param name="transform_tolerance" value="0.1"/>
   	<param name="recovery_alpha_slow" value="0.0"/>
   	<param name="recovery_alpha_fast" value="0.0"/>
-  	<param name="use_mat_topic" value="true"/>
+  	<param name="use_map_topic" value="true"/>
     </node>
-    <!-- Launch navigation stack -->
+    <!-- launch navigation stack -->
     <!-- <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen"><remap from="/cmd_vel" to="/robotont/cmd_vel"/><remap from="/odom" to="/robotont/odom"/><rosparam file="$(find robotont_teleop)/param/costmap_common_params.yaml" command="load" ns="global_costmap"/><rosparam file="$(find robotont_teleop)/param/costmap_common_params.yaml" command="load" ns="local_costmap"/><rosparam file="$(find robotont_teleop)/param/local_costmap_params.yaml" command="load"/><rosparam file="$(find robotont_teleop)/param/global_costmap_params.yaml" command="load"/><rosparam file="$(find robotont_teleop)/param/base_local_planner_params.yaml" command="load"/><rosparam file="$(find robotont_teleop)/param/move_base_params.yaml" command="load"/></node> -->
 </launch>
