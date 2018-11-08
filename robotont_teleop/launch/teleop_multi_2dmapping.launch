@@ -39,7 +39,7 @@
    <!-- Launch hector mapping node--> 
     <node ns="$(arg robotont_ns)" pkg="hector_mapping" type="hector_mapping" name="hector_mapping" output="screen">
     	<!-- frame names -->
-    	<param name="map_frame" value="hector_map" />
+    	<param name="map_frame" value="$(arg robotont_ns)/map" />
     	<param name="base_frame" value="$(arg base_frame)" />
     	<param name="odom_frame" value="$(arg odom_frame)" />
     
@@ -76,7 +76,7 @@
       	<param name="pub_drawings" value="true"/>
       	<param name="pub_debug_output" value="true"/>
     	-->
-    	<param name="tf_map_scanmatch_transform_frame_name" value="scanmatcher_frame"/>
+    	<param name="tf_map_scanmatch_transform_frame_name" value="$(arg robotont_ns)/scanmatcher_frame"/>
   </node>
     <!-- Localisation node amcl -->
     <node ns="$(arg robotont_ns)" pkg="amcl" type="amcl" name="amcl">
