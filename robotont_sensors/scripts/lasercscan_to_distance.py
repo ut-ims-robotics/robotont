@@ -6,7 +6,7 @@ from std_msgs.msg import Float64
 from sensor_msgs.msg import LaserScan
 from robotont_sensors.msg import LaserScanSplit
 
-pub = rospy.Publisher('/laserscan_split', Float64, queue_size=2)
+pub = rospy.Publisher('/laserscan_split', LaserScanSplit, queue_size=2)
 
 def scan_callback(data):
     ls_split = LaserScanSplit()
@@ -28,7 +28,7 @@ def scan_callback(data):
     ls_split.rightMin = min(right_array)
     ls_split.rightMean = mean(right_array)
 
-    pub.publish(left_dist)
+    pub.publish(ls_split)
 
 def convert():
     # Starts a new node
