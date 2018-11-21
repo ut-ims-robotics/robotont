@@ -11,7 +11,6 @@
 -- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 -- See the License for the specific language governing permissions and
 -- limitations under the License.
-
 include "map_builder.lua"
 include "trajectory_builder.lua"
 
@@ -24,7 +23,6 @@ options = {
   odom_frame = "odom",
   provide_odom_frame = true,
   publish_frame_projected_to_2d = false,
-  use_pose_extrapolator = true,
   use_odometry = false,
   use_nav_sat = false,
   use_landmarks = false,
