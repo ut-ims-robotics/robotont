@@ -46,10 +46,10 @@
   </node>
   <!-- Realsense END -->
 
-  <node ns = "" name="cartographer_node" pkg="cartographer_ros"
+  <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find robotont_teleop)/configuration_files
-          -configuration_basename backpack_2d.lua"
+          -configuration_basename robotont_cartographer_2d.lua"
       output="screen">
     <remap from="echoes" to="horizontal_laser_2d" />
   </node>
