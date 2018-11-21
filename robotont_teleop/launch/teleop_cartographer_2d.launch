@@ -57,7 +57,7 @@
           -configuration_directory $(find robotont_teleop)/configuration_files
           -configuration_basename robotont_cartographer_2d.lua"
       output="screen">
-    <remap from="echoes" to="horizontal_laser_2d" />
+    <remap from="echoes" to="scan" />
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
