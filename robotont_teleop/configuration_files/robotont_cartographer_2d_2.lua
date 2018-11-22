@@ -40,6 +40,10 @@ options = {
   imu_sampling_ratio = 1.,
   landmarks_sampling_ratio = 1.,
 }
+topics = {
+  laser_scan_topic = "robotont/scan",
+  odometry_topic = "robotont/odom"
+}
 
 MAP_BUILDER.use_trajectory_builder_2d = true
 TRAJECTORY_BUILDER_2D.num_accumulated_range_data = 1
