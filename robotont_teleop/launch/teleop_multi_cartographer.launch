@@ -57,7 +57,8 @@
           -configuration_directory $(find robotont_teleop)/configuration_files
           -configuration_basename robotont_cartographer_2d.lua"
       output="screen">
-    <remap from="echoes" to="$(arg robotont_ns)/scan" />
+    <remap from="scan" to="$(arg robotont_ns)/scan" />
+    <remap from="odom" to="$(arg robotont_ns)/odom" />
     <param name="camera"	value="$(arg robotont_ns)/camera"/>
     <param name="tracking_frame"	value="$(arg odom_frame)"/>
     <param name="odom_frame"	value="$(arg odom_frame)"/>
