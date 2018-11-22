@@ -30,6 +30,11 @@
   <node ns="$(arg robotont_ns)" name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" >
         <param name="tf_prefix" value="$(arg robotont_ns)" />
   </node>
+
+  <node ns="$(arg robotont_ns)" pkg="teleop_twist_keyboard" name="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
+    <param name='~speed' value="0.1" />
+    <param name='~turn' value="0.3" />
+  </node>
   <!-- For using with Realsense D435 -->
   <rosparam>
     /camera/aligned_depth_to_color/image_raw/compressedDepth/png_level: 5
