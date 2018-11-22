@@ -56,7 +56,10 @@
       type="cartographer_start_trajectory" args="
           -configuration_directory $(find robotont_teleop)/configuration_files
           -configuration_basename robotont_cartographer_2d_2.lua"
+      
       output="screen">
+  <remap from="scan" to="robotont/scan"/>
+  <remap from="odom" to="robotont/odom"/>
   </node>
 
 </launch>

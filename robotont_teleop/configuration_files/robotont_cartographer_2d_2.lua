@@ -17,7 +17,7 @@ include "trajectory_builder.lua"
 options = {
   map_builder = MAP_BUILDER,
   trajectory_builder = TRAJECTORY_BUILDER,
-  map_frame = "robotont/map",
+  map_frame = "map",
   tracking_frame = "robotont/base_footprint",
   published_frame = "robotont/odom",
   odom_frame = "robotont/odom",
