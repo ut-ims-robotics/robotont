@@ -8,6 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
   joy
   nav_msgs
   cmake_modules
+  cartographer_ros
 )
 
 catkin_package(
@@ -22,7 +23,7 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(robotont_teleop_joy src/robotont_teleop_joy.cpp) 
+add_executable(robotont_teleop_joy src/robotont_teleop_joy.cpp start_trajectory.cc src/start_trajectory.cc) 
 
 target_link_libraries(robotont_teleop_joy ${catkin_LIBRARIES})
 
