@@ -71,38 +71,48 @@ RobotontHW::~RobotontHW()
 
 void RobotontHW::read(const ros::TimerEvent& event)
 {
-
-  if (!serial_.isOpen())
+  try
   {
-    //TODO: reconnect
-    return;
-  }
-
-  size_t bytes_available = serial_.available();
-//  ROS_DEBUG("bytes available: %lu", bytes_available);
-  if(!bytes_available)
-  {
-    return;
-  }
-
-
-  std::string buffer = "";
-  serial_.read(buffer, bytes_available);
-
-  while(buffer.size())
-  {
-
-    if(buffer[0] == '\r' || buffer[0] == '\n')
+    if (!serial_.isOpen())
     {
-      processPacket();
-      packet_ = "";
+      //TODO: reconnect
+      return;
     }
-    else
+  
+    size_t bytes_available = serial_.available();
+  //  ROS_DEBUG("bytes available: %lu", bytes_available);
+    if(!bytes_available)
     {
-      packet_.push_back(buffer[0]);
+      return;
     }
-
-    buffer.erase(buffer.begin());
+  
+  
+    std::string buffer = "";
+    serial_.read(buffer, bytes_available);
+  
+    while(buffer.size())
+    {
+  
+      if(buffer[0] == '\r' || buffer[0] == '\n')
+      {
+        processPacket();
+        packet_ = "";
+      }
+      else
+      {
+        packet_.push_back(buffer[0]);
+      }
+  
+      buffer.erase(buffer.begin());
+    }
+  }
+  catch(serial::IOException e)
+  {
+    ROS_ERROR_STREAM("Unable to read '" << "': " << e.what());
+  }
+  catch(serial::SerialException e)
+  {
+    ROS_ERROR_STREAM("Unable to read '" << "': " << e.what());
   }
 }
 
