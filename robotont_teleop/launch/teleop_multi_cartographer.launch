@@ -12,6 +12,9 @@
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
+
+  NB! ONLY WORKS WITH UT-IMS-ROBOTICS FORK OF CARTOGRAPHER_ROS AS OF NOW.
+  Original requires a separate .lua trajectory options file for each robot.
 -->
 
 <launch>
@@ -57,14 +60,15 @@
   <param name="$(arg robotont_ns)/odom/frame" value="$(arg robotont_ns)/odom"/>
   <node ns="$(arg robotont_ns)" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
 
-  <node name="cartographer_start_trajectory" pkg="cartographer_ros"
+  <node ns="$(arg robotont_ns)" name="cartographer_start_trajectory" pkg="cartographer_ros"
       type="cartographer_start_trajectory" args="
           -configuration_directory $(find robotont_teleop)/configuration_files
           -configuration_basename robotont_cartographer_2d_2.lua"
       
       output="screen">
-  <remap from="scan" to="robotont/scan"/>
-  <remap from="odom" to="robotont/odom"/>
+  <param name="odom_frame" value="$(arg odom_frame)"/>
+  <param name="published_frame" value="$(arg odom_frame)"/>
+  <param name="tracking_frame" value="$(arg base_frame)"/>
   </node>
 
 </launch>
