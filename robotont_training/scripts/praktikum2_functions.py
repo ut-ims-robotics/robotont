@@ -3,13 +3,21 @@ import rospy
 from geometry_msgs.msg import Twist
 import time
 
+velocity_publisher = rospy.Publisher(
+    '/robotont/cmd_vel', Twist, queue_size=10)
+vel_msg = Twist()
+#######################
+# YOUR FUNCTIONS HERE #
+#######################
+
+
+###########################
+# YOUR FUNCTIONS HERE END #
+###########################
 
 def move():
     # Starts a new node
     rospy.init_node('robotont_velocity_publisher', anonymous=True)
-    velocity_publisher = rospy.Publisher(
-        '/robotont/cmd_vel', Twist, queue_size=10)
-    vel_msg = Twist()
 
     vel_msg.linear.x = 0
     vel_msg.linear.y = 0
