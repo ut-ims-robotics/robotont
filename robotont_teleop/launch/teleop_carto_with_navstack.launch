@@ -46,7 +46,6 @@
     <!-- Launch driver -->
     <param name="odom/child_frame" value="base_footprint"/>
     <param name="odom/frame" value="odom"/>
-
     <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find robotont_teleop)/configuration_files
@@ -57,14 +56,27 @@
     <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
       type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
     <!-- Launch navigation stack -->
+    <arg name="no_static_map" default="false"/>
+    <arg name="base_global_planner" default="navfn/NavfnROS"/>
+    <arg name="base_local_planner" default="dwa_local_planner/DWAPlannerROS"/>
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
         <remap from="/cmd_vel" to="/cmd_vel"/>
         <remap from="/odom" to="/odom"/>
-        <rosparam file="$(find robotont_teleop)/param/costmap_common_params.yaml" command="load" ns="global_costmap"/>
-        <rosparam file="$(find robotont_teleop)/param/costmap_common_params.yaml" command="load" ns="local_costmap"/>
-        <rosparam file="$(find robotont_teleop)/param/local_costmap_params.yaml" command="load"/>
-        <rosparam file="$(find robotont_teleop)/param/global_costmap_params.yaml" command="load"/>
-        <rosparam file="$(find robotont_teleop)/param/base_local_planner_params.yaml" command="load"/>
-        <rosparam file="$(find robotont_teleop)/param/move_base_params.yaml" command="load"/>
+        <param name="base_global_planner" value="$(arg base_global_planner)"/>
+        <param name="base_local_planner" value="$(arg base_local_planner)"/>
+        <rosparam file="$(find robotont_teleop)/config/planner.yaml" command="load"/>
+        <!-- observation sources located in costmap_common.yaml -->
+        <rosparam file="$(find robotont_teleop)/config/costmap_common.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find robotont_teleop)/config/costmap_common.yaml" command="load" ns="local_costmap" />
+        <!-- local costmap, needs size -->
+        <rosparam file="$(find robotont_teleop)/config/costmap_local.yaml" command="load" ns="local_costmap" />
+        <param name="local_costmap/width" value="2.0"/>
+        <param name="local_costmap/height" value="2.0"/>
+        <!-- static global costmap, static map provides size -->
+        <rosparam file="$(find robotont_teleop)/config/costmap_global_static.yaml" command="load" ns="global_costmap" unless="$(arg no_static_map)"/>
+        <!-- global costmap with laser, for odom_navigation_demo -->
+        <rosparam file="$(find robotont_teleop)/config/costmap_global_laser.yaml" command="load" ns="global_costmap" if="$(arg no_static_map)"/>
+        <param name="global_costmap/width" value="10.0" if="$(arg no_static_map)"/>
+        <param name="global_costmap/height" value="10.0" if="$(arg no_static_map)"/>
     </node>
 </launch>
