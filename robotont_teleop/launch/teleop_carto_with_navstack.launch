@@ -23,9 +23,9 @@
     <!-- Convert an xacro and put on parameter server -->
     <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robotont_description)/xacro/main.urdf.xacro" />
     <!-- State publishers -->
-    <node  name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"></node>
-    <node  name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" ></node>
-    <node pkg="teleop_twist_keyboard" name="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
+    <node ns="$(arg robotont_ns)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"></node>
+    <node ns="$(arg robotont_ns)" name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" ></node>
+    <node ns="$(arg robotont_ns)" pkg="teleop_twist_keyboard" name="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
         <param name='~speed' value="0.1" />
         <param name='~turn' value="0.3" />
     </node>
@@ -44,6 +44,9 @@
     </node>
     <!-- Realsense END -->
     <!-- Launch driver -->
+
+    <node ns="$(arg robotont_ns)" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
+
     <param name="odom/child_frame" value="base_footprint"/>
     <param name="odom/frame" value="odom"/>
     <node name="cartographer_node" pkg="cartographer_ros"
@@ -60,8 +63,8 @@
     <arg name="base_global_planner" default="navfn/NavfnROS"/>
     <arg name="base_local_planner" default="dwa_local_planner/DWAPlannerROS"/>
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-        <remap from="/cmd_vel" to="/robotont/cmd_vel"/>
-        <remap from="/odom" to="/robotont/odom"/>
+        <remap from="/cmd_vel" to="$(arg robotont_ns)/cmd_vel"/>
+        <remap from="/odom" to="$(arg robotont_ns)/odom"/>
         <param name="base_global_planner" value="$(arg base_global_planner)"/>
         <param name="base_local_planner" value="$(arg base_local_planner)"/>
         <rosparam file="$(find robotont_teleop)/config/planner.yaml" command="load"/>
