@@ -23,9 +23,9 @@
     <!-- Convert an xacro and put on parameter server -->
     <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robotont_description)/xacro/main.urdf.xacro" />
     <!-- State publishers -->
-    <node ns="$(arg robotont_ns)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"></node>
-    <node ns="$(arg robotont_ns)" name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" ></node>
-    <node ns="$(arg robotont_ns)" pkg="teleop_twist_keyboard" name="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"></node>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" ></node>
+    <node pkg="teleop_twist_keyboard" name="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
         <param name='~speed' value="0.1" />
         <param name='~turn' value="0.3" />
     </node>
@@ -54,6 +54,7 @@
           -configuration_directory $(find robotont_teleop)/configuration_files
           -configuration_basename robotont_cartographer_localization_2d.lua"
       output="screen">
+		<remap from="odom" to="$(arg robotont_ns)/odom"/>
         <remap from="echoes" to="scan" />
     </node>
     <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
@@ -61,7 +62,7 @@
     <!-- Launch navigation stack -->
     <arg name="no_static_map" default="false"/>
     <arg name="base_global_planner" default="navfn/NavfnROS"/>
-    <arg name="base_local_planner" default="dwa_local_planner/DWAPlannerROS"/>
+    <arg name="base_local_planner" default="base_local_planner/TrajectoryPlannerROS"/>
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
         <remap from="/cmd_vel" to="$(arg robotont_ns)/cmd_vel"/>
         <remap from="/odom" to="$(arg robotont_ns)/odom"/>
@@ -73,13 +74,13 @@
         <rosparam file="$(find robotont_teleop)/config/costmap_common.yaml" command="load" ns="local_costmap" />
         <!-- local costmap, needs size -->
         <rosparam file="$(find robotont_teleop)/config/costmap_local.yaml" command="load" ns="local_costmap" />
-        <param name="local_costmap/width" value="2.0"/>
-        <param name="local_costmap/height" value="2.0"/>
+        <param name="local_costmap/width" value="6.0"/>
+        <param name="local_costmap/height" value="6.0"/>
         <!-- static global costmap, static map provides size -->
         <rosparam file="$(find robotont_teleop)/config/costmap_global_static.yaml" command="load" ns="global_costmap" unless="$(arg no_static_map)"/>
         <!-- global costmap with laser, for odom_navigation_demo -->
         <rosparam file="$(find robotont_teleop)/config/costmap_global_laser.yaml" command="load" ns="global_costmap" if="$(arg no_static_map)"/>
-        <param name="global_costmap/width" value="10.0" if="$(arg no_static_map)"/>
-        <param name="global_costmap/height" value="10.0" if="$(arg no_static_map)"/>
+        <param name="global_costmap/width" value="15.0" if="$(arg no_static_map)"/>
+        <param name="global_costmap/height" value="15.0" if="$(arg no_static_map)"/>
     </node>
 </launch>

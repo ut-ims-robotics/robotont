@@ -11,11 +11,12 @@ TrajectoryPlannerROS:
   acc_lim_theta:  3.2
 
   max_vel_x: 1.0
-  min_vel_x: 0.0
-
+  min_vel_x: 0.2
+  max_vel_y: 1.0
+  min_vel_y: 0.2
   max_vel_theta: 1.0
   min_vel_theta: -1.0
-  min_in_place_vel_theta: 0.2
+  min_in_place_vel_theta: 1.0
 
   holonomic_robot: true
   escape_vel: -0.1
@@ -53,17 +54,17 @@ TrajectoryPlannerROS:
 
 DWAPlannerROS:
   # Robot configuration parameters  
-  acc_lim_x: 0.4
-  acc_lim_y: 0.4
-  acc_lim_th: 0.4
+  acc_lim_x: 1
+  acc_lim_y: 1
+  acc_lim_th: 1
 
   max_vel_x: 0.5
-  min_vel_x: 0.0
+  min_vel_x: 0.2
   max_vel_y: 0.5
-  min_vel_y: 0
+  min_vel_y: 0.2
 
   max_trans_vel: 0.5
-  min_trans_vel: 0.1
+  min_trans_vel: 0.2
   max_rot_vel: 1.0
   min_rot_vel: 0.2
 
