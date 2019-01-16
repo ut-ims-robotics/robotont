@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<launch>
+    <arg name="model" />
+    <arg name="gui" default="True" />
+    <param name="/robotont/robot_description" command="$(find xacro)/xacro --inorder $(find robotont_description)/xacro/main.urdf.xacro" />
+    <param name="use_gui" value="$(arg gui)" />
+    <node ns="/robotont" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <node ns="/robotont" name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robotont_description)/config/robotont_mapping.rviz" output="screen" />
+</launch>

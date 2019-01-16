@@ -15,14 +15,14 @@ def scan_callback(data):
     distances = data.ranges
     array_len = len(distances)
 
-    left_array = distances[0:array_len/3]
-    laserscan_distance.leftMin = min(left_array)
+    right_array = distances[0:array_len/3]
+    laserscan_distance.rightMin = min(right_array)
 
     center_array = distances[array_len/3:2*array_len/3]
     laserscan_distance.centerMin = min(center_array)
 
-    right_array = distances[2*array_len/3:]
-    laserscan_distance.rightMin = min(right_array)
+    left_array = distances[2*array_len/3:]
+    laserscan_distance.leftMin = min(left_array)
 
     pub.publish(laserscan_distance)
 

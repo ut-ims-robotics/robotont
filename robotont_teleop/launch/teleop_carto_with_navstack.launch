@@ -25,7 +25,24 @@
     <!-- State publishers -->
     <node  name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"></node>
     <node  name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" ></node>
-
+    <node pkg="teleop_twist_keyboard" name="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
+        <param name='~speed' value="0.1" />
+        <param name='~turn' value="0.3" />
+    </node>
+    <!-- For using with Realsense D435 -->
+    <rosparam>
+    /camera/aligned_depth_to_color/image_raw/compressedDepth/png_level: 5
+  </rosparam>
+    <include file="$(find realsense2_camera)/launch/rs_aligned_depth.launch" >
+        <arg name="camera"	value="camera"/>
+    </include>
+    <node  name="laserscan_kinect" pkg="laserscan_kinect" type="laserscan_kinect" >
+        <remap from="image" to="camera/depth/image_rect_raw"/>
+        <remap from="camera_info" to="camera/depth/camera_info"/>
+        <rosparam command="load" file="$(find robotont_teleop)/config/laser_params.yaml" />
+        <param name="output_frame_id" value="camera_depth_frame"/>
+    </node>
+    <!-- Realsense END -->
     <!-- Launch driver -->
     <param name="odom/child_frame" value="base_footprint"/>
     <param name="odom/frame" value="odom"/>
@@ -33,17 +50,16 @@
     <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find robotont_teleop)/configuration_files
-          -configuration_basename robotont_cartographer_2d.lua"
+          -configuration_basename robotont_cartographer_localization_2d.lua"
       output="screen">
         <remap from="echoes" to="scan" />
-        <remap from="odom" to="$(arg robotont_ns)/odom" />
     </node>
     <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
       type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
     <!-- Launch navigation stack -->
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-        <remap from="/cmd_vel" to="/robotont/cmd_vel"/>
-        <remap from="/odom" to="/robotont/odom"/>
+        <remap from="/cmd_vel" to="/cmd_vel"/>
+        <remap from="/odom" to="/odom"/>
         <rosparam file="$(find robotont_teleop)/param/costmap_common_params.yaml" command="load" ns="global_costmap"/>
         <rosparam file="$(find robotont_teleop)/param/costmap_common_params.yaml" command="load" ns="local_costmap"/>
         <rosparam file="$(find robotont_teleop)/param/local_costmap_params.yaml" command="load"/>
