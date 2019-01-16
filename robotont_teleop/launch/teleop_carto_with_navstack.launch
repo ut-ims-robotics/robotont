@@ -25,24 +25,11 @@
     <!-- State publishers -->
     <node  name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"></node>
     <node  name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" ></node>
-    <!-- For using with Realsense D435 -->
-    <rosparam>
-    /camera/aligned_depth_to_color/image_raw/compressedDepth/png_level: 5
-  </rosparam>
-    <include file="$(find realsense2_camera)/launch/rs_aligned_depth.launch" >
-        <arg name="camera"	value="camera"/>
-    </include>
-    <node  name="laserscan_kinect" pkg="laserscan_kinect" type="laserscan_kinect" >
-        <remap from="image" to="camera/depth/image_rect_raw"/>
-        <remap from="camera_info" to="camera/depth/camera_info"/>
-        <rosparam command="load" file="$(find robotont_teleop)/config/laser_params.yaml" />
-        <param name="output_frame_id" value="camera_depth_frame"/>
-    </node>
-    <!-- Realsense END -->
+
     <!-- Launch driver -->
     <param name="odom/child_frame" value="base_footprint"/>
     <param name="odom/frame" value="odom"/>
-    <node pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
+
     <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find robotont_teleop)/configuration_files
