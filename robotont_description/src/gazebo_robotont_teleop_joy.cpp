@@ -52,7 +52,7 @@ void TeleopRobotont::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
   geometry_msgs::Twist twist;
   twist.linear.x = joy->axes[1]*MAX_TRANSLATION_SPEED;
   twist.linear.y = joy->axes[0]*MAX_TRANSLATION_SPEED;
-  twist.angular.z = joy->axes[3]*MAX_ROTATION_SPEED;
+  twist.angular.z = joy->axes[2]*MAX_ROTATION_SPEED;
 
   vel_pub_.publish(twist);
   ROS_INFO_STREAM(twist);
