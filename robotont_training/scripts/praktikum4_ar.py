@@ -13,7 +13,10 @@ last_heartbeat = 0
 
 
 def keep_distance(x, y, z, roll, pitch, yaw, twist):
-
+    if x > 0.33:
+        twist.linear.x = 2*(x-0.33)
+    elif x < 0.27:
+        twist.linear.x = 2*(x-0.27)
     return twist
 
 # TASK 2
@@ -42,10 +45,10 @@ def callback(data):
         twist_msg = Twist()
         angle = atan2(y, x)
         rospy.loginfo("ANGLE: %s", angle)
-        dx = x - TARGET_X
-        dy = y - TARGET_Y
-        dist = sqrt(dx*dx + dy*dy)
-        rospy.loginfo("DIST: %s", dist)
+        # dx = x - TARGET_X
+        # dy = y - TARGET_Y
+        # dist = sqrt(dx*dx + dy*dy)
+        # rospy.loginfo("DIST: %s", dist)
         quaternion = (
             marker.pose.pose.orientation.x,
             marker.pose.pose.orientation.y,
