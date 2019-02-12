@@ -5,8 +5,14 @@ from geometry_msgs.msg import Twist
 from ar_track_alvar_msgs.msg import AlvarMarkers
 from math import atan2, sqrt
 import tf
+import numpy as np
 
 last_heartbeat = 0
+
+MAX_X_SPEED = 0.5
+MAX_Y_SPEED = 0.5
+MAX_Z_SPEED = 2
+
 
 # IMPLEMENT THESE FUNCTIONS
 
@@ -14,10 +20,7 @@ last_heartbeat = 0
 
 
 def keep_distance(x, y, z, roll, pitch, yaw, twist):
-    if x > 0.33:
-        twist.linear.x = 2*(x-0.33)
-    elif x < 0.27:
-        twist.linear.x = 2*(x-0.27)
+
     return twist
 
 # TASK 2
@@ -30,7 +33,7 @@ def keep_center(x, y, z, roll, pitch, yaw, twist):
 # TASK 3
 
 
-def turn_mirror(x, y, z, roll, pitch, yaw, twist):
+def turn_towards_ar(x, y, z, roll, pitch, yaw, twist):
 
     return twist
 
@@ -39,17 +42,15 @@ def callback(data):
     global last_heartbeat
     if len(data.markers) > 0:
         marker = data.markers[0]
-        rospy.loginfo(rospy.get_caller_id() + " I heard %s", marker)
+        #rospy.loginfo(rospy.get_caller_id() + " I heard %s", marker)
         x = marker.pose.pose.position.x
         y = marker.pose.pose.position.y
         z = marker.pose.pose.position.z
         twist_msg = Twist()
         angle = atan2(y, x)
-        rospy.loginfo("ANGLE: %s", angle)
-        # dx = x - TARGET_X
-        # dy = y - TARGET_Y
-        # dist = sqrt(dx*dx + dy*dy)
-        # rospy.loginfo("DIST: %s", dist)
+        rospy.loginfo("Marker ID: %s", marker.id)
+        rospy.loginfo("Marker: X %s Y %s Z %s", x, y, z)
+        rospy.loginfo("Angle from camera: %s", angle)
         quaternion = (
             marker.pose.pose.orientation.x,
             marker.pose.pose.orientation.y,
@@ -69,8 +70,14 @@ def callback(data):
 
             twist_msg = keep_distance(x, y, z, roll, pitch, yaw, twist_msg)
             twist_msg = keep_center(x, y, z, roll, pitch, yaw, twist_msg)
-            twist_msg = turn_mirror(x, y, z, roll, pitch, yaw, twist_msg)
-
+            twist_msg = turn_towards_ar(x, y, z, roll, pitch, yaw, twist_msg)
+            # limiting
+            twist_msg.linear.x = min(twist_msg.linear.x, MAX_X_SPEED) if twist_msg.linear.x > 0 else max(
+                twist_msg.linear.x, -MAX_X_SPEED)
+            twist_msg.linear.y = min(twist_msg.linear.y, MAX_Y_SPEED) if twist_msg.linear.y > 0 else max(
+                twist_msg.linear.y, -MAX_Y_SPEED)
+            twist_msg.angular.z = min(twist_msg.angular.z, MAX_Z_SPEED) if twist_msg.angular.z > 0 else max(
+                twist_msg.angular.z, -MAX_Z_SPEED)
             cmd_vel_pub.publish(twist_msg)
         else:
             pass
@@ -80,7 +87,7 @@ def callback(data):
 
 def timer_callback(event):
     global last_heartbeat
-    if (rospy.get_time() - last_heartbeat) >= 0.5:
+    if (rospy.get_time() - last_heartbeat) >= 0.1:
         cmd_vel_pub.publish(Twist())
 
 

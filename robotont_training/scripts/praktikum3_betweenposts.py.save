@@ -33,24 +33,24 @@ def move():
             ########################
             # YOUR CODE HERE START #
             ########################
-		if centerMin < 0.4:
-			vel_msg.linear.x = -0.1
-            vel_msg.linear.y = 0
-            vel_msg.angular.z = 0
-            velocity_publisher.publish(vel_msg)
-            time.sleep(0.1)
+            if centerMin < 0.4:
+                vel_msg.linear.x = -0.1
+                vel_msg.linear.y = 0
+                vel_msg.angular.z = 0
+                velocity_publisher.publish(vel_msg)
+                time.sleep(0.1)
 
-		elif leftMin > centerMin:
-            vel_msg.linear.x = 0
-            vel_msg.linear.y = 0
-            vel_msg.angular.z = 0.3
-            velocity_publisher.publish(vel_msg)
-            time.sleep(0.1)
-		elif rightMin > centerMin:
-            vel_msg.linear.x = 0
-            vel_msg.linear.y = 0            vel_msg.angular.z = /0.3
-            velocity_publisher.publish(vel_msg)
-            time.sleep(0.1)
+            elif leftMin > centerMin:
+                vel_msg.linear.x = 0
+                vel_msg.linear.y = 0
+                vel_msg.angular.z = 0.3
+                velocity_publisher.publish(vel_msg)
+                time.sleep(0.1)
+            elif rightMin > centerMin:
+                vel_msg.linear.x = 0
+                vel_msg.linear.y = 0            vel_msg.angular.z = /0.3
+                velocity_publisher.publish(vel_msg)
+                time.sleep(0.1)
 
             ######################
             # YOUR CODE HERE END #
