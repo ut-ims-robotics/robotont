@@ -51,6 +51,7 @@ def move():
         ######################
         # YOUR CODE HERE END #
         ######################
+        rospy.sleep(0.05)
 
 
 if __name__ == '__main__':
