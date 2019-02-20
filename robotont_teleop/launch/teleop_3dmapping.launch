@@ -33,10 +33,7 @@
 			name="queue_size"
 			value="50"
 		/>
-        <arg
-			name="odom"
-			value="/robotont/odom"
-		/>
+        <arg name="odom_frame_id" default="odom"/>
         <!-- 
         <arg
 			name="map_filter_radius"
