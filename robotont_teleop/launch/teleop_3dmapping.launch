@@ -34,20 +34,22 @@
 			name="queue_size"
 			value="50"
 		/>
-        <remap from="odom" to="/$(arg robotont_ns)/odom"/>
-        <arg name="frame_id" value=""/>
-        <!-- 
-        <arg
-			name="map_filter_radius"
-			value="0.8"
-		/><arg
-			name="cloud_max_depth"
-			value="2.5"
-		/><arg
-			name="grid_cell_size"
-			value="0.1"
-		/> -->
     </include>
+    <group ns="rtabmap">
+        <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="--delete_db_on_start">
+            <param name="frame_id" type="string" value="base_footprint"/>
+            <param name="subscribe_depth" type="bool" value="true"/>
+            <remap from="odom" to="/$(arg robotont_ns)/odom"/>
+            <remap from="rgb/image" to="/camera/color/image_raw"/>
+            <remap from="depth/image" to="/camera/aligned_depth_to_color/image_raw"/>
+            <remap from="rgb/camera_info" to="/camera/color/camera_info"/>
+            <param name="queue_size" type="int" value="20"/>
+            <!-- RTAB-Map's parameters -->
+            <param name="RGBD/AngularUpdate" type="string" value="0.01"/>
+            <param name="RGBD/LinearUpdate" type="string" value="0.01"/>
+            <param name="RGBD/OptimizeFromGraphEnd" type="string" value="false"/>
+        </node>
+    </group>
     <env name="ROSCONSOLE_FORMAT" value="[${function}] ${message}" />
     <env name="ROSCONSOLE_CONFIG_FILE" value="$(find robotont_driver)/config/console.conf" />
     <rosparam ns="robotont" file="$(find robotont_driver)/config/robotont_params.yaml" command="load" />
