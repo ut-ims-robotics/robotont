@@ -7,23 +7,31 @@ NavfnROS:
 
 TrajectoryPlannerROS:
   # Robot Configuration Parameters
+  # Try changing this - maximum linear acceleration
   acc_lim_x: 2.5
+  # Try changing this - maximum angular acceleration
   acc_lim_theta: 3.2
 
+  # Do not change these
   max_vel_x: 1.0
   min_vel_x: 0.2
   max_vel_y: 1.0
   min_vel_y: 0.2
   max_vel_theta: 1.0
   min_vel_theta: -1.0
+
   min_in_place_vel_theta: 1.0
 
   holonomic_robot: true
   escape_vel: -0.1
 
   # Goal Tolerance Parameters
+  # Try changing this - yaw goal tolerance (how accurate is the final direction)
   yaw_goal_tolerance: 0.1
+  # Try changing this - xy goal tolerance (how accurate is the final position)
   xy_goal_tolerance: 0.2
+
+  #Do not change these
   latch_xy_goal_tolerance: false
 
   # Forward Simulation Parameters
