@@ -1,3 +1,3 @@
-Praktikum 2
+Praktikum 3
 ====================================
 .. include:: ../include/beforethelab.rst

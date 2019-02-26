@@ -1,2 +1,3 @@
 Praktikum 2
 ====================================
+.. include:: ../include/beforethelab.rst

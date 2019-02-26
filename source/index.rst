@@ -1,9 +1,9 @@
-Welcome to Clearbot's documentation!
+Tere tulemast Clearboti dokumentatsiooni!
 ====================================
 .. toctree::
    :maxdepth: 2
    :hidden:
-   :caption: Intro
+   :caption: Sissejuhatus
 
    intro/introduction
 
@@ -15,11 +15,15 @@ Welcome to Clearbot's documentation!
 
    labs/praktikum1
    labs/praktikum2
+   labs/praktikum3
+   labs/praktikum4
+   labs/praktikum5
+   labs/praktikum6
 
 
-Indices and tables
-==================
+.. Indices and tables
+.. ==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`
