@@ -13,8 +13,8 @@ Welcome to Clearbot's documentation!
    :maxdepth: 2
    :caption: Praktikumid
 
-    labs/praktikum1
-    labs/praktikum2
+   labs/praktikum1
+   labs/praktikum2
 
 
 Indices and tables
