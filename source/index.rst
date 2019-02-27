@@ -1,5 +1,5 @@
 Tere tulemast Clearboti dokumentatsiooni!
-====================================
+=========================================
 .. toctree::
    :maxdepth: 2
    :hidden:

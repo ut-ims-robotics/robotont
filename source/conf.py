@@ -20,8 +20,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Clearbot'
-copyright = '2019, Madis Kaspar Nigol, Veiko Vunder, Renno Raudmäe'
-author = 'Madis Kaspar Nigol, Veiko Vunder, Renno Raudmäe'
+copyright = u'2019, Madis Kaspar Nigol, Veiko Vunder, Renno Raudmäe'
+author = u'Madis Kaspar Nigol, Veiko Vunder, Renno Raudmäe'
 
 # The short X.Y version
 version = ''
@@ -132,7 +132,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'Clearbot.tex', 'Clearbot Documentation',
-     'Madis Kaspar Nigol, Veiko Vunder, Renno Raudmäe', 'manual'),
+     u'Madis Kaspar Nigol, Veiko Vunder, Renno Raudmäe', 'manual'),
 ]
 
 
