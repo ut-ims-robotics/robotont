@@ -19,6 +19,13 @@
             <param name="RGBD/AngularUpdate" type="string" value="0.01"/>
             <param name="RGBD/LinearUpdate" type="string" value="0.01"/>
             <param name="RGBD/OptimizeFromGraphEnd" type="string" value="false"/>
+            <param name="Grid/FromDepth" type="string" value="true"/>
+            <param name="Grid/CellSize" type="double" value="0.01"/>
+        </node>
+        <node name="laserscan_kinect" pkg="laserscan_kinect" type="laserscan_kinect" >
+            <remap from="image" to="/camera/depth/image_rect_raw"/>
+            <remap from="camera_info" to="/camera/depth/camera_info"/>
+            <rosparam command="load" file="$(find robotont_teleop)/config/laser_params.yaml" />
         </node>
     </group>
     <env name="ROSCONSOLE_FORMAT" value="[${function}] ${message}" />
