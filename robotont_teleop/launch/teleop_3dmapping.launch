@@ -1,6 +1,9 @@
 <?xml version="1.0" ?>
 <launch>
     <arg name="robotont_ns" default="robotont"/>
+    <arg name="linear_update" default="0.01"/>
+    <arg name="angular_update" default="0.01"/>
+    <arg name="cell_size" default="0.05"/>
     <include file="$(find realsense2_camera)/launch/rs_aligned_depth.launch"></include>
     <rosparam>
         /camera/aligned_depth_to_color/image_raw/compressedDepth/png_level: 5
@@ -16,9 +19,16 @@
             <param name="queue_size" type="int" value="20"/>
             <param name="odom_frame_id" type="string" value="odom"/>
             <!-- RTAB-Map's parameters -->
-            <param name="RGBD/AngularUpdate" type="string" value="0.01"/>
-            <param name="RGBD/LinearUpdate" type="string" value="0.01"/>
+            <param name="RGBD/AngularUpdate" type="string" value="$(arg angular_update)"/>
+            <param name="RGBD/LinearUpdate" type="string" value="$(arg linear_update)"/>
             <param name="RGBD/OptimizeFromGraphEnd" type="string" value="false"/>
+            <param name="Grid/FromDepth" type="string" value="true"/>
+            <param name="Grid/CellSize" type="double" value="$(arg cell_size)"/>
+        </node>
+        <node name="laserscan_kinect" pkg="laserscan_kinect" type="laserscan_kinect" >
+            <remap from="image" to="/camera/depth/image_rect_raw"/>
+            <remap from="camera_info" to="/camera/depth/camera_info"/>
+            <rosparam command="load" file="$(find robotont_teleop)/config/laser_params.yaml" />
         </node>
     </group>
     <env name="ROSCONSOLE_FORMAT" value="[${function}] ${message}" />
