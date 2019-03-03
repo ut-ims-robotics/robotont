@@ -51,6 +51,7 @@ def move():
         ######################
         # YOUR CODE HERE END #
         ######################
+        velocity_publisher.publish(vel_msg)
         rospy.sleep(0.05)
 
 
