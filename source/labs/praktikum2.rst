@@ -1,13 +1,12 @@
 Praktikum 2
 ====================================
-.. include:: ../include/beforethelab.rst
-
 
 *******************************
 Giti üles seadmine
 *******************************
 
 Git on versioonihaldustarkvara, mis aitab meil salvestada koodi internetti, et seda ka hiljem kasutada saaks, kui arvutist kood kustutatud on.
+
 1.  Mine lehele https://github.com/ ning registreeri ennast kasutajaks.
 2.  Logi sisse
 3.  Mine lehele https://github.com/ut-ims-robotics/robotont-blank-scripts
@@ -15,9 +14,9 @@ Git on versioonihaldustarkvara, mis aitab meil salvestada koodi internetti, et s
 5.  Vajuta rohelist nuppu “Clone or download”
 6.  Kopeeri sealt aadress
 7.  Ava terminal ning trüki sinna
-    **cd catkin_ws/src**
+    **cd catkin\_ws/src**
 8.  Seejärel sisesta
-    **git clone -sinu-kopeeritud-link- **
+    **git clone \-sinu\-kopeeritud\-link\-**
 9.  Nüüd trüki terminali
     **catkin build**
 10. Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.
