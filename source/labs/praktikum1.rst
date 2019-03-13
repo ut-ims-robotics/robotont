@@ -1,10 +1,13 @@
+.. include:: ../include/special.rst
+
 Praktikum 1 - Linux, ssh, roboti juhtimine klaviatuuriga
 ==========================================================
 
 Kuidas kasutada Linuxit?
 ---------------------------
 
-1. Ava linuxi terminali aken:
+1.  Ava linuxi terminali aken:
+
     a. Selleks vajuta vasakusse üles nurka -> Trüki sisse “terminal” -> ning vajuta Terminali ikoonil
 
         .. figure:: ../images/lab01/image1.png
@@ -203,13 +206,13 @@ Kuidas kasutada Linuxit?
     Käsku **mv** ehk move saame kasutada, et faile liigutada ja ümber nimetada.
     Käsku **cp** ehk copy saame kasutada, et faile kopeerida.
     Käsku **rm** ehk remove saame kasutada, et faile kustutada.
-    
+
     a.  Kasutame käsku **cp**, et kopeerida “test.txt” üks kaust kõrgemale. Selleks lähme kausta “asjad” ning kasutame käsku “cp asi/test.txt .”. 
         Siin näeme ka punkti kasutust käsus, mis tähendab praegust kausta.
         **cp** ja **mv** tahavad kahte argumenti, esimesena fail, mida liigutatakse ja teiseks asukoht, kuhu liigutatakse.
     b.  Kontrolli käsuga **ls**, kas mõlemas kaustas on nüüd fail “test.txt”.
 
-        .. figure:: ../images/lab01/image24.png
+        .. figure:: ../images/lab01/image25.png
             :scale: 70 %
 
             ..
@@ -217,7 +220,7 @@ Kuidas kasutada Linuxit?
     c.  Järgmisena kasutame käsku **rm**, et kustutada ära originaalfail. Olles kaustas “asjad”, trüki sisse “rm asi/test.txt”.
     d.  Kontrolli, kas nüüd on “test.txt” ainult ühes kaustas.
 
-        .. figure:: ../images/lab01/image24.png
+        .. figure:: ../images/lab01/image26.png
             :scale: 70 %
 
             ..
@@ -227,10 +230,87 @@ Kuidas kasutada Linuxit?
         Selleks, olles kaustas “asjad”, trüki terminali “mv test.txt asi/test1.txt”.
     f.  Kontrolli, kas sai fail ilusti liigutatud ja nimetatud. Nüüd ei tohi enam faili “test.txt” eksisteerida.
 
-        .. figure:: ../images/lab01/image24.png
+        .. figure:: ../images/lab01/image27.png
             :scale: 70 %
 
             ..
 
+Kaugteel robotisse sisenemine (ssh)
+-------------------------------------
 
-            
+1.  Ava Linuxi terminali aken.
+2.  Trüki sinna: **ssh kasutaja@clearbot-*** ja vajuta ENTER.
+    NB! Tärni asemel sisesta oma robotondi number, näiteks "ssh kasutaja@clearbot-2".
+
+    .. figure:: ../images/lab01/image28.png
+        :scale: 70 %
+
+        ..
+
+    a. Kui arvuti küsib yes/no variante, trüki sisse “yes” ning vajuta enter.
+3.  Järgmisena küsitakse parooli. 
+    :red:`NB! Linuxi terminali aknas ei ole parooli trükkimist näha. Seega, ära ehmu, kui sisestamisel tärne või mumme ei ilmu.  Lihtsalt sisesta parool ja vajuta Enter.`
+    
+    a.  Parool on: t0ndik00bas
+    b.  Kui tegid parooli sisestamisel vea, ilmub selline teade ja saad veel kaks korda uuesti proovida:
+
+        .. figure:: ../images/lab01/image29.png
+            :scale: 70 %
+
+            ..
+
+4.  Kui parool oli õige, siis ilmub järgmine tervitus ning oled saanud ligipääsu oma robotile:
+
+    .. figure:: ../images/lab01/image30.png
+        :scale: 70 %
+
+        ..
+
+    **Nüüdsest on see terminali aken ühenduses robotiga ja saame seal erinevaid programme käivitada.**
+
+Roboti ROS juhtprogrammi käivitamine
+-------------------------------------
+
+Alustuseks käivitame arvuti peal ROS-i programmi, mis korraldab arvuti ja ülejäänud roboti elektroonika vahelist suhtlust.
+Selleks kirjutame samas (kasutaja@clearbot-\*) terminali aknas:
+
+**roslaunch robotont_teleop teleop_bare.launch**
+
+    .. figure:: ../images/lab01/image31.png
+        :scale: 70 %
+
+        ..
+
+**Nüüd sinu robot töötab ning on vaja seda juhtima hakata.**
+
+Roboti juhtimine klaviatuuriga
+-------------------------------------
+
+1.  Avame uue terminali akna.
+2.  Käivitame ROS programmi, mis jälgib terminali aknas klahvivajutusi. 
+    Programm saadab klahvivajutused edasi robotile arusaadaval kujul. Programmi käivitamiseks sisesta terminali järgmine käsk ja vajuta Enter klahvi:
+    **roslaunch robotont_teleop teleop_pc_side.launch**
+
+    .. figure:: ../images/lab01/image32.png
+        :scale: 70 %
+
+        ..
+
+3.  Tulemus peaks olema selline:
+
+    .. figure:: ../images/lab01/image33.png
+        :scale: 70 %
+
+        ..
+
+    :red:`NB! Sellest hetkest saab klahvivajutustega panna robotit eri suundades sõitma. ROBOTI PEATAMISEKS VAJUTA "k" KLAHVI!
+    Kui kaotad roboti üle kontrolli, siis tõsta lihtsalt robot õhku ja kutsu juhendaja!`
+
+**Sõitmiseks:**
+
+    .. figure:: ../images/lab01/image34.png
+        :scale: 70 %
+
+        ..
+
+:red:`Mitte hoida neid nuppe väga pikalt all ja pärast igat klahvivajutust vajuta “K” tähte, et pidurdada.`
