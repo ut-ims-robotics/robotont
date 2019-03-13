@@ -182,10 +182,15 @@ Kuidas kasutada Linuxit?
 
     d.  Kontrolli, et fail tekkis, kasutades käsku **ls**.
 
+        .. figure:: ../images/lab01/image23.png
+            :scale: 70 %
+
+            ..
+           
 7. **cat**
     a.  Käsk **cat** võimaldab näha tekstifailide sisu ilma faili avamata. Olles kaustas “asi”, trüki terminali “cat test.txt”. *Kas ilmus tuttav tekst?*
 
-        .. figure:: ../images/lab01/image23.png
+        .. figure:: ../images/lab01/image24.png
             :scale: 70 %
 
             ..
@@ -194,12 +199,17 @@ Kuidas kasutada Linuxit?
         saab anda ette tee failisüsteemis ehk saame vaadata faili sisu, mis ei asu samas kaustas, kus meie. 
         Olles kaustas “asjad”, trüki terminali “cat asi/test.txt”. *Kas ilmus sama tekst?*
 
-        .. figure:: ../images/lab01/image24.png
+        .. figure:: ../images/lab01/image25.png
             :scale: 70 %
 
             ..
 
     c.  Kasuta nüüd eelnevaid teadmisi, et muuta test.txt sisu ning kuva see ekraanile kasutades käsku **cat**.
+
+        .. figure:: ../images/lab01/image26.png
+            :scale: 70 %
+
+            ..
 
 8.  **mv** ja **cp** ja **rm**
 
@@ -211,8 +221,8 @@ Kuidas kasutada Linuxit?
         Siin näeme ka punkti kasutust käsus, mis tähendab praegust kausta.
         **cp** ja **mv** tahavad kahte argumenti, esimesena fail, mida liigutatakse ja teiseks asukoht, kuhu liigutatakse.
     b.  Kontrolli käsuga **ls**, kas mõlemas kaustas on nüüd fail “test.txt”.
-
-        .. figure:: ../images/lab01/image25.png
+  
+        .. figure:: ../images/lab01/image27.png
             :scale: 70 %
 
             ..
@@ -220,7 +230,7 @@ Kuidas kasutada Linuxit?
     c.  Järgmisena kasutame käsku **rm**, et kustutada ära originaalfail. Olles kaustas “asjad”, trüki sisse “rm asi/test.txt”.
     d.  Kontrolli, kas nüüd on “test.txt” ainult ühes kaustas.
 
-        .. figure:: ../images/lab01/image26.png
+        .. figure:: ../images/lab01/image28.png
             :scale: 70 %
 
             ..
@@ -230,7 +240,7 @@ Kuidas kasutada Linuxit?
         Selleks, olles kaustas “asjad”, trüki terminali “mv test.txt asi/test1.txt”.
     f.  Kontrolli, kas sai fail ilusti liigutatud ja nimetatud. Nüüd ei tohi enam faili “test.txt” eksisteerida.
 
-        .. figure:: ../images/lab01/image27.png
+        .. figure:: ../images/lab01/image29.png
             :scale: 70 %
 
             ..
@@ -242,7 +252,7 @@ Kaugteel robotisse sisenemine (ssh)
 2.  Trüki sinna: **ssh kasutaja@clearbot-*** ja vajuta ENTER.
     NB! Tärni asemel sisesta oma robotondi number, näiteks "ssh kasutaja@clearbot-2".
 
-    .. figure:: ../images/lab01/image28.png
+    .. figure:: ../images/lab01/image30.png
         :scale: 70 %
 
         ..
@@ -254,14 +264,14 @@ Kaugteel robotisse sisenemine (ssh)
     a.  Parool on: t0ndik00bas
     b.  Kui tegid parooli sisestamisel vea, ilmub selline teade ja saad veel kaks korda uuesti proovida:
 
-        .. figure:: ../images/lab01/image29.png
+        .. figure:: ../images/lab01/image31.png
             :scale: 70 %
 
             ..
 
 4.  Kui parool oli õige, siis ilmub järgmine tervitus ning oled saanud ligipääsu oma robotile:
 
-    .. figure:: ../images/lab01/image30.png
+    .. figure:: ../images/lab01/image32.png
         :scale: 70 %
 
         ..
@@ -276,7 +286,7 @@ Selleks kirjutame samas (kasutaja@clearbot-\*) terminali aknas:
 
 **roslaunch robotont_teleop teleop_bare.launch**
 
-    .. figure:: ../images/lab01/image31.png
+    .. figure:: ../images/lab01/image33.png
         :scale: 70 %
 
         ..
@@ -291,14 +301,9 @@ Roboti juhtimine klaviatuuriga
     Programm saadab klahvivajutused edasi robotile arusaadaval kujul. Programmi käivitamiseks sisesta terminali järgmine käsk ja vajuta Enter klahvi:
     **roslaunch robotont_teleop teleop_pc_side.launch**
 
-    .. figure:: ../images/lab01/image32.png
-        :scale: 70 %
-
-        ..
-
 3.  Tulemus peaks olema selline:
 
-    .. figure:: ../images/lab01/image33.png
+    .. figure:: ../images/lab01/image34.png
         :scale: 70 %
 
         ..
@@ -308,7 +313,7 @@ Roboti juhtimine klaviatuuriga
 
 **Sõitmiseks:**
 
-    .. figure:: ../images/lab01/image34.png
+    .. figure:: ../images/lab01/image35.png
         :scale: 70 %
 
         ..
