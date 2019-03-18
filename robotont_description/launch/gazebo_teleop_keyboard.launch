@@ -23,4 +23,5 @@
         <remap from="camera_info" to="/camera/depth/camera_info"/>
         <rosparam command="load" file="$(find robotont_teleop)/config/laser_params.yaml" />
     </node>
+    <node pkg="robotont_sensors" name="laserscan_to_distance.py" type="laserscan_to_distance.py" output="screen" />
 </launch>
