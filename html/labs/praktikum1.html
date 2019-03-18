@@ -148,15 +148,17 @@
 <h1>Praktikum 1 - Linux, ssh, roboti juhtimine klaviatuuriga<a class="headerlink" href="#praktikum-1-linux-ssh-roboti-juhtimine-klaviatuuriga" title="Püsiviit sellele pealkirjale">¶</a></h1>
 <div class="section" id="kuidas-kasutada-linuxit">
 <h2>Kuidas kasutada Linuxit?<a class="headerlink" href="#kuidas-kasutada-linuxit" title="Püsiviit sellele pealkirjale">¶</a></h2>
-<ol class="arabic">
+<ol class="arabic" start="0">
+<li><p class="first">Arvutisse sisselogimiseks kasuta parooli „t0ndik00bas”</p>
+</li>
 <li><p class="first">Ava linuxi terminali aken:</p>
 <ol class="loweralpha">
-<li><p class="first">Selleks vajuta vasakusse üles nurka -&gt; Trüki sisse “terminal” -&gt; ning vajuta Terminali ikoonil</p>
+<li><p class="first">Selleks vajuta vasakusse üles nurka -&gt; Trüki sisse „terminal” -&gt; ning vajuta Terminali ikoonil</p>
 <blockquote>
 <div><div class="figure">
 <a class="reference internal image-reference" href="../_images/image1.png"><img alt="../_images/image1.png" src="../_images/image1.png" style="width: 506.79999999999995px; height: 217.0px;" /></a>
 </div>
-<p>või vajuta klahvikombinatsiooni “Ctrl+Alt+T”</p>
+<p>või vajuta klahvikombinatsiooni <strong>Ctrl+Alt+T</strong></p>
 <p>Ilmub terminali aken:</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image2.png"><img alt="../_images/image2.png" src="../_images/image2.png" style="width: 513.1px; height: 307.29999999999995px;" /></a>
@@ -173,17 +175,18 @@ a.</p>
 <div><div class="figure">
 <a class="reference internal image-reference" href="../_images/image3.png"><img alt="../_images/image3.png" src="../_images/image3.png" style="width: 509.59999999999997px; height: 304.5px;" /></a>
 </div>
-<p>Trüki terminali “ls” ning vaata väljundit. Need on kaustad ja failid, mis asuvad selles kaustas, kus praegu asud.
+<p>Trüki terminali <strong>ls</strong> ning vaata väljundit. Need on kaustad ja failid, mis asuvad selles kaustas, kus praegu asud.
 <em>Mis värvi on väljundis kaustad ja mis värvi on failid?</em></p>
 </div></blockquote>
 <ol class="loweralpha" start="2">
-<li><p class="first">Trüki terminali “ls -a”. Nüüd ilmub väljundisse palju rohkem nimesid.
-Punktiga algavad kasutad ning failid on Linuxis enamasti peidetud. Nendes kaustades ning failides asuvad tavaliselt konfiguratsioonid operatsioonisüsteemile ning programmidele, seega ei tohi neid ilma teadmata muuta.</p>
+<li><p class="first">Trüki terminali <strong>ls -a</strong>. Nüüd ilmub väljundisse palju rohkem nimesid.
+Punktiga algavad kasutad ning failid on Linuxis enamasti peidetud. Nendes kaustades ning failides asuvad tavaliselt konfiguratsioonid operatsioonisüsteemile ning programmidele,
+seega ei tohi neid ilma Linuxist sügavamaid teadmisi omamata muuta.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image4.png"><img alt="../_images/image4.png" src="../_images/image4.png" style="width: 508.2px; height: 303.79999999999995px;" /></a>
 </div>
 </li>
-<li><p class="first">Trüki terminali “ls -la”. <em>Mis muutus? Mida uut väljundis failide kohta näed?</em></p>
+<li><p class="first">Trüki terminali <strong>ls -la</strong>. <em>Mis muutus? Mida uut väljundis failide kohta näed?</em></p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image5.png"><img alt="../_images/image5.png" src="../_images/image5.png" style="width: 508.9px; height: 306.59999999999997px;" /></a>
 </div>
@@ -197,14 +200,14 @@ Punktiga algavad kasutad ning failid on Linuxis enamasti peidetud. Nendes kausta
 <li><p class="first"><strong>mkdir</strong></p>
 <blockquote>
 <div><p>Nüüd õpime, kuidas teha Linuxi terminalis kausta.
-a.  Teeme kausta nimega “asjad”. Linuxis kausta tegemiseks on käsk <strong>mkdir</strong> ehk <em>make directory</em>. Trüki terminali “mkdir asjad”.</p>
+a.  Teeme kausta nimega „asjad”. Linuxis kausta tegemiseks on käsk <strong>mkdir</strong> ehk <em>make directory</em>. Trüki terminali <strong>mkdir asjad</strong>.</p>
 <blockquote>
 <div><div class="figure">
 <a class="reference internal image-reference" href="../_images/image7.png"><img alt="../_images/image7.png" src="../_images/image7.png" style="width: 509.59999999999997px; height: 301.7px;" /></a>
 </div>
 </div></blockquote>
 <ol class="loweralpha" start="2">
-<li><p class="first">Nüüd kasuta eelmises punktis õpitut, et näha, kas sinu tehtud kaust tekkis sinna.</p>
+<li><p class="first">Nüüd kasuta eelmises punktis <em>list</em>’i kohta õpitut, et näha, kas sinu tehtud kaust tekkis sinna.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image8.png"><img alt="../_images/image8.png" src="../_images/image8.png" style="width: 507.49999999999994px; height: 305.9px;" /></a>
 </div>
@@ -215,7 +218,7 @@ a.  Teeme kausta nimega “asjad”. Linuxis kausta tegemiseks on käsk <strong>
 <li><p class="first"><strong>cd</strong></p>
 <blockquote>
 <div><p>Selleks, et terminalis kaustade vahel liikuda, on käsk <strong>cd</strong> ehk <em>change directory</em>.
-a.  Lähme kausta, mis me just tegime. Selleks kirjutame terminalis “cd asjad”.</p>
+a.  Lähme kausta, mis me just tegime. Selleks kirjutame terminalis <strong>cd asjad</strong>.</p>
 <blockquote>
 <div><div class="figure">
 <a class="reference internal image-reference" href="../_images/image9.png"><img alt="../_images/image9.png" src="../_images/image9.png" style="width: 504.7px; height: 303.09999999999997px;" /></a>
@@ -227,16 +230,16 @@ a.  Lähme kausta, mis me just tegime. Selleks kirjutame terminalis “cd asjad�
 <a class="reference internal image-reference" href="../_images/image10.png"><img alt="../_images/image10.png" src="../_images/image10.png" style="width: 506.09999999999997px; height: 302.4px;" /></a>
 </div>
 </li>
-<li><p class="first">Teeme siia kausta ühe alamkausta nimega “asi”. Selleks kirjutame “mkdir asi”.</p>
+<li><p class="first">Teeme siia kausta ühe alamkausta nimega „asi”. Selleks kirjutame <strong>mkdir asi</strong>.</p>
 </li>
-<li><p class="first">Trüki terminali “ls -a”. Siin näed kolme kausta. “.”, “..” ja “asi”.</p>
+<li><p class="first">Trüki terminali <strong>ls -a</strong>. Siin näed kolme kausta. „.”, „..” ja „asi”.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image11.png"><img alt="../_images/image11.png" src="../_images/image11.png" style="width: 492.09999999999997px; height: 301.0px;" /></a>
 </div>
 </li>
-<li><p class="first">Linuxis kaust “.” tähendab seda kausta, kus praegu asud. Kaust “..” tähendab praeguse kausta ülemkausta.</p>
+<li><p class="first">Linuxis kaust „.” tähendab seda kausta, kus praegu asud. Kaust „..” tähendab praeguse kausta ülemkausta.</p>
 </li>
-<li><p class="first">Lähme tehtud alamkausta, kasutades käsku “cd asi”. Selleks, et tagasi, kaust ülespoole, saada, kasutame käsku “cd ..”.</p>
+<li><p class="first">Lähme tehtud alamkausta, kasutades käsku <strong>cd asi</strong>. Selleks, et tagasi, kaust ülespoole, saada, kasutame käsku <strong>cd ..</strong>.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image12.png"><img alt="../_images/image12.png" src="../_images/image12.png" style="width: 505.4px; height: 305.2px;" /></a>
 </div>
@@ -250,19 +253,19 @@ a.  Lähme kausta, mis me just tegime. Selleks kirjutame terminalis “cd asjad�
 <a class="reference internal image-reference" href="../_images/image13.png"><img alt="../_images/image13.png" src="../_images/image13.png" style="width: 503.29999999999995px; height: 302.4px;" /></a>
 </div>
 <ol class="loweralpha">
-<li><p class="first">Kirjuta terminali “cd”, et saada kodukausta. (Kui käsule <strong>cd</strong> ei anta argumente, siis viib see käsk kodukausta)</p>
+<li><p class="first">Kirjuta terminali <strong>cd</strong>, et saada kodukausta. (Kui käsule <strong>cd</strong> ei anta argumente, siis viib see käsk kodukausta)</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image14.png"><img alt="../_images/image14.png" src="../_images/image14.png" style="width: 505.4px; height: 304.5px;" /></a>
 </div>
 </li>
-<li><p class="first">Selleks, et näha mingi kausta sisu, saab samuti kasutada käsku <strong>ls</strong>. Kirjuta terminali “ls asjad”. Nii näed kausta “asjad” sisu.</p>
+<li><p class="first">Selleks, et näha mingi kausta sisu, saab samuti kasutada käsku <strong>ls</strong>. Kirjuta terminali <strong>ls asjad</strong>. Nii näed kausta „asjad” sisu.</p>
 </li>
-<li><p class="first">Nüüd kirjuta terminali “ls asi”. <em>Mis nüüd juhtus?</em></p>
+<li><p class="first">Nüüd kirjuta terminali <strong>ls asi</strong>. <em>Mis nüüd juhtus?</em></p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image15.png"><img alt="../_images/image15.png" src="../_images/image15.png" style="width: 509.59999999999997px; height: 305.2px;" /></a>
 </div>
 </li>
-<li><p class="first">Selleks, et näha kodukaustast kausta “asi” sisu, tuleb käsule ls anda tee selle kaustani. Antud juhul on selleks “asjad/asi”. Seega kausta “asi” sisu näeme, kui trükime kodukaustas “ls asjad/asi”. Hetkel on see kaust tühi.</p>
+<li><p class="first">Selleks, et näha kodukaustast kausta „asi” sisu, tuleb käsule ls anda tee selle kaustani. Antud juhul on selleks „asjad/asi”. Seega kausta „asi” sisu näeme, kui trükime kodukaustas „ls asjad/asi”. Hetkel on see kaust tühi.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image16.png"><img alt="../_images/image16.png" src="../_images/image16.png" style="width: 506.79999999999995px; height: 303.09999999999997px;" /></a>
 </div>
@@ -272,12 +275,12 @@ a.  Lähme kausta, mis me just tegime. Selleks kirjutame terminalis “cd asjad�
 <li><dl class="first docutils">
 <dt><strong>nano</strong></dt>
 <dd><ol class="first last loweralpha">
-<li><p class="first">Kasuta käsku <strong>cd</strong>, et minna kausta “asi”.</p>
+<li><p class="first">Kasuta käsku <strong>cd</strong>, et minna kausta „asi”.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image17.png"><img alt="../_images/image17.png" src="../_images/image17.png" style="width: 503.99999999999994px; height: 303.79999999999995px;" /></a>
 </div>
 </li>
-<li><p class="first">Selles kaustas tee uus tekstifail, kasutades tekstiredaktorit <strong>nano</strong>. Selleks, et teha fail nimega “test.txt” ja sinna midagi kirjutada, kasutame kaustas “asi” käsku “nano test.txt”.</p>
+<li><p class="first">Selles kaustas tee uus tekstifail, kasutades tekstiredaktorit <strong>nano</strong>. Selleks, et teha fail nimega „test.txt” ja sinna midagi kirjutada, kasutame kaustas „asi” käsku <strong>nano test.txt</strong>.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image18.png"><img alt="../_images/image18.png" src="../_images/image18.png" style="width: 495.59999999999997px; height: 292.59999999999997px;" /></a>
 </div>
@@ -290,7 +293,7 @@ a.  Lähme kausta, mis me just tegime. Selleks kirjutame terminalis “cd asjad�
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image20.png"><img alt="../_images/image20.png" src="../_images/image20.png" style="width: 508.2px; height: 305.2px;" /></a>
 </div>
-<p>Selleks, et nanost väljuda, vajutame alguses Ctrl+X. Seejärel küsib programm, kas soovid faili salvestada. Trüki sisse “y” ning vajuta Enterit.</p>
+<p>Selleks, et nanost väljuda, vajutame alguses Ctrl+X. Seejärel küsib programm, kas soovid faili salvestada. Trüki sisse „y” ning vajuta Enterit.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image21.png"><img alt="../_images/image21.png" src="../_images/image21.png" style="width: 509.59999999999997px; height: 305.9px;" /></a>
 </div>
@@ -310,14 +313,14 @@ a.  Lähme kausta, mis me just tegime. Selleks kirjutame terminalis “cd asjad�
 <li><dl class="first docutils">
 <dt><strong>cat</strong></dt>
 <dd><ol class="first last loweralpha">
-<li><p class="first">Käsk <strong>cat</strong> võimaldab näha tekstifailide sisu ilma faili avamata. Olles kaustas “asi”, trüki terminali “cat test.txt”. <em>Kas ilmus tuttav tekst?</em></p>
+<li><p class="first">Käsk <strong>cat</strong> võimaldab näha tekstifailide sisu ilma faili avamata. Olles kaustas „asi”, trüki terminali <strong>cat test.txt</strong>. <em>Kas ilmus tuttav tekst?</em></p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image24.png"><img alt="../_images/image24.png" src="../_images/image24.png" style="width: 509.59999999999997px; height: 290.5px;" /></a>
 </div>
 </li>
-<li><p class="first">Lähme ühe kausta ülespoole, kasutades käsku “cd ..”. Käsuga <strong>cat</strong>, nagu eelnevalt käsuga <strong>ls</strong> (ja enamasti Linuxi käskudega),
+<li><p class="first">Lähme ühe kausta ülespoole, kasutades käsku <strong>cd ..</strong>. Käsuga <strong>cat</strong>, nagu eelnevalt käsuga <strong>ls</strong> (ja enamasti Linuxi käskudega),
 saab anda ette tee failisüsteemis ehk saame vaadata faili sisu, mis ei asu samas kaustas, kus meie.
-Olles kaustas “asjad”, trüki terminali “cat asi/test.txt”. <em>Kas ilmus sama tekst?</em></p>
+Olles kaustas „asjad”, trüki terminali <strong>cat asi/test.txt</strong>. <em>Kas ilmus sama tekst?</em></p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image25.png"><img alt="../_images/image25.png" src="../_images/image25.png" style="width: 504.7px; height: 303.79999999999995px;" /></a>
 </div>
@@ -336,27 +339,27 @@ Olles kaustas “asjad”, trüki terminali “cat asi/test.txt”. <em>Kas ilmu
 Käsku <strong>cp</strong> ehk copy saame kasutada, et faile kopeerida.
 Käsku <strong>rm</strong> ehk remove saame kasutada, et faile kustutada.</p>
 <ol class="loweralpha">
-<li><p class="first">Kasutame käsku <strong>cp</strong>, et kopeerida “test.txt” üks kaust kõrgemale. Selleks lähme kausta “asjad” ning kasutame käsku “cp asi/test.txt .”.
-Siin näeme ka punkti kasutust käsus, mis tähendab praegust kausta.
+<li><p class="first">Kasutame käsku <strong>cp</strong>, et kopeerida „test.txt” üks kaust kõrgemale. Selleks lähme kausta „asjad” ning kasutame käsku <strong>cp asi/test.txt .</strong></p>
+<p>Siin näeme ka punkti kasutust käsus, mis tähendab praegust kausta.
 <strong>cp</strong> ja <strong>mv</strong> tahavad kahte argumenti, esimesena fail, mida liigutatakse ja teiseks asukoht, kuhu liigutatakse.</p>
 </li>
-<li><p class="first">Kontrolli käsuga <strong>ls</strong>, kas mõlemas kaustas on nüüd fail “test.txt”.</p>
+<li><p class="first">Kontrolli käsuga <strong>ls</strong>, kas mõlemas kaustas on nüüd fail „test.txt”.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image27.png"><img alt="../_images/image27.png" src="../_images/image27.png" style="width: 506.09999999999997px; height: 303.09999999999997px;" /></a>
 </div>
 </li>
-<li><p class="first">Järgmisena kasutame käsku <strong>rm</strong>, et kustutada ära originaalfail. Olles kaustas “asjad”, trüki sisse “rm asi/test.txt”.</p>
+<li><p class="first">Järgmisena kasutame käsku <strong>rm</strong>, et kustutada ära originaalfail. Olles kaustas „asjad”, trüki sisse <strong>rm asi/test.txt</strong>.</p>
 </li>
-<li><p class="first">Kontrolli, kas nüüd on “test.txt” ainult ühes kaustas.</p>
+<li><p class="first">Kontrolli, kas nüüd on „test.txt” ainult ühes kaustas.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image28.png"><img alt="../_images/image28.png" src="../_images/image28.png" style="width: 506.09999999999997px; height: 302.4px;" /></a>
 </div>
 </li>
 <li><p class="first">Selleks, et faile ümber nimetada ja kaustast kausta tõsta, kasutame käsku <strong>mv</strong>.
-Tõstame faili “test.txt” kausta “asi” ning nimetame selle ümber failiks “test1.txt”.
-Selleks, olles kaustas “asjad”, trüki terminali “mv test.txt asi/test1.txt”.</p>
+Tõstame faili „test.txt” kausta „asi” ning nimetame selle ümber failiks „test1.txt”.
+Selleks, olles kaustas „asjad”, trüki terminali <strong>mv test.txt asi/test1.txt</strong>.</p>
 </li>
-<li><p class="first">Kontrolli, kas sai fail ilusti liigutatud ja nimetatud. Nüüd ei tohi enam faili “test.txt” eksisteerida.</p>
+<li><p class="first">Kontrolli, kas sai fail ilusti liigutatud ja nimetatud. Nüüd ei tohi enam faili „test.txt” eksisteerida.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image29.png"><img alt="../_images/image29.png" src="../_images/image29.png" style="width: 507.49999999999994px; height: 292.59999999999997px;" /></a>
 </div>
@@ -371,12 +374,12 @@ Selleks, olles kaustas “asjad”, trüki terminali “mv test.txt asi/test1.tx
 <li><p class="first">Ava Linuxi terminali aken.</p>
 </li>
 <li><p class="first">Trüki sinna: <strong>ssh kasutaja&#64;clearbot-*</strong> ja vajuta ENTER.
-NB! Tärni asemel sisesta oma robotondi number, näiteks „ssh <a class="reference external" href="mailto:kasutaja&#37;&#52;&#48;clearbot-2">kasutaja<span>&#64;</span>clearbot-2</a>“.</p>
+NB! Tärni asemel sisesta oma roboti number, näiteks <strong>ssh kasutaja&#64;clearbot-2</strong>.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image30.png"><img alt="../_images/image30.png" src="../_images/image30.png" style="width: 508.9px; height: 305.2px;" /></a>
 </div>
 <ol class="loweralpha simple">
-<li>Kui arvuti küsib yes/no variante, trüki sisse “yes” ning vajuta enter.</li>
+<li>Kui arvuti küsib yes/no variante, trüki sisse „yes” ning vajuta enter.</li>
 </ol>
 </li>
 <li><p class="first">Järgmisena küsitakse parooli.
@@ -409,14 +412,16 @@ Selleks kirjutame samas (<a class="reference external" href="mailto:kasutaja&#37
 <a class="reference internal image-reference" href="../_images/image33.png"><img alt="../_images/image33.png" src="../_images/image33.png" style="width: 503.29999999999995px; height: 294.7px;" /></a>
 </div>
 </div></blockquote>
-<p><strong>Nüüd sinu robot töötab ning on vaja seda juhtima hakata.</strong></p>
+<p><strong>Nüüd sinu robot töötab ning ootab juhiseid.</strong></p>
 </div>
 <div class="section" id="roboti-juhtimine-klaviatuuriga">
 <h2>Roboti juhtimine klaviatuuriga<a class="headerlink" href="#roboti-juhtimine-klaviatuuriga" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>Korrektselt vormistatud liikumisjuhiste andmiseks kasutame programmi, mis võimaldab meil robotit arvutiklaviatuuri abil juhtida.</p>
 <ol class="arabic">
 <li><p class="first">Avame uue terminali akna.</p>
+<p>Nüüd on sul sülearvutis lahti vähemalt kaks terminaliakent, millest üks on otseühenduses robotiga. Kas saad aru, kumb on kumb?</p>
 </li>
-<li><p class="first">Käivitame ROS programmi, mis jälgib terminali aknas klahvivajutusi.
+<li><p class="first">Käivitame äsja avatud terminaliaknas, mis käivitab programme sülearvutis, ROS programmi, mis jälgib terminali aknas klahvivajutusi.
 Programm saadab klahvivajutused edasi robotile arusaadaval kujul. Programmi käivitamiseks sisesta terminali järgmine käsk ja vajuta Enter klahvi:
 <strong>roslaunch robotont_teleop teleop_pc_side.launch</strong></p>
 </li>
@@ -434,7 +439,7 @@ Kui kaotad roboti üle kontrolli, siis tõsta lihtsalt robot õhku ja kutsu juhe
 <a class="reference internal image-reference" href="../_images/image35.png"><img alt="../_images/image35.png" src="../_images/image35.png" style="width: 449.4px; height: 143.5px;" /></a>
 </div>
 </div></blockquote>
-<p><span class="red">Mitte hoida neid nuppe väga pikalt all ja pärast igat klahvivajutust vajuta “K” tähte, et pidurdada.</span></p>
+<p><span class="red">Mitte hoida neid nuppe väga pikalt all ja pärast igat klahvivajutust vajuta „K” tähte, et pidurdada.</span></p>
 </div>
 </div>
 

@@ -10,5 +10,6 @@ Enne praktikumi lõpetamist
     **git commit -m “kommentaar mis praktikum oli”**
 5.  Seejärel
     **git push**
-6.  Siin sisesta oma githubi kasutajanimi ja parool
+6.  Siin sisesta oma githubi kasutajanimi ja parool.
     Kontrolli, kas sinu github.com lehel uuenesid failid.
+7.  Kui uuenesid, siis loo ssh-ühendus robotisse ning sisesta käsureale **sudo poweroff**.

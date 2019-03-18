@@ -298,9 +298,11 @@ Selleks kirjutame samas (kasutaja@clearbot-\*) terminali aknas:
 Roboti juhtimine klaviatuuriga
 -------------------------------------
 Korrektselt vormistatud liikumisjuhiste andmiseks kasutame programmi, mis võimaldab meil robotit arvutiklaviatuuri abil juhtida.
+
 1.  Avame uue terminali akna.
 
     Nüüd on sul sülearvutis lahti vähemalt kaks terminaliakent, millest üks on otseühenduses robotiga. Kas saad aru, kumb on kumb?
+
 2.  Käivitame äsja avatud terminaliaknas, mis käivitab programme sülearvutis, ROS programmi, mis jälgib terminali aknas klahvivajutusi. 
     Programm saadab klahvivajutused edasi robotile arusaadaval kujul. Programmi käivitamiseks sisesta terminali järgmine käsk ja vajuta Enter klahvi:
     **roslaunch robotont_teleop teleop_pc_side.launch**
