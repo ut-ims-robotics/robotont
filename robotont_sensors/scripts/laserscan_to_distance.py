@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import rospy
 import time
+import numpy as np
 from std_msgs.msg import Float64
 from sensor_msgs.msg import LaserScan
 from robotont_sensors.msg import LaserScanSplit
@@ -16,13 +17,13 @@ def scan_callback(data):
     array_len = len(distances)
 
     right_array = distances[0:array_len/3]
-    laserscan_distance.rightMin = min(right_array)
+    laserscan_distance.rightMin = np.nanmin(right_array)
 
     center_array = distances[array_len/3:2*array_len/3]
-    laserscan_distance.centerMin = min(center_array)
+    laserscan_distance.centerMin = np.nanmin(center_array)
 
     left_array = distances[2*array_len/3:]
-    laserscan_distance.leftMin = min(left_array)
+    laserscan_distance.leftMin = np.nanmin(left_array)
 
     pub.publish(laserscan_distance)
 
