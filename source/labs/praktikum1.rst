@@ -69,7 +69,7 @@ Kuidas kasutada Linuxit?
 
             ..
 
-    b.  Nüüd kasuta eelmises punktis *list*'i kohta õpitut, et näha, kas sinu tehtud kaust tekkis sinna. 
+    b.  Nüüd kasuta eelmises punktis *list*'i kohta õpitut, et näha, kas sinu tehtud kaust tekkis sinna.  Linuxis pääsed eelmiste käskude ligi ka kasutades üles noolt.
 
         .. figure:: ../images/lab01/image8.png
             :scale: 70 %
@@ -280,6 +280,9 @@ Kaugteel robotisse sisenemine (ssh)
 
     **Nüüdsest on see terminali aken ühenduses robotiga ja saame seal erinevaid programme käivitada.**
 
+    :red:`NB! Kuigi terminaliaken on avatud sülearvutis, siis tegelikult jooksutatakse siin sisestatud käske hoopis roboti peal, kus on samuti paigaldatud Ubuntu Linux. 
+    Seda on näha sellest, et rohelises kirjas olev arvutinimi on muutunud roboti nimeks.`
+
 Roboti ROS juhtprogrammi käivitamine
 -------------------------------------
 
@@ -314,7 +317,8 @@ Korrektselt vormistatud liikumisjuhiste andmiseks kasutame programmi, mis võima
 
         ..
 
-    :red:`NB! Sellest hetkest saab klahvivajutustega panna robotit eri suundades sõitma. ROBOTI PEATAMISEKS VAJUTA "k" KLAHVI!
+    :red:`NB! Sellest hetkest saab klahvivajutustega panna robotit eri suundades sõitma. Selleks, et klahvivajutused mõjuks, peab see terminaliaken olema aktiivne.
+    ROBOTI PEATAMISEKS VAJUTA "k" KLAHVI!
     Kui kaotad roboti üle kontrolli, siis tõsta lihtsalt robot õhku ja kutsu juhendaja!`
 
 **Sõitmiseks:**
@@ -323,5 +327,4 @@ Korrektselt vormistatud liikumisjuhiste andmiseks kasutame programmi, mis võima
         :scale: 70 %
 
         ..
-
-:red:`Mitte hoida neid nuppe väga pikalt all ja pärast igat klahvivajutust vajuta "K” tähte, et pidurdada.`
+Selleks, et programme Linuxi terminalis kinni panna, on klahvikombinatsioon Ctrl+C.
