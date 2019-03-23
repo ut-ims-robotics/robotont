@@ -41,7 +41,7 @@ release = '0.1 alpha'
 # ones.
 extensions = [
     'sphinx.ext.todo',
-    'sphinx.ext.githubpages',
+    'sphinxcontrib.contentui'
 ]
 
 # Add any paths that contain templates here, relative to this directory.

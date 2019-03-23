@@ -30,6 +30,8 @@
   
     <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
   
+    <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+  
 
   
         <link rel="index" title="Indeks"
@@ -90,6 +92,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Praktikum 1 - Linux, ssh, roboti juhtimine klaviatuuriga</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#kuidas-kasutada-linuxit">Kuidas kasutada Linuxit?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kui-tootad-simulatsioonis">Kui töötad simulatsioonis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#kaugteel-robotisse-sisenemine-ssh">Kaugteel robotisse sisenemine (ssh)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#roboti-ros-juhtprogrammi-kaivitamine">Roboti ROS juhtprogrammi käivitamine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#roboti-juhtimine-klaviatuuriga">Roboti juhtimine klaviatuuriga</a></li>
@@ -207,7 +210,7 @@ a.  Teeme kausta nimega „asjad”. Linuxis kausta tegemiseks on käsk <strong>
 </div>
 </div></blockquote>
 <ol class="loweralpha" start="2">
-<li><p class="first">Nüüd kasuta eelmises punktis <em>list</em>’i kohta õpitut, et näha, kas sinu tehtud kaust tekkis sinna.</p>
+<li><p class="first">Nüüd kasuta eelmises punktis <em>list</em>’i kohta õpitut, et näha, kas sinu tehtud kaust tekkis sinna.  Linuxis pääsed eelmiste käskude ligi ka kasutades üles noolt.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image8.png"><img alt="../_images/image8.png" src="../_images/image8.png" style="width: 507.49999999999994px; height: 305.9px;" /></a>
 </div>
@@ -368,6 +371,23 @@ Selleks, olles kaustas „asjad”, trüki terminali <strong>mv test.txt asi/tes
 </li>
 </ol>
 </div>
+<div class="section" id="kui-tootad-simulatsioonis">
+<h2>Kui töötad simulatsioonis<a class="headerlink" href="#kui-tootad-simulatsioonis" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p class="toggle-header"><strong>Kui töötad simulatsioonis</strong></p>
+<div class="toggle-content docutils container">
+<blockquote>
+<div><p>Kui töötad simulatsioonis, siis järgnevate peatükkide asemel lähevad käiku teised käsud.
+Antud juhul saab kogu simulatsiooni ning klaviatuuriga juhtimise käima panna ühe käsuga.</p>
+<ol class="arabic simple">
+<li>Ava terminal.</li>
+<li>Sisesta käsk
+<strong>roslaunch robotont_description gazebo_teleop_keyboard.launch</strong></li>
+<li>Kui kõik läks hästi, siis avanes simulatsioon, kus näed robotit.</li>
+<li>Juhendi lõpust leiad, mis nuppudega robotit juhtida. Juhtimiseks peab olema terminaliaken aktiivne.</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
 <div class="section" id="kaugteel-robotisse-sisenemine-ssh">
 <h2>Kaugteel robotisse sisenemine (ssh)<a class="headerlink" href="#kaugteel-robotisse-sisenemine-ssh" title="Püsiviit sellele pealkirjale">¶</a></h2>
 <ol class="arabic">
@@ -399,6 +419,8 @@ NB! Tärni asemel sisesta oma roboti number, näiteks <strong>ssh kasutaja&#64;c
 <a class="reference internal image-reference" href="../_images/image32.png"><img alt="../_images/image32.png" src="../_images/image32.png" style="width: 499.09999999999997px; height: 291.2px;" /></a>
 </div>
 <p><strong>Nüüdsest on see terminali aken ühenduses robotiga ja saame seal erinevaid programme käivitada.</strong></p>
+<p><span class="red">NB! Kuigi terminaliaken on avatud sülearvutis, siis tegelikult jooksutatakse siin sisestatud käske hoopis roboti peal, kus on samuti paigaldatud Ubuntu Linux.
+Seda on näha sellest, et rohelises kirjas olev arvutinimi on muutunud roboti nimeks.</span></p>
 </li>
 </ol>
 </div>
@@ -429,17 +451,18 @@ Programm saadab klahvivajutused edasi robotile arusaadaval kujul. Programmi käi
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/image34.png"><img alt="../_images/image34.png" src="../_images/image34.png" style="width: 498.4px; height: 303.79999999999995px;" /></a>
 </div>
-<p><span class="red">NB! Sellest hetkest saab klahvivajutustega panna robotit eri suundades sõitma. ROBOTI PEATAMISEKS VAJUTA „k“ KLAHVI!
+<p><span class="red">NB! Sellest hetkest saab klahvivajutustega panna robotit eri suundades sõitma. Selleks, et klahvivajutused mõjuks, peab see terminaliaken olema aktiivne.
+ROBOTI PEATAMISEKS VAJUTA „k“ KLAHVI!
 Kui kaotad roboti üle kontrolli, siis tõsta lihtsalt robot õhku ja kutsu juhendaja!</span></p>
 </li>
 </ol>
 <p><strong>Sõitmiseks:</strong></p>
 <blockquote>
 <div><div class="figure">
-<a class="reference internal image-reference" href="../_images/image35.png"><img alt="../_images/image35.png" src="../_images/image35.png" style="width: 449.4px; height: 143.5px;" /></a>
+<a class="reference internal image-reference" href="../_images/image35.png"><img alt="../_images/image35.png" src="../_images/image35.png" style="width: 443.09999999999997px; height: 142.1px;" /></a>
 </div>
 </div></blockquote>
-<p><span class="red">Mitte hoida neid nuppe väga pikalt all ja pärast igat klahvivajutust vajuta „K” tähte, et pidurdada.</span></p>
+<p>Selleks, et programme Linuxi terminalis kinni panna, on klahvikombinatsioon Ctrl+C.</p>
 </div>
 </div>
 
@@ -495,6 +518,7 @@ Kui kaotad roboti üle kontrolli, siis tõsta lihtsalt robot õhku ja kutsu juhe
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="../_static/language_data.js"></script>
       <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="../_static/contentui.js"></script>
 
   
 

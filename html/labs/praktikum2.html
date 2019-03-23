@@ -30,6 +30,8 @@
   
     <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
   
+    <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+  
 
   
         <link rel="index" title="Indeks"
@@ -162,6 +164,14 @@
 <strong>catkin build</strong></li>
 <li>Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.</li>
 </ol>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">):</span>
+  <span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">.</span><span class="mi">2</span>
+  <span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">vel_msg</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">velocity_publisher</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">vel_msg</span><span class="p">)</span>
+  <span class="n">rospy</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="enne-praktikumi-lopetamist">
 <h2>Enne praktikumi lõpetamist<a class="headerlink" href="#enne-praktikumi-lopetamist" title="Püsiviit sellele pealkirjale">¶</a></h2>
@@ -234,6 +244,7 @@ Kontrolli, kas sinu github.com lehel uuenesid failid.</li>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="../_static/language_data.js"></script>
       <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="../_static/contentui.js"></script>
 
   
 
