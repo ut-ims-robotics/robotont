@@ -93,7 +93,23 @@
 <li class="toctree-l1"><a class="reference internal" href="praktikum1.html">Praktikum 1 - Linux, ssh, roboti juhtimine klaviatuuriga</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Praktikum 2</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#giti-ules-seadmine">Giti üles seadmine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#enne-praktikumi-lopetamist">Enne praktikumi lõpetamist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sissejuhatus">Sissejuhatus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ros-rubriigid">ROS-rubriigid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#teema-cmd-vel-ja-kuidas-seda-muuta">Teema cmd_vel ja kuidas seda muuta?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ulesanne-cmd-vel">Ülesanne - cmd_vel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#for-tsukkel-soidame-nelinurka">For-tsükkel, sõidame nelinurka</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ulesanne-for-tsukkel">Ülesanne - <em>for</em>-tsükkel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#funktsioonid">Funktsioonid</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ulesanne-funktsioonid">Ülesanne - funktsioonid</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enne-praktikumi-lopetamist">Enne praktikumi lõpetamist</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="praktikum3.html">Praktikum 3</a></li>
@@ -164,17 +180,187 @@
 <strong>catkin build</strong></li>
 <li>Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.</li>
 </ol>
-<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">):</span>
-  <span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">.</span><span class="mi">2</span>
+</div>
+<div class="section" id="sissejuhatus">
+<h2>Sissejuhatus<a class="headerlink" href="#sissejuhatus" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>Selles praktikumis kirjutame programmi, mis paneb roboti sõitma.
+Selleks kasutame programmeerimiskeelt Python.
+Selles praktikumis kasutame roboti liigutamiseks for-tsükleid ning funktsioone.
+Kui Pythoni kasutamine on meelest läinud või sa pole seda kunagi osanudki, siis tuleb abiks Tartu Ülikooli arvutiteaduste instituudi <a class="reference external" href="https://progeopik.cs.ut.ee/index.html">programmeerimisõpik</a>.</p>
+</div>
+<div class="section" id="ros-rubriigid">
+<h2>ROS-rubriigid<a class="headerlink" href="#ros-rubriigid" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>ROSis ehk roboti operatsioonisüsteemis töötavad samal ajal erinevad programmid.
+Näiteks on programm, mis suhtleb kaameraga ja saab sealt pildi.
+Või on programm, mis paneb roboti rattad soovitud suunas liikuma.
+Samuti programm, kust saad robotit klaviatuuri abil juhtida.
+Selleks, et kogu robot ühtsena töötaks, peavad need programmid omavahel suhtlema.
+Näiteks programm, mis paneb rattad liikuma, peab teadma kuhu suunas rattad liikuma panna ning see informatsioon tuleb programmilt, kus saad klaviatuuriga robotit juhtida.
+Suhtlemiseks on ROSis kasutusel ROS-rubriigid.
+Rubriigil on oma nimi ning programmid saavad sinna sõnumeid publitseerida ning sealt lugeda. Selles praktikumis kasutame rubriiki nimega “cmd_vel” (velocity command), kuhu saame publitseerida, kuhu poole robot liikuma peaks ning samaaegselt loeb see programm, mis rattaid liigutab, sealt käske ning vastavalt neile liigutab robotit.</p>
+</div>
+<div class="section" id="teema-cmd-vel-ja-kuidas-seda-muuta">
+<h2>Teema cmd_vel ja kuidas seda muuta?<a class="headerlink" href="#teema-cmd-vel-ja-kuidas-seda-muuta" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>Selleks, et robot liikuma hakkaks, peame sellele edastama info, kui kiiresti ja mis suunas liikuda.
+Selleks on meile muutmiseks saadaval kolm argumenti: x-suunaline kiirus, y-suunaline kiirus ja z-telje ümber pöörlemiskiirus.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/coord.png"><img alt="../_images/coord.png" src="../_images/coord.png" style="width: 1050.0px; height: 849.0999999999999px;" /></a>
+</div>
+<p>Positiivsed x’i väärtused panevad roboti edasi sõitma, negatiivsed tagurpidi.
+Positiivsed y’i väärtused panevad roboti vasakule sõitma, negatiivsed paremale.
+Positiivsed z’i väärtused panevad roboti vastupäeva pöörlema, negatiivsed päripäeva.
+x ja y väärtused on ühikutes <em>m/s</em>, seega hoia need alla ühe.</p>
+<p>Etteantud näidiskoodis on võimalus muuta kõiki kolme argumenti.
+Esimene eesmärk on aru saada, kuidas need töötavad, et oskaks hiljem neid kasutada ka keerukamatel juhtudel.
+Leia koodis see koht ning muutes x, y ja z väärtusi, lahenda järgnevad ülesanded.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">vel_msg</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">velocity_publisher</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">vel_msg</span><span class="p">)</span>
+<span class="n">rospy</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="ulesanne-cmd-vel">
+<h3>Ülesanne - cmd_vel<a class="headerlink" href="#ulesanne-cmd-vel" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Ava terminal ning loo ssh-ühendus robotisse.</p>
+</li>
+<li><p class="first">Trüki terminali
+<strong>nano catkin_ws/src/robotont/robotont_training/scripts/praktikum2_move.py</strong>
+See avab Python’i faili, kus hakkame väärtusi muutma.</p>
+</li>
+<li><p class="first">Koodis on ära märgitud ala, mida pead muutma.
+Muuta võid ainult ala, mis on “YOUR CODE HERE START” ja “YOUR CODE HERE END” vahel.
+Esialgu, muuda <em>vel_msg.linear.x</em> väärtus 0.2ks.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/yourcodehere.png"><img alt="../_images/yourcodehere.png" src="../_images/yourcodehere.png" style="width: 368.9px; height: 351.4px;" /></a>
+</div>
+</li>
+<li><p class="first">Salvesta ning välju. Kas mäletad kuidas seda teha? Kui ei, siis vaata esimese praktikumi juhendist järele.</p>
+</li>
+<li><p class="first">Nüüd ava uus terminal ning loo samuti ssh-ühendus robotisse.</p>
+</li>
+<li><p class="first">Uues terminalis sisesta
+roslaunch robotont_teleop teleop_bare.launch
+See paneb käima ROSi draiveri, mis kontrollib rataste kiirusi vastavalt meie sõnumitele.</p>
+</li>
+<li><p class="first">Eelmises (robotisse ühendatud) terminalis sisesta
+<strong>rosrun robotont_training praktikum2_move.py</strong>
+See paneb roboti sõitma. Peatamiseks vajuta samas terminalis korraga klahve <strong>Ctrl + C</strong>.</p>
+</li>
+<li><p class="first">Kui robot sõitis otse, siis jätka, kui ei sõitnud, mõtle, mis võis valesti olla. Kui välja ei mõtle, siis kutsu juhendaja.</p>
+</li>
+<li><p class="first">Nüüd, kui tutvus on tehtud, proovime ise robotit liigutada. <strong>Iga ülesande järel kirjuta üles oma x, y ja z väärtused</strong>.</p>
+<ol class="loweralpha simple">
+<li>Pane robot sõitma tagasi.</li>
+<li>Pane robot sõitma vasakule/paremale.</li>
+<li>Pane robot pöörama vasakule/paremale.</li>
+</ol>
+</li>
+<li><p class="first">Pane robot sõitma 45 kraadise nurga all.</p>
+</li>
+<li><p class="first">Pane robot kaares sõitma</p>
+</li>
+<li><p class="first">Pane robot ringis sõitma</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="for-tsukkel-soidame-nelinurka">
+<h2>For-tsükkel, sõidame nelinurka<a class="headerlink" href="#for-tsukkel-soidame-nelinurka" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>Eelmiste ülesannete juures andsime robotile ainult ühe käsu, mille järgi ta siis sõitis. Aga mis siis, kui tahame näiteks alguses otse sõita ja siis paremale ning jälle otse ja paremale ja korrata neid erinevaid käske?
+Selleks on programmeerimises olemas tsüklid. <em>while</em>-tsüklit, ehk lõpmatut tsüklit kasutasid juba tegelikult eelmistes ülesannetes. Kiiruse muutmise käsku edastati robotile korduvalt, seni kuni kood käis.
+Robotile on turvalisuse eesmärgil sisse ehitatud nn <em>failsafe</em>, mis jätab roboti seisma, kui poole sekundi jooksul käsku ei tule.
+Nüüd tahame aga öelda talle ühte käsku kindel arv kordi ja siis teist käsku kindel arv kordi. Siinkohal tuleb appi <a class="reference external" href="https://progeopik.cs.ut.ee/07_listid.html">for-tsükkel</a>.
+<em>for</em>-tsükkel jooksutab käske täpselt nii palju, kui sellele öelda.
+Pythonis saame seda kasutada nii:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">):</span>
+  <span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.2</span>
   <span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="n">vel_msg</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="n">velocity_publisher</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">vel_msg</span><span class="p">)</span>
-  <span class="n">rospy</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">rospy</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>See kood ütleb iga 0.1 sekundi tagant robotile, et ta sõidaks edasi kiirusega 0.2 <em>m/s</em> ja seda täpselt 30 korda.</p>
+<p>Kui me lisame teise <em>for</em>-tsükli sinna otsa, siis järgmised 30 korda öeldakse robotile, et ta sõidaks kiirusega 0.2 <em>m/s</em> tagasi.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">):</span>
+  <span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.2</span>
+  <span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">vel_msg</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">velocity_publisher</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">vel_msg</span><span class="p">)</span>
+  <span class="n">rospy</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">):</span>
+  <span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.2</span>
+  <span class="n">vel_msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">vel_msg</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">velocity_publisher</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">vel_msg</span><span class="p">)</span>
+  <span class="n">rospy</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
 </div>
+<p>Nii saab erinevaid käske üksteise otsa lisada. Muutes “range(0,30)” käsus numbrit 30, saame muuta kui pikalt ühte käsku täidetakse.</p>
+<div class="section" id="ulesanne-for-tsukkel">
+<h3>Ülesanne - <em>for</em>-tsükkel<a class="headerlink" href="#ulesanne-for-tsukkel" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<ol class="arabic simple">
+<li>Ülesanne on panna robot ruutu sõitma<ol class="loweralpha">
+<li>Selleks pead tegema alguses ühe <em>for</em>-tsükli, mis sõidab otse mingi maa, millest saab ruudu külje pikkus.</li>
+<li>Selle tsükli järel peaks olema teine tsükkel, mis pöörab robotit 90 kraadi (pead leidma sobiva kiiruse ja tsükli pikkuse kombinatsiooni).</li>
+<li>Kuna need tsüklid on suuremas <em>while</em>-tsüklis, siis sellest peakski piisama ning robot sõidab igavesti ruutu.</li>
+</ol>
+</li>
+<li>Ava terminal ning loo ssh-ühendus robotisse.</li>
+<li>Ava <strong>nano**ga fail **praktikum2_forloop.py</strong>, kasutades analoogset käsku nagu eelmises ülesandes.</li>
+<li>Koodis on ära märgitud ala, mida pead muutma.</li>
+<li>Kui oled vahepeal draiveri terminali sulgenud, siis jätka punktiga a. Kui see eelmisest ülesandest veel käib, mine otse punkti juurde nr 6.<ol class="loweralpha">
+<li>Ava uus terminal ning loo ssh-ühendus robotisse.</li>
+<li>Uues terminalis sisesta
+<strong>roslaunch robotont_teleop teleop_bare.launch</strong>
+nagu ka eelmises ülesandes.</li>
+</ol>
+</li>
+<li>Koodi jooksutamiseks kasuta analoogset <strong>rosrun</strong> käsku nagu eelmises ülesandes, kuid vaheta failinimi, mida jooksutad. Peatamiseks vajuta samas terminalis korraga klahve <strong>Ctrl + C</strong>.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="funktsioonid">
+<h2>Funktsioonid<a class="headerlink" href="#funktsioonid" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>Selleks, et meil oleks kergem koodi kirjutada ja et me ei peaks koodi kopeerima, on olemas funktsioonid.
+Korduva koodi saame kirjutada funktsioonide sisse ning funktsiooni ühe reaga välja kutsuda.
+See parandab koodi loetavust ning teeb edasise programmeerimise lihtsamaks.
+Funktsioonide kohta saab lugeda progeõpikust <a class="reference external" href="https://progeopik.cs.ut.ee/04_funktsioonid.html">https://progeopik.cs.ut.ee/04_funktsioonid.html</a> .
+Järgneva ülesande eesmärk on kirjutada funktsioonid erimoodi sõitmiseks, et hiljem oleks lihtne ühe käsuga panna robot soovitud suunas sõitma.</p>
+<div class="section" id="ulesanne-funktsioonid">
+<h3>Ülesanne - funktsioonid<a class="headerlink" href="#ulesanne-funktsioonid" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<ol class="arabic simple">
+<li>Ava terminal ning loo ssh-ühendus robotisse.</li>
+<li>Ava <strong>nano**ga fail **praktikum2_functions.py</strong>, kasutades analoogset käsku nagu eelmises ülesandes.</li>
+<li>Koodis on ära märgitud alad, mida pead muutma. PS: Funktsioon peab analoogselt eelmise ülesandega lõppema publitseerimisega (publish) ning ootamisega (sleep).</li>
+<li>Kui oled vahepeal draiveri terminali sulgenud, siis jätka punktiga a. Kui see eelmisest ülesandest veel käib, mine otse punkti juurde nr 5.<ol class="loweralpha">
+<li>Ava uus terminal ning loo ssh-ühendus robotisse.</li>
+<li>Uues terminalis sisesta
+<strong>roslaunch robotont_teleop teleop_bare.launch</strong></li>
+</ol>
+</li>
+<li>Koodi jooksutamiseks kasuta analoogset <strong>rosrun</strong> käsku nagu eelmises ülesandes, kuid vaheta failinimi, mida jooksutad. Peatamiseks vajuta samas terminalis korraga klahve <strong>Ctrl + C</strong>.</li>
+<li>Implementeeri funktsioon otse sõitmiseks.<ol class="loweralpha">
+<li>argumentideks peavad olema kestus (mitu korda for-tsüklit kordad) ja kiirus</li>
+<li>katseta oma funktsiooni</li>
+</ol>
+</li>
+<li>Implementeeri funktsioon pööramiseks.<ol class="loweralpha">
+<li>argumentideks peavad olema kestus (mitu korda for-tsüklit kordad) ja kiirus</li>
+<li>katseta oma funktsiooni</li>
+</ol>
+</li>
+<li>Implementeeri funktsioon küljele sõitmiseks.<ol class="loweralpha">
+<li>argumentideks peavad olema kestus (mitu korda for-tsüklit kordad) ja kiirus</li>
+<li>katseta oma funktsiooni</li>
+</ol>
+</li>
+<li>Kasutades neid funktsioone, pane robot sõitma mööda oma valitud kujundit.</li>
+</ol>
 <div class="section" id="enne-praktikumi-lopetamist">
-<h2>Enne praktikumi lõpetamist<a class="headerlink" href="#enne-praktikumi-lopetamist" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<h4>Enne praktikumi lõpetamist<a class="headerlink" href="#enne-praktikumi-lopetamist" title="Püsiviit sellele pealkirjale">¶</a></h4>
 <ol class="arabic simple">
 <li>Ava uus terminal</li>
 <li>Sisesta sinna
@@ -189,6 +375,8 @@
 Kontrolli, kas sinu github.com lehel uuenesid failid.</li>
 <li>Kui uuenesid, siis loo ssh-ühendus robotisse ning sisesta käsureale <strong>sudo poweroff</strong>.</li>
 </ol>
+</div>
+</div>
 </div>
 </div>
 
