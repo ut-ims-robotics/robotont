@@ -184,15 +184,15 @@ Järgneva ülesande eesmärk on kirjutada funktsioonid erimoodi sõitmiseks, et 
 5.  Koodi jooksutamiseks kasuta analoogset **rosrun** käsku nagu eelmises ülesandes, kuid vaheta failinimi, mida jooksutad. Peatamiseks vajuta samas terminalis korraga klahve **Ctrl + C**.
 6.  Implementeeri funktsioon otse sõitmiseks.
 
-    a.  argumentideks peavad olema kestus (mitu korda for-tsüklit kordad) ja kiirus
+    a.  argumentideks peavad olema kestus (mitu korda *for*-tsüklit kordad) ja kiirus
     b.  katseta oma funktsiooni
 7.  Implementeeri funktsioon pööramiseks.
 
-    a.  argumentideks peavad olema kestus (mitu korda for-tsüklit kordad) ja kiirus
+    a.  argumentideks peavad olema kestus (mitu korda *for*-tsüklit kordad) ja kiirus
     b.  katseta oma funktsiooni
 8.  Implementeeri funktsioon küljele sõitmiseks.
 
-    a.  argumentideks peavad olema kestus (mitu korda for-tsüklit kordad) ja kiirus
+    a.  argumentideks peavad olema kestus (mitu korda *for*-tsüklit kordad) ja kiirus
     b.  katseta oma funktsiooni
 9.  Kasutades neid funktsioone, pane robot sõitma mööda oma valitud kujundit.
 
