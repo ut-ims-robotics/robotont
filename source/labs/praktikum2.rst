@@ -167,7 +167,7 @@ Funktsioonid
 Selleks, et meil oleks kergem koodi kirjutada ja et me ei peaks koodi kopeerima, on olemas funktsioonid. 
 Korduva koodi saame kirjutada funktsioonide sisse ning funktsiooni ühe reaga välja kutsuda. 
 See parandab koodi loetavust ning teeb edasise programmeerimise lihtsamaks. 
-Funktsioonide kohta saab lugeda progeõpikust https://progeopik.cs.ut.ee/04_funktsioonid.html . 
+Funktsioonide kohta saab lugeda `progeõpikust <https://progeopik.cs.ut.ee/04_funktsioonid.html>`_. 
 Järgneva ülesande eesmärk on kirjutada funktsioonid erimoodi sõitmiseks, et hiljem oleks lihtne ühe käsuga panna robot soovitud suunas sõitma.
 
 Ülesanne - funktsioonid
