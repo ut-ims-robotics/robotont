@@ -13,11 +13,17 @@ Git on versioonihaldustarkvara, mis aitab meil salvestada koodi internetti, et s
 5.  Vajuta rohelist nuppu “Clone or download”
 6.  Kopeeri sealt aadress
 7.  Ava terminal ning trüki sinna
+
     **cd catkin\_ws/src**
+
 8.  Seejärel sisesta
+
     **git clone \-sinu\-kopeeritud\-link\-**
+
 9.  Nüüd trüki terminali
+
     **catkin build**
+
 10. Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.
 
 Sissejuhatus
@@ -72,8 +78,16 @@ Leia koodis see koht ning muutes x, y ja z väärtusi, lahenda järgnevad ülesa
 ~~~~~~~~~~~~~~~~~~~~
 
 1.  Ava terminal ning loo ssh-ühendus robotisse.
+
+.. toggle-header::
+    :header: **Kui töötad simulatsioonis**
+
+        Kui töötad simulatsioonis, siis ava lihtsalt terminal.
+
 2.  Trüki terminali
+
     **nano catkin_ws/src/robotont/robotont_training/scripts/praktikum2_move.py**
+
     See avab Python’i faili, kus hakkame väärtusi muutma. 
 3.  Koodis on ära märgitud ala, mida pead muutma. 
     Muuta võid ainult ala, mis on “YOUR CODE HERE START” ja “YOUR CODE HERE END” vahel. 
@@ -86,11 +100,25 @@ Leia koodis see koht ning muutes x, y ja z väärtusi, lahenda järgnevad ülesa
 
 4.  Salvesta ning välju. Kas mäletad kuidas seda teha? Kui ei, siis vaata esimese praktikumi juhendist järele.
 5.  Nüüd ava uus terminal ning loo samuti ssh-ühendus robotisse.
+
+.. toggle-header::
+    :header: **Kui töötad simulatsioonis**
+
+        Kui töötad simulatsioonis, siis ava lihtsalt terminal ning simulatsiooni käitamiseks kasuta käsku
+
+        **roslaunch robotont_description gazebo.launch**
+        
+        ja mine punktini 7.
+
 6.  Uues terminalis sisesta 
-    roslaunch robotont_teleop teleop_bare.launch 
+
+    **roslaunch robotont_teleop teleop_bare.launch**
+
     See paneb käima ROSi draiveri, mis kontrollib rataste kiirusi vastavalt meie sõnumitele.
 7.  Eelmises (robotisse ühendatud) terminalis sisesta 
+
     **rosrun robotont_training praktikum2_move.py**
+
     See paneb roboti sõitma. Peatamiseks vajuta samas terminalis korraga klahve **Ctrl + C**.
 8.  Kui robot sõitis otse, siis jätka, kui ei sõitnud, mõtle, mis võis valesti olla. Kui välja ei mõtle, siis kutsu juhendaja.
 9.  Nüüd, kui tutvus on tehtud, proovime ise robotit liigutada. **Iga ülesande järel kirjuta üles oma x, y ja z väärtused**.
@@ -150,13 +178,15 @@ Nii saab erinevaid käske üksteise otsa lisada. Muutes “range(0,30)” käsus
     b.  Selle tsükli järel peaks olema teine tsükkel, mis pöörab robotit 90 kraadi (pead leidma sobiva kiiruse ja tsükli pikkuse kombinatsiooni).
     c.  Kuna need tsüklid on suuremas *while*-tsüklis, siis sellest peakski piisama ning robot sõidab igavesti ruutu.
 2.  Ava terminal ning loo ssh-ühendus robotisse.
-3.  Ava **nano**ga fail **praktikum2_forloop.py**, kasutades analoogset käsku nagu eelmises ülesandes.
+3.  Ava **nano**'ga fail **praktikum2_forloop.py**, kasutades analoogset käsku nagu eelmises ülesandes.
 4.  Koodis on ära märgitud ala, mida pead muutma.
 5.  Kui oled vahepeal draiveri terminali sulgenud, siis jätka punktiga a. Kui see eelmisest ülesandest veel käib, mine otse punkti juurde nr 6.
 
     a.  Ava uus terminal ning loo ssh-ühendus robotisse.
     b.  Uues terminalis sisesta 
+
         **roslaunch robotont_teleop teleop_bare.launch**
+
         nagu ka eelmises ülesandes.
 6.  Koodi jooksutamiseks kasuta analoogset **rosrun** käsku nagu eelmises ülesandes, kuid vaheta failinimi, mida jooksutad. Peatamiseks vajuta samas terminalis korraga klahve **Ctrl + C**.
 
@@ -180,7 +210,9 @@ Järgneva ülesande eesmärk on kirjutada funktsioonid erimoodi sõitmiseks, et 
 
     a.  Ava uus terminal ning loo ssh-ühendus robotisse.
     b.  Uues terminalis sisesta 
+
         **roslaunch robotont_teleop teleop_bare.launch**
+        
 5.  Koodi jooksutamiseks kasuta analoogset **rosrun** käsku nagu eelmises ülesandes, kuid vaheta failinimi, mida jooksutad. Peatamiseks vajuta samas terminalis korraga klahve **Ctrl + C**.
 6.  Implementeeri funktsioon otse sõitmiseks.
 

@@ -323,6 +323,7 @@ Korrektselt vormistatud liikumisjuhiste andmiseks kasutame programmi, mis võima
 
 2.  Käivitame äsja avatud terminaliaknas, mis käivitab programme sülearvutis, ROS programmi, mis jälgib terminali aknas klahvivajutusi. 
     Programm saadab klahvivajutused edasi robotile arusaadaval kujul. Programmi käivitamiseks sisesta terminali järgmine käsk ja vajuta Enter klahvi:
+ 
     **roslaunch robotont_teleop teleop_pc_side.launch**
 
 3.  Tulemus peaks olema selline:

@@ -165,20 +165,30 @@
 <div class="section" id="giti-ules-seadmine">
 <h2>Giti üles seadmine<a class="headerlink" href="#giti-ules-seadmine" title="Püsiviit sellele pealkirjale">¶</a></h2>
 <p>Git on versioonihaldustarkvara, mis aitab meil salvestada koodi internetti, et seda ka hiljem kasutada saaks, kui arvutist kood kustutatud on.</p>
-<ol class="arabic simple">
-<li>Mine lehele <a class="reference external" href="https://github.com/">https://github.com/</a> ning registreeri ennast kasutajaks.</li>
-<li>Logi sisse</li>
-<li>Mine lehele <a class="reference external" href="https://github.com/ut-ims-robotics/robotont-blank-scripts">https://github.com/ut-ims-robotics/robotont-blank-scripts</a></li>
-<li>Vajuta paremal üleval nuppu “Fork”, see kopeerib selle repositooriumi sinu kasutajasse.</li>
-<li>Vajuta rohelist nuppu “Clone or download”</li>
-<li>Kopeeri sealt aadress</li>
-<li>Ava terminal ning trüki sinna
-<strong>cd catkin_ws/src</strong></li>
-<li>Seejärel sisesta
-<strong>git clone -sinu-kopeeritud-link-</strong></li>
-<li>Nüüd trüki terminali
-<strong>catkin build</strong></li>
-<li>Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.</li>
+<ol class="arabic">
+<li><p class="first">Mine lehele <a class="reference external" href="https://github.com/">https://github.com/</a> ning registreeri ennast kasutajaks.</p>
+</li>
+<li><p class="first">Logi sisse</p>
+</li>
+<li><p class="first">Mine lehele <a class="reference external" href="https://github.com/ut-ims-robotics/robotont-blank-scripts">https://github.com/ut-ims-robotics/robotont-blank-scripts</a></p>
+</li>
+<li><p class="first">Vajuta paremal üleval nuppu “Fork”, see kopeerib selle repositooriumi sinu kasutajasse.</p>
+</li>
+<li><p class="first">Vajuta rohelist nuppu “Clone or download”</p>
+</li>
+<li><p class="first">Kopeeri sealt aadress</p>
+</li>
+<li><p class="first">Ava terminal ning trüki sinna</p>
+<p><strong>cd catkin_ws/src</strong></p>
+</li>
+<li><p class="first">Seejärel sisesta</p>
+<p><strong>git clone -sinu-kopeeritud-link-</strong></p>
+</li>
+<li><p class="first">Nüüd trüki terminali</p>
+<p><strong>catkin build</strong></p>
+</li>
+<li><p class="first">Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.</p>
+</li>
 </ol>
 </div>
 <div class="section" id="sissejuhatus">
@@ -222,12 +232,18 @@ Leia koodis see koht ning muutes x, y ja z väärtusi, lahenda järgnevad ülesa
 </div>
 <div class="section" id="ulesanne-cmd-vel">
 <h3>Ülesanne - cmd_vel<a class="headerlink" href="#ulesanne-cmd-vel" title="Püsiviit sellele pealkirjale">¶</a></h3>
-<ol class="arabic">
-<li><p class="first">Ava terminal ning loo ssh-ühendus robotisse.</p>
-</li>
-<li><p class="first">Trüki terminali
-<strong>nano catkin_ws/src/robotont/robotont_training/scripts/praktikum2_move.py</strong>
-See avab Python’i faili, kus hakkame väärtusi muutma.</p>
+<ol class="arabic simple">
+<li>Ava terminal ning loo ssh-ühendus robotisse.</li>
+</ol>
+<p class="toggle-header"><strong>Kui töötad simulatsioonis</strong></p>
+<div class="toggle-content docutils container">
+<blockquote>
+<div>Kui töötad simulatsioonis, siis ava lihtsalt terminal.</div></blockquote>
+</div>
+<ol class="arabic" start="2">
+<li><p class="first">Trüki terminali</p>
+<p><strong>nano catkin_ws/src/robotont/robotont_training/scripts/praktikum2_move.py</strong></p>
+<p>See avab Python’i faili, kus hakkame väärtusi muutma.</p>
 </li>
 <li><p class="first">Koodis on ära märgitud ala, mida pead muutma.
 Muuta võid ainult ala, mis on “YOUR CODE HERE START” ja “YOUR CODE HERE END” vahel.
@@ -240,13 +256,23 @@ Esialgu, muuda <em>vel_msg.linear.x</em> väärtus 0.2ks.</p>
 </li>
 <li><p class="first">Nüüd ava uus terminal ning loo samuti ssh-ühendus robotisse.</p>
 </li>
-<li><p class="first">Uues terminalis sisesta
-roslaunch robotont_teleop teleop_bare.launch
-See paneb käima ROSi draiveri, mis kontrollib rataste kiirusi vastavalt meie sõnumitele.</p>
+</ol>
+<p class="toggle-header"><strong>Kui töötad simulatsioonis</strong></p>
+<div class="toggle-content docutils container">
+<blockquote>
+<div><p>Kui töötad simulatsioonis, siis ava lihtsalt terminal ning simulatsiooni käitamiseks kasuta käsku</p>
+<p><strong>roslaunch robotont_description gazebo.launch</strong></p>
+<p>ja mine punktini 7.</p>
+</div></blockquote>
+</div>
+<ol class="arabic" start="6">
+<li><p class="first">Uues terminalis sisesta</p>
+<p><strong>roslaunch robotont_teleop teleop_bare.launch</strong></p>
+<p>See paneb käima ROSi draiveri, mis kontrollib rataste kiirusi vastavalt meie sõnumitele.</p>
 </li>
-<li><p class="first">Eelmises (robotisse ühendatud) terminalis sisesta
-<strong>rosrun robotont_training praktikum2_move.py</strong>
-See paneb roboti sõitma. Peatamiseks vajuta samas terminalis korraga klahve <strong>Ctrl + C</strong>.</p>
+<li><p class="first">Eelmises (robotisse ühendatud) terminalis sisesta</p>
+<p><strong>rosrun robotont_training praktikum2_move.py</strong></p>
+<p>See paneb roboti sõitma. Peatamiseks vajuta samas terminalis korraga klahve <strong>Ctrl + C</strong>.</p>
 </li>
 <li><p class="first">Kui robot sõitis otse, siis jätka, kui ei sõitnud, mõtle, mis võis valesti olla. Kui välja ei mõtle, siis kutsu juhendaja.</p>
 </li>
@@ -301,24 +327,32 @@ Pythonis saame seda kasutada nii:</p>
 <p>Nii saab erinevaid käske üksteise otsa lisada. Muutes “range(0,30)” käsus numbrit 30, saame muuta kui pikalt ühte käsku täidetakse.</p>
 <div class="section" id="ulesanne-for-tsukkel">
 <h3>Ülesanne - <em>for</em>-tsükkel<a class="headerlink" href="#ulesanne-for-tsukkel" title="Püsiviit sellele pealkirjale">¶</a></h3>
-<ol class="arabic simple">
-<li>Ülesanne on panna robot ruutu sõitma<ol class="loweralpha">
+<ol class="arabic">
+<li><p class="first">Ülesanne on panna robot ruutu sõitma</p>
+<ol class="loweralpha simple">
 <li>Selleks pead tegema alguses ühe <em>for</em>-tsükli, mis sõidab otse mingi maa, millest saab ruudu külje pikkus.</li>
 <li>Selle tsükli järel peaks olema teine tsükkel, mis pöörab robotit 90 kraadi (pead leidma sobiva kiiruse ja tsükli pikkuse kombinatsiooni).</li>
 <li>Kuna need tsüklid on suuremas <em>while</em>-tsüklis, siis sellest peakski piisama ning robot sõidab igavesti ruutu.</li>
 </ol>
 </li>
-<li>Ava terminal ning loo ssh-ühendus robotisse.</li>
-<li>Ava <strong>nano**ga fail **praktikum2_forloop.py</strong>, kasutades analoogset käsku nagu eelmises ülesandes.</li>
-<li>Koodis on ära märgitud ala, mida pead muutma.</li>
-<li>Kui oled vahepeal draiveri terminali sulgenud, siis jätka punktiga a. Kui see eelmisest ülesandest veel käib, mine otse punkti juurde nr 6.<ol class="loweralpha">
-<li>Ava uus terminal ning loo ssh-ühendus robotisse.</li>
-<li>Uues terminalis sisesta
-<strong>roslaunch robotont_teleop teleop_bare.launch</strong>
-nagu ka eelmises ülesandes.</li>
+<li><p class="first">Ava terminal ning loo ssh-ühendus robotisse.</p>
+</li>
+<li><p class="first">Ava <strong>nano</strong>’ga fail <strong>praktikum2_forloop.py</strong>, kasutades analoogset käsku nagu eelmises ülesandes.</p>
+</li>
+<li><p class="first">Koodis on ära märgitud ala, mida pead muutma.</p>
+</li>
+<li><p class="first">Kui oled vahepeal draiveri terminali sulgenud, siis jätka punktiga a. Kui see eelmisest ülesandest veel käib, mine otse punkti juurde nr 6.</p>
+<ol class="loweralpha">
+<li><p class="first">Ava uus terminal ning loo ssh-ühendus robotisse.</p>
+</li>
+<li><p class="first">Uues terminalis sisesta</p>
+<p><strong>roslaunch robotont_teleop teleop_bare.launch</strong></p>
+<p>nagu ka eelmises ülesandes.</p>
+</li>
 </ol>
 </li>
-<li>Koodi jooksutamiseks kasuta analoogset <strong>rosrun</strong> käsku nagu eelmises ülesandes, kuid vaheta failinimi, mida jooksutad. Peatamiseks vajuta samas terminalis korraga klahve <strong>Ctrl + C</strong>.</li>
+<li><p class="first">Koodi jooksutamiseks kasuta analoogset <strong>rosrun</strong> käsku nagu eelmises ülesandes, kuid vaheta failinimi, mida jooksutad. Peatamiseks vajuta samas terminalis korraga klahve <strong>Ctrl + C</strong>.</p>
+</li>
 </ol>
 </div>
 </div>
@@ -331,33 +365,44 @@ Funktsioonide kohta saab lugeda <a class="reference external" href="https://prog
 Järgneva ülesande eesmärk on kirjutada funktsioonid erimoodi sõitmiseks, et hiljem oleks lihtne ühe käsuga panna robot soovitud suunas sõitma.</p>
 <div class="section" id="ulesanne-funktsioonid">
 <h3>Ülesanne - funktsioonid<a class="headerlink" href="#ulesanne-funktsioonid" title="Püsiviit sellele pealkirjale">¶</a></h3>
-<ol class="arabic simple">
-<li>Ava terminal ning loo ssh-ühendus robotisse.</li>
-<li>Ava <strong>nano**ga fail **praktikum2_functions.py</strong>, kasutades analoogset käsku nagu eelmises ülesandes.</li>
-<li>Koodis on ära märgitud alad, mida pead muutma. PS: Funktsioon peab analoogselt eelmise ülesandega lõppema publitseerimisega (publish) ning ootamisega (sleep).</li>
-<li>Kui oled vahepeal draiveri terminali sulgenud, siis jätka punktiga a. Kui see eelmisest ülesandest veel käib, mine otse punkti juurde nr 5.<ol class="loweralpha">
-<li>Ava uus terminal ning loo ssh-ühendus robotisse.</li>
-<li>Uues terminalis sisesta
-<strong>roslaunch robotont_teleop teleop_bare.launch</strong></li>
+<ol class="arabic">
+<li><p class="first">Ava terminal ning loo ssh-ühendus robotisse.</p>
+</li>
+<li><p class="first">Ava <strong>nano**ga fail **praktikum2_functions.py</strong>, kasutades analoogset käsku nagu eelmises ülesandes.</p>
+</li>
+<li><p class="first">Koodis on ära märgitud alad, mida pead muutma. PS: Funktsioon peab analoogselt eelmise ülesandega lõppema publitseerimisega (publish) ning ootamisega (sleep).</p>
+</li>
+<li><p class="first">Kui oled vahepeal draiveri terminali sulgenud, siis jätka punktiga a. Kui see eelmisest ülesandest veel käib, mine otse punkti juurde nr 5.</p>
+<ol class="loweralpha">
+<li><p class="first">Ava uus terminal ning loo ssh-ühendus robotisse.</p>
+</li>
+<li><p class="first">Uues terminalis sisesta</p>
+<p><strong>roslaunch robotont_teleop teleop_bare.launch</strong></p>
+</li>
 </ol>
 </li>
-<li>Koodi jooksutamiseks kasuta analoogset <strong>rosrun</strong> käsku nagu eelmises ülesandes, kuid vaheta failinimi, mida jooksutad. Peatamiseks vajuta samas terminalis korraga klahve <strong>Ctrl + C</strong>.</li>
-<li>Implementeeri funktsioon otse sõitmiseks.<ol class="loweralpha">
+<li><p class="first">Koodi jooksutamiseks kasuta analoogset <strong>rosrun</strong> käsku nagu eelmises ülesandes, kuid vaheta failinimi, mida jooksutad. Peatamiseks vajuta samas terminalis korraga klahve <strong>Ctrl + C</strong>.</p>
+</li>
+<li><p class="first">Implementeeri funktsioon otse sõitmiseks.</p>
+<ol class="loweralpha simple">
 <li>argumentideks peavad olema kestus (mitu korda <em>for</em>-tsüklit kordad) ja kiirus</li>
 <li>katseta oma funktsiooni</li>
 </ol>
 </li>
-<li>Implementeeri funktsioon pööramiseks.<ol class="loweralpha">
+<li><p class="first">Implementeeri funktsioon pööramiseks.</p>
+<ol class="loweralpha simple">
 <li>argumentideks peavad olema kestus (mitu korda <em>for</em>-tsüklit kordad) ja kiirus</li>
 <li>katseta oma funktsiooni</li>
 </ol>
 </li>
-<li>Implementeeri funktsioon küljele sõitmiseks.<ol class="loweralpha">
+<li><p class="first">Implementeeri funktsioon küljele sõitmiseks.</p>
+<ol class="loweralpha simple">
 <li>argumentideks peavad olema kestus (mitu korda <em>for</em>-tsüklit kordad) ja kiirus</li>
 <li>katseta oma funktsiooni</li>
 </ol>
 </li>
-<li>Kasutades neid funktsioone, pane robot sõitma mööda oma valitud kujundit.</li>
+<li><p class="first">Kasutades neid funktsioone, pane robot sõitma mööda oma valitud kujundit.</p>
+</li>
 </ol>
 <div class="section" id="enne-praktikumi-lopetamist">
 <h4>Enne praktikumi lõpetamist<a class="headerlink" href="#enne-praktikumi-lopetamist" title="Püsiviit sellele pealkirjale">¶</a></h4>
