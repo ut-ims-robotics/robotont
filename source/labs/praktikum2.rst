@@ -8,7 +8,7 @@ Git on versioonihaldustarkvara, mis aitab meil salvestada koodi internetti, et s
 
 1.  Mine lehele https://github.com/ ning registreeri ennast kasutajaks.
 2.  Logi sisse
-3.  Mine lehele https://github.com/ut-ims-robotics/robotont-blank-scripts
+3.  Mine lehele https://github.com/ut-ims-robotics/robotont_blank_scripts
 4.  Vajuta paremal üleval nuppu “Fork”, see kopeerib selle repositooriumi sinu kasutajasse.
 5.  Vajuta rohelist nuppu “Clone or download”
 6.  Kopeeri sealt aadress
@@ -86,7 +86,7 @@ Leia koodis see koht ning muutes x, y ja z väärtusi, lahenda järgnevad ülesa
 
 2.  Trüki terminali
 
-    **nano catkin_ws/src/robotont/robotont_training/scripts/praktikum2_move.py**
+    **nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum2_move.py**
 
     See avab Python’i faili, kus hakkame väärtusi muutma. 
 3.  Koodis on ära märgitud ala, mida pead muutma. 
@@ -117,7 +117,7 @@ Leia koodis see koht ning muutes x, y ja z väärtusi, lahenda järgnevad ülesa
     See paneb käima ROSi draiveri, mis kontrollib rataste kiirusi vastavalt meie sõnumitele.
 7.  Eelmises (robotisse ühendatud) terminalis sisesta 
 
-    **rosrun robotont_training praktikum2_move.py**
+    **rosrun robotont_blank_scripts praktikum2_move.py**
 
     See paneb roboti sõitma. Peatamiseks vajuta samas terminalis korraga klahve **Ctrl + C**.
 8.  Kui robot sõitis otse, siis jätka, kui ei sõitnud, mõtle, mis võis valesti olla. Kui välja ei mõtle, siis kutsu juhendaja.
@@ -174,9 +174,10 @@ Nii saab erinevaid käske üksteise otsa lisada. Muutes “range(0,30)” käsus
 
 1.  Ülesanne on panna robot ruutu sõitma
 
-    a.  Selleks pead tegema alguses ühe *for*-tsükli, mis sõidab otse mingi maa, millest saab ruudu külje pikkus.
-    b.  Selle tsükli järel peaks olema teine tsükkel, mis pöörab robotit 90 kraadi (pead leidma sobiva kiiruse ja tsükli pikkuse kombinatsiooni).
-    c.  Kuna need tsüklid on suuremas *while*-tsüklis, siis sellest peakski piisama ning robot sõidab igavesti ruutu.
+  a.  Selleks pead tegema alguses ühe *for*-tsükli, mis sõidab otse mingi maa, millest saab ruudu külje pikkus.
+  b.  Selle tsükli järel peaks olema teine tsükkel, mis pöörab robotit 90 kraadi (pead leidma sobiva kiiruse ja tsükli pikkuse kombinatsiooni).
+  c.  Kuna need tsüklid on suuremas *while*-tsüklis, siis sellest peakski piisama ning robot sõidab igavesti ruutu.
+
 2.  Ava terminal ning loo ssh-ühendus robotisse.
 3.  Ava **nano**'ga fail **praktikum2_forloop.py**, kasutades analoogset käsku nagu eelmises ülesandes.
 4.  Koodis on ära märgitud ala, mida pead muutma.
@@ -204,7 +205,7 @@ Järgneva ülesande eesmärk on kirjutada funktsioonid erimoodi sõitmiseks, et 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1.  Ava terminal ning loo ssh-ühendus robotisse.
-2.  Ava **nano**ga fail **praktikum2_functions.py**, kasutades analoogset käsku nagu eelmises ülesandes.
+2.  Ava **nano**'ga fail **praktikum2_functions.py**, kasutades analoogset käsku nagu eelmises ülesandes.
 3.  Koodis on ära märgitud alad, mida pead muutma. PS: Funktsioon peab analoogselt eelmise ülesandega lõppema publitseerimisega (publish) ning ootamisega (sleep).
 4.  Kui oled vahepeal draiveri terminali sulgenud, siis jätka punktiga a. Kui see eelmisest ülesandest veel käib, mine otse punkti juurde nr 5.
 
@@ -212,20 +213,23 @@ Järgneva ülesande eesmärk on kirjutada funktsioonid erimoodi sõitmiseks, et 
     b.  Uues terminalis sisesta 
 
         **roslaunch robotont_teleop teleop_bare.launch**
-        
+       
 5.  Koodi jooksutamiseks kasuta analoogset **rosrun** käsku nagu eelmises ülesandes, kuid vaheta failinimi, mida jooksutad. Peatamiseks vajuta samas terminalis korraga klahve **Ctrl + C**.
 6.  Implementeeri funktsioon otse sõitmiseks.
 
     a.  argumentideks peavad olema kestus (mitu korda *for*-tsüklit kordad) ja kiirus
     b.  katseta oma funktsiooni
+
 7.  Implementeeri funktsioon pööramiseks.
 
     a.  argumentideks peavad olema kestus (mitu korda *for*-tsüklit kordad) ja kiirus
     b.  katseta oma funktsiooni
+
 8.  Implementeeri funktsioon küljele sõitmiseks.
 
     a.  argumentideks peavad olema kestus (mitu korda *for*-tsüklit kordad) ja kiirus
     b.  katseta oma funktsiooni
+
 9.  Kasutades neid funktsioone, pane robot sõitma mööda oma valitud kujundit.
 
 
