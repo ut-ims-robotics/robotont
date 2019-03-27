@@ -169,15 +169,14 @@ Kui me lisame teise *for*-tsükli sinna otsa, siis järgmised 30 korda öeldakse
 
 Nii saab erinevaid käske üksteise otsa lisada. Muutes “range(0,30)” käsus numbrit 30, saame muuta kui pikalt ühte käsku täidetakse. 
 
-Ülesanne - *for*-tsükkel
+Ülesanne - for-tsükkel
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1.  Ülesanne on panna robot ruutu sõitma
 
-  a.  Selleks pead tegema alguses ühe *for*-tsükli, mis sõidab otse mingi maa, millest saab ruudu külje pikkus.
-  b.  Selle tsükli järel peaks olema teine tsükkel, mis pöörab robotit 90 kraadi (pead leidma sobiva kiiruse ja tsükli pikkuse kombinatsiooni).
-  c.  Kuna need tsüklid on suuremas *while*-tsüklis, siis sellest peakski piisama ning robot sõidab igavesti ruutu.
-
+    a.  Selleks pead tegema alguses ühe *for*-tsükli, mis sõidab otse mingi maa, millest saab ruudu külje pikkus.
+    b.  Selle tsükli järel peaks olema teine tsükkel, mis pöörab robotit 90 kraadi (pead leidma sobiva kiiruse ja tsükli pikkuse kombinatsiooni).
+    c.  Kuna need tsüklid on suuremas *while*-tsüklis, siis sellest peakski piisama ning robot sõidab igavesti ruutu.
 2.  Ava terminal ning loo ssh-ühendus robotisse.
 3.  Ava **nano**'ga fail **praktikum2_forloop.py**, kasutades analoogset käsku nagu eelmises ülesandes.
 4.  Koodis on ära märgitud ala, mida pead muutma.
