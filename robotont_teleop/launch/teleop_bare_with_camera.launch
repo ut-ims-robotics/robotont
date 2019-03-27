@@ -9,7 +9,9 @@
 
   <include file="$(find realsense2_camera)/launch/rs_aligned_depth.launch"/>
 
-  
+  <include file="$(find robotont_teleop)/launch/cam_throttling.launch">
+    <arg name="cam_fps" value="5" />
+  </include>
 
   <rosparam ns="robotont" file="$(find robotont_driver)/config/robotont_params.yaml" command="load" />
   <node ns="robotont" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />

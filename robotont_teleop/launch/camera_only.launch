@@ -8,6 +8,7 @@
 </rosparam>
 
   <include file="$(find realsense2_camera)/launch/rs_aligned_depth.launch"/>
+  <include file="$(find robotont_teleop)/launch/cam_throttling.launch" />
 
   
 
