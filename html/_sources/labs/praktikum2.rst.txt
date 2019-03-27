@@ -170,8 +170,7 @@ Kui me lisame teise *for*-tsükli sinna otsa, siis järgmised 30 korda öeldakse
 Nii saab erinevaid käske üksteise otsa lisada. Muutes “range(0,30)” käsus numbrit 30, saame muuta kui pikalt ühte käsku täidetakse. 
 
 Ülesanne - *for*-tsükkel
-~~~~~~~~~~~~~~~~~~~~~~~~
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1.  Ülesanne on panna robot ruutu sõitma
 
