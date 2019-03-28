@@ -37,14 +37,14 @@ Kui Pythoni kasutamine on meelest läinud või sa pole seda kunagi osanudki, sii
 ROS-rubriigid
 ---------------------
 
-ROSis ehk roboti operatsioonisüsteemis töötavad samal ajal erinevad programmid. 
-Näiteks on programm, mis suhtleb kaameraga ja saab sealt pildi. 
-Või on programm, mis paneb roboti rattad soovitud suunas liikuma. 
-Samuti programm, kust saad robotit klaviatuuri abil juhtida.
-Selleks, et kogu robot ühtsena töötaks, peavad need programmid omavahel suhtlema. 
-Näiteks programm, mis paneb rattad liikuma, peab teadma kuhu suunas rattad liikuma panna ning see informatsioon tuleb programmilt, kus saad klaviatuuriga robotit juhtida.
+ROSis ehk roboti operatsioonisüsteemis töötavad samal ajal erinevad sõlmed ehk konkreetsele ülesandele pühendatud programmid. 
+Näiteks on sõlm, mis suhtleb kaameraga ja saab sealt pildi. Või on sõlm, mis paneb roboti rattad soovitud suunas liikuma. 
+Samuti sõlm, kust saad robotit klaviatuuri abil juhtida.
+Selleks, et kogu robot ühtsena töötaks, peavad need sõlmed omavahel suhtlema. 
+Näiteks sõlm, mis paneb rattad liikuma, peab teadma kuhu suunas rattad liikuma panna ning see informatsioon tuleb sõlmelt, kus saad klaviatuuriga robotit juhtida.
 Suhtlemiseks on ROSis kasutusel ROS-rubriigid. 
-Rubriigil on oma nimi ning programmid saavad sinna sõnumeid publitseerida ning sealt lugeda. Selles praktikumis kasutame rubriiki nimega “cmd_vel” (velocity command), kuhu saame publitseerida, kuhu poole robot liikuma peaks ning samaaegselt loeb see programm, mis rattaid liigutab, sealt käske ning vastavalt neile liigutab robotit.
+Rubriigil on oma nimi ning sõlmed saavad sinna sõnumeid kuulutada ning sealt tellida. 
+Selles praktikumis kasutame rubriiki nimega “cmd_vel” (velocity command), kuhu saame kuulutada, kuhu poole robot liikuma peaks, ning samaaegselt tellib see sõlm, mis rattaid liigutab, sealt käske ning vastavalt neile liigutab robotit.
 
 Teema cmd_vel ja kuidas seda muuta?
 ---------------------------------------
@@ -205,7 +205,7 @@ Järgneva ülesande eesmärk on kirjutada funktsioonid erimoodi sõitmiseks, et 
 
 1.  Ava terminal ning loo ssh-ühendus robotisse.
 2.  Ava **nano**'ga fail **praktikum2_functions.py**, kasutades analoogset käsku nagu eelmises ülesandes.
-3.  Koodis on ära märgitud alad, mida pead muutma. PS: Funktsioon peab analoogselt eelmise ülesandega lõppema publitseerimisega (publish) ning ootamisega (sleep).
+3.  Koodis on ära märgitud alad, mida pead muutma. PS: Funktsioon peab analoogselt eelmise ülesandega lõppema kuulutamisega (publish) ning ootamisega (sleep).
 4.  Kui oled vahepeal draiveri terminali sulgenud, siis jätka punktiga a. Kui see eelmisest ülesandest veel käib, mine otse punkti juurde nr 5.
 
     a.  Ava uus terminal ning loo ssh-ühendus robotisse.

@@ -195,14 +195,14 @@ Kui Pythoni kasutamine on meelest läinud või sa pole seda kunagi osanudki, sii
 </div>
 <div class="section" id="ros-rubriigid">
 <h2>ROS-rubriigid<a class="headerlink" href="#ros-rubriigid" title="Püsiviit sellele pealkirjale">¶</a></h2>
-<p>ROSis ehk roboti operatsioonisüsteemis töötavad samal ajal erinevad programmid.
-Näiteks on programm, mis suhtleb kaameraga ja saab sealt pildi.
-Või on programm, mis paneb roboti rattad soovitud suunas liikuma.
-Samuti programm, kust saad robotit klaviatuuri abil juhtida.
-Selleks, et kogu robot ühtsena töötaks, peavad need programmid omavahel suhtlema.
-Näiteks programm, mis paneb rattad liikuma, peab teadma kuhu suunas rattad liikuma panna ning see informatsioon tuleb programmilt, kus saad klaviatuuriga robotit juhtida.
+<p>ROSis ehk roboti operatsioonisüsteemis töötavad samal ajal erinevad sõlmed ehk konkreetsele ülesandele pühendatud programmid.
+Näiteks on sõlm, mis suhtleb kaameraga ja saab sealt pildi. Või on sõlm, mis paneb roboti rattad soovitud suunas liikuma.
+Samuti sõlm, kust saad robotit klaviatuuri abil juhtida.
+Selleks, et kogu robot ühtsena töötaks, peavad need sõlmed omavahel suhtlema.
+Näiteks sõlm, mis paneb rattad liikuma, peab teadma kuhu suunas rattad liikuma panna ning see informatsioon tuleb sõlmelt, kus saad klaviatuuriga robotit juhtida.
 Suhtlemiseks on ROSis kasutusel ROS-rubriigid.
-Rubriigil on oma nimi ning programmid saavad sinna sõnumeid publitseerida ning sealt lugeda. Selles praktikumis kasutame rubriiki nimega “cmd_vel” (velocity command), kuhu saame publitseerida, kuhu poole robot liikuma peaks ning samaaegselt loeb see programm, mis rattaid liigutab, sealt käske ning vastavalt neile liigutab robotit.</p>
+Rubriigil on oma nimi ning sõlmed saavad sinna sõnumeid kuulutada ning sealt tellida.
+Selles praktikumis kasutame rubriiki nimega “cmd_vel” (velocity command), kuhu saame kuulutada, kuhu poole robot liikuma peaks, ning samaaegselt tellib see sõlm, mis rattaid liigutab, sealt käske ning vastavalt neile liigutab robotit.</p>
 </div>
 <div class="section" id="teema-cmd-vel-ja-kuidas-seda-muuta">
 <h2>Teema cmd_vel ja kuidas seda muuta?<a class="headerlink" href="#teema-cmd-vel-ja-kuidas-seda-muuta" title="Püsiviit sellele pealkirjale">¶</a></h2>
@@ -365,7 +365,7 @@ Järgneva ülesande eesmärk on kirjutada funktsioonid erimoodi sõitmiseks, et 
 </li>
 <li><p class="first">Ava <strong>nano</strong>’ga fail <strong>praktikum2_functions.py</strong>, kasutades analoogset käsku nagu eelmises ülesandes.</p>
 </li>
-<li><p class="first">Koodis on ära märgitud alad, mida pead muutma. PS: Funktsioon peab analoogselt eelmise ülesandega lõppema publitseerimisega (publish) ning ootamisega (sleep).</p>
+<li><p class="first">Koodis on ära märgitud alad, mida pead muutma. PS: Funktsioon peab analoogselt eelmise ülesandega lõppema kuulutamisega (publish) ning ootamisega (sleep).</p>
 </li>
 <li><p class="first">Kui oled vahepeal draiveri terminali sulgenud, siis jätka punktiga a. Kui see eelmisest ülesandest veel käib, mine otse punkti juurde nr 5.</p>
 <ol class="loweralpha">
