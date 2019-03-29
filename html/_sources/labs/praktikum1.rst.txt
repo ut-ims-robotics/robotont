@@ -27,6 +27,7 @@ Kuidas kasutada Linuxit?
 2. **ls**
 
     Käsk **ls** ehk *list* näitab, mis on selles kaustas, kus parasjagu asud.
+
     a. 
 
         .. figure:: ../images/lab01/image3.png
@@ -62,6 +63,7 @@ Kuidas kasutada Linuxit?
 3. **mkdir**
 
     Nüüd õpime, kuidas teha Linuxi terminalis kausta.
+
     a.  Teeme kausta nimega "asjad”. Linuxis kausta tegemiseks on käsk **mkdir** ehk *make directory*. Trüki terminali **mkdir asjad**. 
 
         .. figure:: ../images/lab01/image7.png
@@ -79,6 +81,7 @@ Kuidas kasutada Linuxit?
 4. **cd**  
 
     Selleks, et terminalis kaustade vahel liikuda, on käsk **cd** ehk *change directory*.
+    
     a.  Lähme kausta, mis me just tegime. Selleks kirjutame terminalis **cd asjad**.
 
         .. figure:: ../images/lab01/image9.png
