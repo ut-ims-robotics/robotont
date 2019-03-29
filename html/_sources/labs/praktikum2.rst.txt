@@ -77,7 +77,7 @@ Leia koodis see koht ning muutes x, y ja z väärtusi, lahenda järgnevad ülesa
 Ülesanne - cmd_vel
 ~~~~~~~~~~~~~~~~~~~~
 
-1.  Ava terminal ning loo ssh-ühendus robotisse.
+1.  Ava terminal
 
 .. toggle-header::
     :header: **Kui töötad simulatsioonis**
@@ -99,7 +99,7 @@ Leia koodis see koht ning muutes x, y ja z väärtusi, lahenda järgnevad ülesa
             ..
 
 4.  Salvesta ning välju. Kas mäletad kuidas seda teha? Kui ei, siis vaata esimese praktikumi juhendist järele.
-5.  Nüüd ava uus terminal ning loo samuti ssh-ühendus robotisse.
+5.  Nüüd ava uus terminal ning loo ssh-ühendus robotisse.
 
 .. toggle-header::
     :header: **Kui töötad simulatsioonis**
@@ -115,7 +115,7 @@ Leia koodis see koht ning muutes x, y ja z väärtusi, lahenda järgnevad ülesa
     **roslaunch robotont_teleop teleop_bare.launch**
 
     See paneb käima ROSi draiveri, mis kontrollib rataste kiirusi vastavalt meie sõnumitele.
-7.  Eelmises (robotisse ühendatud) terminalis sisesta 
+7.  Eelmises (arvuti)terminalis sisesta 
 
     **rosrun robotont_blank_scripts praktikum2_move.py**
 
