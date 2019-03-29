@@ -7,11 +7,11 @@ Enne praktikumi lõpetamist
 3.  Seejärel
     **git add .**
 4.  Seejärel
-    **git commit -m “kommentaar mis praktikum oli”**
-5.  Seejärel
     **git config user.email "YOUR-EMAIL-HERE"**
-6.  Seejärel
+5.  Seejärel
     **git config user.name "YOUR-NAME-HERE**
+6.  Seejärel
+    **git commit -m “kommentaar mis praktikum oli”**
 7.  Seejärel
     **git push**
 8.  Siin sisesta oma githubi kasutajanimi ja parool.
