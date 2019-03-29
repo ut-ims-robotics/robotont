@@ -86,7 +86,7 @@ Leia koodis see koht ning muutes x, y ja z väärtusi, lahenda järgnevad ülesa
 
 2.  Trüki terminali
 
-    **nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum2_move.py**
+    **nano catkin_ws/src/robotont_blank_scripts/scripts/praktikum2_move.py**
 
     See avab Python’i faili, kus hakkame väärtusi muutma. 
 3.  Koodis on ära märgitud ala, mida pead muutma. 
