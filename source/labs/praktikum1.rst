@@ -250,20 +250,20 @@ Kuidas kasutada Linuxit?
 
             ..
 
-Kui töötad simulatsioonis
--------------------------------------
+.. Kui töötad simulatsioonis
+.. -------------------------------------
 
-.. toggle-header::
-    :header: **Kui töötad simulatsioonis**
+.. .. toggle-header::
+..     :header: **Kui töötad simulatsioonis**
 
-        Kui töötad simulatsioonis, siis järgnevate peatükkide asemel lähevad käiku teised käsud.
-        Antud juhul saab kogu simulatsiooni ning klaviatuuriga juhtimise käima panna ühe käsuga.
+..         Kui töötad simulatsioonis, siis järgnevate peatükkide asemel lähevad käiku teised käsud.
+..         Antud juhul saab kogu simulatsiooni ning klaviatuuriga juhtimise käima panna ühe käsuga.
 
-        1.  Ava terminal.
-        2.  Sisesta käsk
-            **roslaunch robotont_description gazebo_teleop_keyboard.launch**
-        3.  Kui kõik läks hästi, siis avanes simulatsioon, kus näed robotit.
-        4.  Juhendi lõpust leiad, mis nuppudega robotit juhtida. Juhtimiseks peab olema terminaliaken aktiivne.
+..         1.  Ava terminal.
+..         2.  Sisesta käsk
+..             **roslaunch robotont_description gazebo_teleop_keyboard.launch**
+..         3.  Kui kõik läks hästi, siis avanes simulatsioon, kus näed robotit.
+..         4.  Juhendi lõpust leiad, mis nuppudega robotit juhtida. Juhtimiseks peab olema terminaliaken aktiivne.
 
 Kaugteel robotisse sisenemine (ssh)
 -------------------------------------

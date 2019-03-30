@@ -78,11 +78,11 @@ Leia koodis see koht ning muutes x, y ja z väärtusi, lahenda järgnevad ülesa
 ~~~~~~~~~~~~~~~~~~~~
 
 1.  Ava terminal
+.. ja tee ssh-ühendus robotisse
+.. .. toggle-header::
+..     :header: **Kui töötad simulatsioonis**
 
-.. toggle-header::
-    :header: **Kui töötad simulatsioonis**
-
-        Kui töötad simulatsioonis, siis ava lihtsalt terminal.
+..         Kui töötad simulatsioonis, siis ava lihtsalt terminal.
 
 2.  Trüki terminali
 
@@ -101,14 +101,14 @@ Leia koodis see koht ning muutes x, y ja z väärtusi, lahenda järgnevad ülesa
 4.  Salvesta ning välju. Kas mäletad kuidas seda teha? Kui ei, siis vaata esimese praktikumi juhendist järele.
 5.  Nüüd ava uus terminal ning loo ssh-ühendus robotisse.
 
-.. toggle-header::
-    :header: **Kui töötad simulatsioonis**
+.. .. toggle-header::
+..     :header: **Kui töötad simulatsioonis**
 
-        Kui töötad simulatsioonis, siis ava lihtsalt terminal ning simulatsiooni käitamiseks kasuta käsku
+..         Kui töötad simulatsioonis, siis ava lihtsalt terminal ning simulatsiooni käitamiseks kasuta käsku
 
-        **roslaunch robotont_description gazebo.launch**
+..         **roslaunch robotont_description gazebo.launch**
         
-        ja mine punktini 7.
+..         ja mine punktini 7.
 
 6.  Uues terminalis sisesta 
 

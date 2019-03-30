@@ -227,14 +227,10 @@ Leia koodis see koht ning muutes x, y ja z väärtusi, lahenda järgnevad ülesa
 </div>
 <div class="section" id="ulesanne-cmd-vel">
 <h3>Ülesanne - cmd_vel<a class="headerlink" href="#ulesanne-cmd-vel" title="Püsiviit sellele pealkirjale">¶</a></h3>
-<ol class="arabic simple">
-<li>Ava terminal</li>
-</ol>
-<p class="toggle-header"><strong>Kui töötad simulatsioonis</strong></p>
-<div class="toggle-content container">
-<blockquote>
-<div>Kui töötad simulatsioonis, siis ava lihtsalt terminal.</div></blockquote>
-</div>
+<p>1.  Ava terminal
+.. ja tee ssh-ühendus robotisse
+.. .. toggle-header::
+..     :header: <strong>Kui töötad simulatsioonis</strong></p>
 <ol class="arabic" start="2">
 <li><p class="first">Trüki terminali</p>
 <p><strong>nano catkin_ws/src/robotont_blank_scripts/scripts/praktikum2_move.py</strong></p>
@@ -252,14 +248,6 @@ Esialgu, muuda <em>vel_msg.linear.x</em> väärtus 0.2ks.</p>
 <li><p class="first">Nüüd ava uus terminal ning loo ssh-ühendus robotisse.</p>
 </li>
 </ol>
-<p class="toggle-header"><strong>Kui töötad simulatsioonis</strong></p>
-<div class="toggle-content container">
-<blockquote>
-<div><p>Kui töötad simulatsioonis, siis ava lihtsalt terminal ning simulatsiooni käitamiseks kasuta käsku</p>
-<p><strong>roslaunch robotont_description gazebo.launch</strong></p>
-<p>ja mine punktini 7.</p>
-</div></blockquote>
-</div>
 <ol class="arabic" start="6">
 <li><p class="first">Uues terminalis sisesta</p>
 <p><strong>roslaunch robotont_teleop teleop_bare.launch</strong></p>
