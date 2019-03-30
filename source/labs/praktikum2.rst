@@ -78,6 +78,7 @@ Leia koodis see koht ning muutes x, y ja z väärtusi, lahenda järgnevad ülesa
 ~~~~~~~~~~~~~~~~~~~~
 
 1.  Ava terminal
+
 .. ja tee ssh-ühendus robotisse
 .. .. toggle-header::
 ..     :header: **Kui töötad simulatsioonis**
