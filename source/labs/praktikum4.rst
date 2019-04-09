@@ -41,7 +41,7 @@ Esmalt vaatame, kuidas robot markerit näeb.
 1.  Selleks ava terminal ning loo ssh-ühendus robotisse.
 2.  Uues terminalis sisesta 
 
-    **roslaunch robotont_training robotont_ar.launch**
+    **roslaunch robotont_blank_scriptsrobotont_training robotont_ar.launch**
 
     See paneb käima ROSi draiveri, mis kontrollib rataste kiirusi vastavalt meie sõnumitele 
     ning tunneb kaamera abil ära ning publitseerib AR-markerite asukoha. 
@@ -82,7 +82,7 @@ Vaatame, mida näeb robot arvudena AR-markeri kohta.
 
 1.  Ava uus terminal ning trüki sinna 
 
-    **rosrun robotont_training praktikum4_ar.py**
+    **rosrun robotont_blank_scripts praktikum4_ar.py**
 
 2.  Nüüd kui paned AR-markeri kaamera ette (nii, et käega osa sellest ära ei kata), 
     siis peaksid terminalist nägema kus see marker kaamera suhtes asub. 
@@ -99,7 +99,7 @@ Tee programm, mis liigub edasi-tagasi vastavalt AR-markeri kaugusele.
 
 1.  Ava uus terminal, loo ssh-ühendus ning seal ava praktikum4_ar.py fail, kasutades käsku
 
-    **nano catkin_ws/src/robotont/robotont_training/scripts/praktikum4_ar.py**
+    **nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum4_ar.py**
 
 2.  Otsi koodis kommentaar "CHANGE THIS NUMBER TO YOUR MARKER ID" 
     ja selle rea all muuda *marker.id* == väärtus end markerile vastavaks.
@@ -114,7 +114,7 @@ Tee programm, mis liigub edasi-tagasi vastavalt AR-markeri kaugusele.
 
 4.  Skriptist väljumiseks Ctrl+X, salvesta ja skripti saad jooksutada käsuga
 
-    **rosrun robotont_training praktikum4_ar.py**
+    **rosrun robotont_blank_scripts praktikum4_ar.py**
 
     Ctrl+C, et skript peatada.
 5.  Demonstreeri töötavat kontrollerit juhendajale.
