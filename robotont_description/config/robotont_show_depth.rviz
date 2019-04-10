@@ -55,7 +55,7 @@ Visualization Manager:
       Value: true
     - Class: rviz/Image
       Enabled: true
-      Image Topic: /camera/color/image_raw
+      Image Topic: /camera/color/image_raw_throttled
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -78,11 +78,11 @@ Visualization Manager:
       Channel Name: intensity
       Class: rviz/DepthCloud
       Color: 255; 255; 255
-      Color Image Topic: /camera/color/image_raw
+      Color Image Topic: /camera/color/image_raw_throttled
       Color Transformer: RGB8
       Color Transport Hint: compressed
       Decay Time: 0
-      Depth Map Topic: /camera/aligned_depth_to_color/image_raw
+      Depth Map Topic: /camera/aligned_depth_to_color/image_raw_throttled
       Depth Map Transport Hint: compressedDepth
       Enabled: true
       Invert Rainbow: false
