@@ -110,6 +110,7 @@ Meie robotiga kasutame seda nõnda:
 Vaatame, kuhu poole peaks sõitma kui ühes kohas asi ees on.
 ----------------------------------------------------------------
 Selles ülesandes peab robot oskama nurga alt lähenedes avast läbi sõita.
+
 1.  Ava terminal ja loo ssh-ühendus robotisse ja sisesta
 
     **roslaunch robotont_teleop teleop_with_laserscan.launch**
