@@ -93,15 +93,15 @@
 <li class="toctree-l1"><a class="reference internal" href="praktikum1.html">Praktikum 1 - Linux, ssh, roboti juhtimine klaviatuuriga</a></li>
 <li class="toctree-l1"><a class="reference internal" href="praktikum2.html">Praktikum 2</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Praktikum 3</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#enne-praktikumi-juurde-asumist">Enne praktikumi juurde asumist</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#mis-andurid-on-clearbotil">Mis andurid on Clearbotil?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mis-on-kontroller">Mis on kontroller?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#kui-kaugel-on-meist-eespool-paiknevad-asjad">Kui kaugel on meist eespool paiknevad asjad?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#proovime-asjadele-mitte-otsa-soita">Proovime asjadele mitte otsa sõita</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#vaatame-kuhu-poole-peaks-soitma-kui-uhes-kohas-asi-ees-on">Vaatame, kuhu poole peaks sõitma kui ühes kohas asi ees on.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enne-praktikumi-juurde-asumist">Enne praktikumi juurde asumist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mis-andurid-on-clearbotil">Mis andurid on Clearbotil?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mis-on-kontroller">Mis on kontroller?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kui-kaugel-on-meist-eespool-paiknevad-asjad">Kui kaugel on meist eespool paiknevad asjad?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#proovime-asjadele-mitte-otsa-soita">Proovime asjadele mitte otsa sõita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vaatame-kuhu-poole-peaks-soitma-kui-uhes-kohas-asi-ees-on">Vaatame, kuhu poole peaks sõitma kui ühes kohas asi ees on.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#enne-praktikumi-lopetamist">Enne praktikumi lõpetamist</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#enne-praktikumi-lopetamist">Enne praktikumi lõpetamist</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="praktikum4.html">Praktikum 4</a></li>
@@ -169,8 +169,9 @@
 <strong>catkin build</strong></li>
 <li>Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.</li>
 </ol>
+</div>
 <div class="section" id="mis-andurid-on-clearbotil">
-<h3>Mis andurid on Clearbotil?<a class="headerlink" href="#mis-andurid-on-clearbotil" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<h2>Mis andurid on Clearbotil?<a class="headerlink" href="#mis-andurid-on-clearbotil" title="Püsiviit sellele pealkirjale">¶</a></h2>
 <p>Clearbotil on peal Realsense D435 3D kaamera, millest saab tavalise kaamerapildi ja sügavuspildi.
 Käesolevas praktikumis kasutame 3D kaamerast sügavuspildi andmeid. Aga mitte toorelt.
 Nimelt on 3D sügavuspildist võetud ainult üks riba ning tehtud sellest 2D laserskann.
@@ -181,7 +182,7 @@ See laserskann on omakorda jagatud kolmeks ja võetud minimaalsed takistuste kau
 <p>Samuti on roboti ratastel enkoodrid, mis mõõdavad, kui palju ratas on liikunud, kuid seda me veel siin praktikumis ei kasuta.</p>
 </div>
 <div class="section" id="mis-on-kontroller">
-<h3>Mis on kontroller?<a class="headerlink" href="#mis-on-kontroller" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<h2>Mis on kontroller?<a class="headerlink" href="#mis-on-kontroller" title="Püsiviit sellele pealkirjale">¶</a></h2>
 <p>Eelmises lõigus tutvustati, mis on andurid.
 Nüüd on vaja ka teada, kuidas saame liigutada robotit sõltuvalt andurite näidust.
 Selleks on olemas kontrollerid.
@@ -193,7 +194,7 @@ ning kui kiirus on suurem kui soovitud, siis laseb gaasi lahti.
 Ka selles praktikumis kirjutame ise kontrolleri.</p>
 </div>
 <div class="section" id="kui-kaugel-on-meist-eespool-paiknevad-asjad">
-<h3>Kui kaugel on meist eespool paiknevad asjad?<a class="headerlink" href="#kui-kaugel-on-meist-eespool-paiknevad-asjad" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<h2>Kui kaugel on meist eespool paiknevad asjad?<a class="headerlink" href="#kui-kaugel-on-meist-eespool-paiknevad-asjad" title="Püsiviit sellele pealkirjale">¶</a></h2>
 <p>Selleks, et teada, kui kaugel on lähim asi vasakul, keskel ja paremal,
 saame tellida ROS rubriiki “/scan_to_distance”, mis annab meile laserskannist arvutatud väärtused.</p>
 <ol class="arabic">
@@ -218,7 +219,7 @@ saame tellida ROS rubriiki “/scan_to_distance”, mis annab meile laserskannis
 <p>Nüüd kui oleme aru saanud, kuidas need kaugused töötavad, on aeg neid kasutada.</p>
 </div>
 <div class="section" id="proovime-asjadele-mitte-otsa-soita">
-<h3>Proovime asjadele mitte otsa sõita<a class="headerlink" href="#proovime-asjadele-mitte-otsa-soita" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<h2>Proovime asjadele mitte otsa sõita<a class="headerlink" href="#proovime-asjadele-mitte-otsa-soita" title="Püsiviit sellele pealkirjale">¶</a></h2>
 <p><strong>Võtame lahti faili, kuhu hakkame koodi kirjutama</strong></p>
 <ol class="arabic">
 <li><p class="first">Ava terminal ning loo ssh-ühendus robotisse.</p>
@@ -268,7 +269,7 @@ Meie robotiga kasutame seda nõnda:
 </ol>
 </div>
 <div class="section" id="vaatame-kuhu-poole-peaks-soitma-kui-uhes-kohas-asi-ees-on">
-<h3>Vaatame, kuhu poole peaks sõitma kui ühes kohas asi ees on.<a class="headerlink" href="#vaatame-kuhu-poole-peaks-soitma-kui-uhes-kohas-asi-ees-on" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<h2>Vaatame, kuhu poole peaks sõitma kui ühes kohas asi ees on.<a class="headerlink" href="#vaatame-kuhu-poole-peaks-soitma-kui-uhes-kohas-asi-ees-on" title="Püsiviit sellele pealkirjale">¶</a></h2>
 <p>Selles ülesandes peab robot oskama nurga alt lähenedes avast läbi sõita.
 1.  Ava terminal ja loo ssh-ühendus robotisse ja sisesta</p>
 <blockquote>
@@ -293,10 +294,8 @@ Robot peab suutma avast läbi sõita mõlemal pildil näidatud juhul.</p>
 <li><p class="first">Demonstreeri töötavat robotit juhendajale.</p>
 </li>
 </ol>
-</div>
-</div>
 <div class="section" id="enne-praktikumi-lopetamist">
-<h2>Enne praktikumi lõpetamist<a class="headerlink" href="#enne-praktikumi-lopetamist" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<h3>Enne praktikumi lõpetamist<a class="headerlink" href="#enne-praktikumi-lopetamist" title="Püsiviit sellele pealkirjale">¶</a></h3>
 <ol class="arabic simple">
 <li>Ava uus terminal ning <strong>loo ssh-ühendus</strong></li>
 <li>Sisesta sinna
@@ -315,6 +314,7 @@ Robot peab suutma avast läbi sõita mõlemal pildil näidatud juhul.</p>
 Kontrolli, kas sinu github.com lehel uuenesid failid.</li>
 <li>Kui uuenesid, siis loo ssh-ühendus robotisse ning sisesta käsureale <strong>sudo poweroff</strong>.</li>
 </ol>
+</div>
 </div>
 </div>
 
