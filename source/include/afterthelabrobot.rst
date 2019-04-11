@@ -1,6 +1,6 @@
-*******************************
 Enne praktikumi lõpetamist
-*******************************
+------------------------------
+
 1.  Ava uus terminal ning **loo ssh-ühendus**
 2.  Sisesta sinna
     **cd catkin_ws/src/robotont_blank_scripts**
