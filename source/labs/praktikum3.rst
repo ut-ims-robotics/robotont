@@ -116,6 +116,7 @@ Selles ülesandes peab robot oskama nurga alt lähenedes avast läbi sõita.
 
     VÕI
     kasuta eelmisest ülesandest juba käivat terminali.
+    
 2.  Võta ette uus terminal ning ava seal fail **praktikum3_betweenposts.py**
 3.  Kasutades teadmisi ja oskusi eelnevast ülesandest, kirjuta koodis ettenähtud kohta oma kood. 
     Selle koodi abil peab robot oskama nurga alt avale lähenedes avast läbi sõitma. 

@@ -88,8 +88,8 @@ Vaatame, mida näeb robot arvudena AR-markeri kohta.
     siis peaksid terminalist nägema kus see marker kaamera suhtes asub. 
     Samuti saad teada, mis on markeri ID, seda pead hiljem ka kasutama.
     Terminalis prinditakse välja "Marker ID"; mis on markeri number, "Marker: X Y Z", 
-    mis on markeri koordinaadid kaamera suhtes, "Angle from camera", 
-    mis näitab, mis nurga all marker on kaamera suhtes ja "RPY", mis on järjestikku 
+    mis on markeri koordinaadid kaamera suhtes, "Direction from camera", 
+    mis näitab, mis suunas marker on kaamera suhtes ja "RPY", mis on järjestikku 
     *roll*, *pitch* ja *yaw* väärtused.
 
 Ülesanne 1
@@ -133,6 +133,22 @@ Tee programm, mis liigub küljelt-küljele vastavalt AR-markeri asukohale
 
 Ülesanne 3
 -------------
+Tee programm, mis pöörab vastavalt AR-markeri suunale mis pöörab nii, et AR-marker oleks otse vastas.
+
+1.  Ava **praktikum4_ar.py** fail.
+2.  Seal on valmis pandud funktsioon nimega *turn_towards_ar*
+3.  Implementeeri funktsioon, mis pöörab AR-markeri poole. Eesmärk on, et kui AR-markerit pöörata, siis robot keerab nii, et marker oleks täpselt roboti vastas. Vihje: Jälgi mis väärtus markerit pöörates muutub, et teada, mille järgi robotit kontrollida.
+4.  Demonstreeri töötavat kontrollerit juhendajale.
+
+Ülesanne 4
+------------
+Tee programm, mis teeb ühe markeriga üht asja, teisega teist. Näiteks kui robotile näidata markerit number 3, teeb robot enda ümber tiiru, kui näidata markerit number 4, proovib robot hoida markerit poole meetri kaugusel nagu esimeses ülesandes.
+1.  Ava praktikum4_ar_tricks.py fail, kasutades käsku
+
+    **nano catkin_ws/src/robotont/robotont_training/scripts/praktikum4_ar_tricks.py**
+
+2.  Kirjuta koodis märgitud alasse oma kood, millega robot teeb ühe markeri puhul üht trikki, teise markeriga teist trikki.
+3.  Demonstreeri töötavat koodi juhendajale.
 
 
 

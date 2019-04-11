@@ -8,6 +8,10 @@ Enne praktikumi juurde asumist
     **cd catkin_ws/src**
 5.  Seejärel sisesta
     **git clone -sinu-kopeeritud-link-**
-6.  Nüüd trüki terminali
+6.  Seejärel sisesta
+    **cd robotont_blank_scripts**
+7.  Seejärel sisesta
+    **git pull https://github.com/ut-ims-robotics/robotont_blank_scripts.git**
+8.  Nüüd trüki terminali
     **catkin build**
-7. Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.
+9. Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.

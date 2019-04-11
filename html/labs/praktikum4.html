@@ -101,6 +101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#ulesanne-1">Ülesanne 1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ulesanne-2">Ülesanne 2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ulesanne-3">Ülesanne 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ulesanne-4">Ülesanne 4</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#enne-praktikumi-lopetamist">Enne praktikumi lõpetamist</a></li>
@@ -162,6 +163,10 @@
 <strong>cd catkin_ws/src</strong></li>
 <li>Seejärel sisesta
 <strong>git clone -sinu-kopeeritud-link-</strong></li>
+<li>Seejärel sisesta
+<strong>cd robotont_blank_scripts</strong></li>
+<li>Seejärel sisesta
+<strong>git pull https://github.com/ut-ims-robotics/robotont_blank_scripts.git</strong></li>
 <li>Nüüd trüki terminali
 <strong>catkin build</strong></li>
 <li>Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.</li>
@@ -237,8 +242,8 @@ näitab y-telg. <em>roll</em>, <em>pitch</em> ja <em>yaw</em> ehk RPY sõltuvad 
 siis peaksid terminalist nägema kus see marker kaamera suhtes asub.
 Samuti saad teada, mis on markeri ID, seda pead hiljem ka kasutama.
 Terminalis prinditakse välja „Marker ID“; mis on markeri number, „Marker: X Y Z“,
-mis on markeri koordinaadid kaamera suhtes, „Angle from camera“,
-mis näitab, mis nurga all marker on kaamera suhtes ja „RPY“, mis on järjestikku
+mis on markeri koordinaadid kaamera suhtes, „Direction from camera“,
+mis näitab, mis suunas marker on kaamera suhtes ja „RPY“, mis on järjestikku
 <em>roll</em>, <em>pitch</em> ja <em>yaw</em> väärtused.</p>
 </li>
 </ol>
@@ -283,6 +288,24 @@ NB! Samaaegselt töötab ka eelmises ülesandes tehtud funktsioon.</li>
 </div>
 <div class="section" id="ulesanne-3">
 <h3>Ülesanne 3<a class="headerlink" href="#ulesanne-3" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<p>Tee programm, mis pöörab vastavalt AR-markeri suunale mis pöörab nii, et AR-marker oleks otse vastas.</p>
+<ol class="arabic simple">
+<li>Ava <strong>praktikum4_ar.py</strong> fail.</li>
+<li>Seal on valmis pandud funktsioon nimega <em>turn_towards_ar</em></li>
+<li>Implementeeri funktsioon, mis pöörab AR-markeri poole. Eesmärk on, et kui AR-markerit pöörata, siis robot keerab nii, et marker oleks täpselt roboti vastas. Vihje: Jälgi mis väärtus markerit pöörates muutub, et teada, mille järgi robotit kontrollida.</li>
+<li>Demonstreeri töötavat kontrollerit juhendajale.</li>
+</ol>
+</div>
+<div class="section" id="ulesanne-4">
+<h3>Ülesanne 4<a class="headerlink" href="#ulesanne-4" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<p>Tee programm, mis teeb ühe markeriga üht asja, teisega teist. Näiteks kui robotile näidata markerit number 3, teeb robot enda ümber tiiru, kui näidata markerit number 4, proovib robot hoida markerit poole meetri kaugusel nagu esimeses ülesandes.
+1.  Ava praktikum4_ar_tricks.py fail, kasutades käsku</p>
+<blockquote>
+<div><strong>nano catkin_ws/src/robotont/robotont_training/scripts/praktikum4_ar_tricks.py</strong></div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Kirjuta koodis märgitud alasse oma kood, millega robot teeb ühe markeri puhul üht trikki, teise markeriga teist trikki.</li>
+<li>Demonstreeri töötavat koodi juhendajale.</li>
+</ol>
 </div>
 </div>
 <div class="section" id="enne-praktikumi-lopetamist">
