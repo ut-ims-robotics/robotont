@@ -66,7 +66,7 @@ Edasi-tagasi liikumine on x-teljel, vasakule-paremale liikumine on y-telg ja ül
 Sellele vastavalt on *roll* pea kallutamine küljelt-küljele, 
 *pitch* on pea noogutamine üles-alla ja *yaw* on pea pööramine vasakule-paremale.
 
-.. figure:: ../images/lab04/tags.png
+.. figure:: ../images/lab04/robotontaxes.png
             :scale: 70 %
 
             ..
