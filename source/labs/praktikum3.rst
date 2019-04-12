@@ -95,7 +95,7 @@ Meie robotiga kasutame *bang-bang* kontrollerit nõnda:
 **Ülesanne**
 
 1.  Ava uus terminal ning loo samuti ssh-ühendus robotisse.
-2.  Uues terminalis sisesta 
+2.  Terminalis sisesta 
 
     **roslaunch robotont_teleop teleop_with_laserscan.launch**
 
