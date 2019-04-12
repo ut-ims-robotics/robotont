@@ -66,7 +66,7 @@ Edasi-tagasi liikumine on x-teljel, vasakule-paremale liikumine on y-telg ja ül
 Sellele vastavalt on *roll* pea kallutamine küljelt-küljele, 
 *pitch* on pea noogutamine üles-alla ja *yaw* on pea pööramine vasakule-paremale.
 
-.. figure:: ../images/lab04/tags.png
+.. figure:: ../images/lab04/robotontaxes.png
             :scale: 70 %
 
             ..
@@ -143,6 +143,7 @@ Tee programm, mis pöörab vastavalt AR-markeri suunale mis pöörab nii, et AR-
 Ülesanne 4
 ------------
 Tee programm, mis teeb ühe markeriga üht asja, teisega teist. Näiteks kui robotile näidata markerit number 3, teeb robot enda ümber tiiru, kui näidata markerit number 4, proovib robot hoida markerit poole meetri kaugusel nagu esimeses ülesandes.
+
 1.  Ava praktikum4_ar_tricks.py fail, kasutades käsku
 
     **nano catkin_ws/src/robotont/robotont_training/scripts/praktikum4_ar_tricks.py**
