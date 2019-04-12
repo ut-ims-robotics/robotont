@@ -10,8 +10,14 @@ Enne praktikumi juurde asumist
     **git clone -sinu-kopeeritud-link-**
 6.  Seejärel sisesta
     **cd robotont_blank_scripts**
-7.  Seejärel sisesta
+7.  Seejärel
+    **git config user.email "YOUR-EMAIL-HERE"**
+8.  Seejärel
+    **git config user.name "YOUR-NAME-HERE"**
+9.  Seejärel sisesta
     **git pull https://github.com/ut-ims-robotics/robotont_blank_scripts.git**
-8.  Nüüd trüki terminali
+10. Nüüd trüki terminali
     **catkin build**
-9. Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.
+11. Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.
+
+

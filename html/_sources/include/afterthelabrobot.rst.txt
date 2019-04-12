@@ -17,3 +17,4 @@ Enne praktikumi lõpetamist
 8.  Siin sisesta oma githubi kasutajanimi ja parool.
     Kontrolli, kas sinu github.com lehel uuenesid failid.
 9.  Kui uuenesid, siis loo ssh-ühendus robotisse ning sisesta käsureale **sudo poweroff**.
+
