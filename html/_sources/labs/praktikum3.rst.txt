@@ -83,9 +83,13 @@ Esialgu kasutame ainult *distances.centerMin* muutujat ning teeme robotile *bang
 kus lülitatakse seadet kahe oleku vahel, olenevalt anduri näidust. 
 Näiteks kui toas on liiga külm, lülitab radiaator end sisse, kui temperatuur on normis või üle, 
 lülitab end välja.
-Meie robotiga kasutame seda nõnda:
+
+Meie robotiga kasutame *bang-bang* kontrollerit nõnda:
+
 - Vaatame kui lähedal on eesolev asi
+
 - Kui asi on piisavalt kaugel või takistus puudub, sõidame otse
+
 - Kui asi on liiga lähedal, tagurdame
 
 **Ülesanne**
@@ -98,6 +102,9 @@ Meie robotiga kasutame seda nõnda:
     See paneb käima ROSi draiveri, mis kontrollib rataste kiirusi vastavalt meie sõnumitele ning annab ka andmeid eesolevate takistuste kohta.
 
 3.  Kasutades **if-else**-lauset (https://progeopik.cs.ut.ee/03_liitlaused.html), kirjuta eelnevalt kirjeldatud *bang-bang* kontroller eelnevalt avatud **praktikum3_bangbang.py** faili.
+
+    Ülesanne on, et robot hoiaks end näiteks 0.5 meetri kaugusel takistusest.
+
 4.  Kasuta väikeseid kiirusi (0.2 m/s või vähem).
 5.  Salvesta fail, kasutades klahvikombinatsiooni Ctrl+X. 
 6.  Koodi käitamiseks sisesta terminali

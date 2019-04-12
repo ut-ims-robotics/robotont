@@ -243,11 +243,13 @@ mis on tabelis välja toodud.</p>
 <em>Bang-bang</em> kontroller ehk eestikeeli kaks-punkt reguleerimine on automaatreguleerimine,
 kus lülitatakse seadet kahe oleku vahel, olenevalt anduri näidust.
 Näiteks kui toas on liiga külm, lülitab radiaator end sisse, kui temperatuur on normis või üle,
-lülitab end välja.
-Meie robotiga kasutame seda nõnda:
-- Vaatame kui lähedal on eesolev asi
-- Kui asi on piisavalt kaugel või takistus puudub, sõidame otse
-- Kui asi on liiga lähedal, tagurdame</p>
+lülitab end välja.</p>
+<p>Meie robotiga kasutame <em>bang-bang</em> kontrollerit nõnda:</p>
+<ul class="simple">
+<li>Vaatame kui lähedal on eesolev asi</li>
+<li>Kui asi on piisavalt kaugel või takistus puudub, sõidame otse</li>
+<li>Kui asi on liiga lähedal, tagurdame</li>
+</ul>
 <p><strong>Ülesanne</strong></p>
 <ol class="arabic">
 <li><p class="first">Ava uus terminal ning loo samuti ssh-ühendus robotisse.</p>
@@ -257,6 +259,7 @@ Meie robotiga kasutame seda nõnda:
 <p>See paneb käima ROSi draiveri, mis kontrollib rataste kiirusi vastavalt meie sõnumitele ning annab ka andmeid eesolevate takistuste kohta.</p>
 </li>
 <li><p class="first">Kasutades <strong>if-else</strong>-lauset (<a class="reference external" href="https://progeopik.cs.ut.ee/03_liitlaused.html">https://progeopik.cs.ut.ee/03_liitlaused.html</a>), kirjuta eelnevalt kirjeldatud <em>bang-bang</em> kontroller eelnevalt avatud <strong>praktikum3_bangbang.py</strong> faili.</p>
+<p>Ülesanne on, et robot hoiaks end näiteks 0.5 meetri kaugusel takistusest.</p>
 </li>
 <li><p class="first">Kasuta väikeseid kiirusi (0.2 m/s või vähem).</p>
 </li>
