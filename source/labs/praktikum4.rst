@@ -41,7 +41,7 @@ Esmalt vaatame, kuidas robot markerit näeb.
 1.  Selleks ava terminal ning loo ssh-ühendus robotisse.
 2.  Uues terminalis sisesta 
 
-    **roslaunch robotont_blank_scriptsrobotont_training robotont_ar.launch**
+    **roslaunch robotont_training robotont_ar.launch**
 
     See paneb käima ROSi draiveri, mis kontrollib rataste kiirusi vastavalt meie sõnumitele 
     ning tunneb kaamera abil ära ning publitseerib AR-markerite asukoha. 
