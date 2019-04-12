@@ -80,7 +80,7 @@ näitab y-telg. *roll*, *pitch* ja *yaw* ehk RPY sõltuvad sellest, kuidas marke
 
 Vaatame, mida näeb robot arvudena AR-markeri kohta.
 
-1.  Ava uus terminal ning trüki sinna 
+1.  Ava uus terminal, loo ssh-ühendus robotisse ning trüki sinna 
 
     **rosrun robotont_blank_scripts praktikum4_ar.py**
 
