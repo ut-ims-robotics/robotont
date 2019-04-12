@@ -99,7 +99,7 @@ Tee programm, mis liigub edasi-tagasi vastavalt AR-markeri kaugusele.
 
 1.  Ava uus terminal, loo ssh-ühendus ning seal ava praktikum4_ar.py fail, kasutades käsku
 
-    **nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum4_ar.py**
+    **nano catkin_ws/src/robotont_blank_scripts/scripts/praktikum4_ar.py**
 
 2.  Otsi koodis kommentaar "CHANGE THIS NUMBER TO YOUR MARKER ID" 
     ja selle rea all muuda *marker.id* == väärtus end markerile vastavaks.
@@ -146,7 +146,7 @@ Tee programm, mis teeb ühe markeriga üht asja, teisega teist. Näiteks kui rob
 
 1.  Ava praktikum4_ar_tricks.py fail, kasutades käsku
 
-    **nano catkin_ws/src/robotont/robotont_training/scripts/praktikum4_ar_tricks.py**
+    **nano catkin_ws/src/robotont_blank_scripts/scripts/praktikum4_ar_tricks.py**
 
 2.  Kirjuta koodis märgitud alasse oma kood, millega robot teeb ühe markeri puhul üht trikki, teise markeriga teist trikki.
 3.  Demonstreeri töötavat koodi juhendajale.
