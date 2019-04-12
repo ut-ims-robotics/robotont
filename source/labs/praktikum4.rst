@@ -140,8 +140,8 @@ Tee programm, mis pöörab vastavalt AR-markeri suunale mis pöörab nii, et AR-
 3.  Implementeeri funktsioon, mis pöörab AR-markeri poole. Eesmärk on, et kui AR-markerit pöörata, siis robot keerab nii, et marker oleks täpselt roboti vastas. Vihje: Jälgi mis väärtus markerit pöörates muutub, et teada, mille järgi robotit kontrollida.
 4.  Demonstreeri töötavat kontrollerit juhendajale.
 
-Ülesanne 4
-------------
+BOONUS: Ülesanne 4
+------------------
 Tee programm, mis teeb ühe markeriga üht asja, teisega teist. Näiteks kui robotile näidata markerit number 3, teeb robot enda ümber tiiru, kui näidata markerit number 4, proovib robot hoida markerit poole meetri kaugusel nagu esimeses ülesandes.
 
 1.  Ava praktikum4_ar_tricks.py fail, kasutades käsku
