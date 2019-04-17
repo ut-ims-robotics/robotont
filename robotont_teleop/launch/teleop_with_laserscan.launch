@@ -28,10 +28,10 @@
     <param name="$(arg robotont_ns)/odom/frame" value="$(arg robotont_ns)/odom"/>
     <node ns="$(arg robotont_ns)" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" >
     </node>
-    <node name="laserscan_kinect" pkg="laserscan_kinect" type="laserscan_kinect" >
+    <node ns="$(arg robotont_ns)" name="laserscan_kinect" pkg="laserscan_kinect" type="laserscan_kinect" >
+
         <remap from="image" to="/camera/depth/image_rect_raw"/>
         <remap from="camera_info" to="/camera/depth/camera_info"/>
         <rosparam command="load" file="$(find robotont_teleop)/config/laser_params.yaml" />
     </node>
-    <node pkg="robotont_sensors" name="laserscan_to_distance" type="laserscan_to_distance.py" output="screen" />
 </launch>
