@@ -19,7 +19,9 @@
     <rosparam>
       /camera/aligned_depth_to_color/image_raw/compressedDepth/png_level: 5
     </rosparam>
-    <include file="$(find realsense2_camera)/launch/rs_aligned_depth.launch" />
+    <include file="$(find realsense2_camera)/launch/rs_aligned_depth.launch" >
+        <arg name="camera"	value="$(arg robotont_ns)/camera"/>
+    </include>
     <include file="$(find robotont_teleop)/launch/cam_throttling.launch" />
     <rosparam ns="$(arg robotont_ns)" file="$(find robotont_driver)/config/robotont_params.yaml" command="load" />
     <node ns="$(arg robotont_ns)" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
