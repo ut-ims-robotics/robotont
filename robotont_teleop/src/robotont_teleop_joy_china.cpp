@@ -8,14 +8,14 @@
 #include <sensor_msgs/Joy.h>
 
 #define JOY_TIMEOUT_SEC 0.5
-#define MAX_TRANSLATION_SPEED 2
-#define MAX_ROTATION_SPEED 35
+#define MAX_TRANSLATION_SPEED 0.5
+#define MAX_ROTATION_SPEED 1.57
 
 
-class TeleopRobotont
+class TeleopRobotontChina
 {
 public:
-  TeleopRobotont();
+  TeleopRobotontChina();
 
 private:
   void joyCallback(const sensor_msgs::Joy::ConstPtr& joy);
@@ -31,18 +31,18 @@ private:
 };
 
 
-TeleopRobotont::TeleopRobotont()
+TeleopRobotontChina::TeleopRobotontChina()
 {
   vel_pub_ = nh_.advertise<geometry_msgs::Twist>("cmd_vel", 1);
-  joy_sub_ = nh_.subscribe<sensor_msgs::Joy>("joy", 10, &TeleopRobotont::joyCallback, this);
-  timer = nh_.createTimer(ros::Duration(0.1), &TeleopRobotont::timerCallback, this);
+  joy_sub_ = nh_.subscribe<sensor_msgs::Joy>("joy", 10, &TeleopRobotontChina::joyCallback, this);
+  timer = nh_.createTimer(ros::Duration(0.1), &TeleopRobotontChina::timerCallback, this);
   last_joy_time = ros::Time::now();
 }
 
-void TeleopRobotont::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
+void TeleopRobotontChina::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 {
   // check the deadman's switch
-  if (!joy->buttons[5])
+  if (!joy->buttons[9])
   {
     return; //We have a problem
   }
@@ -55,10 +55,10 @@ void TeleopRobotont::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
   twist.angular.z = joy->axes[2]*MAX_ROTATION_SPEED;
 
   vel_pub_.publish(twist);
-  ROS_INFO_STREAM(twist);
+//  ROS_INFO_STREAM(twist);
 }
 
-void TeleopRobotont::timerCallback(const ros::TimerEvent&)
+void TeleopRobotontChina::timerCallback(const ros::TimerEvent&)
 {
   if (ros::Time::now() - last_joy_time > ros::Duration(JOY_TIMEOUT_SEC))
   {
@@ -75,7 +75,7 @@ void TeleopRobotont::timerCallback(const ros::TimerEvent&)
 int main(int argc, char** argv)
 {
   ros::init(argc, argv, "robotont_teleop_joy");
-  TeleopRobotont robotont_teleop_joy;
+  TeleopRobotontChina robotont_teleop_joy;
 
   ros::spin();
 }

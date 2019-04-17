@@ -1,6 +1,7 @@
 <launch>
+    <arg name="world" default="worlds/empty.world"/>
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="worlds/empty.world"/>
+        <arg name="world_name" value="$(arg world)"/>
     </include>
     <!-- Convert an xacro and put on parameter server -->
     <param name="/robotont/robot_description" command="$(find xacro)/xacro --inorder $(find robotont_description)/xacro/main.urdf.xacro" />
@@ -16,4 +17,11 @@
     </node>
     <!-- Joystick -->
     <node ns="robotont" pkg="robotont_description" name="gazebo_robotont_teleop_joy" type="gazebo_robotont_teleop_joy" output="screen" />
+     <!-- Laserscan -->
+    <node name="laserscan_kinect" pkg="laserscan_kinect" type="laserscan_kinect" >
+        <remap from="image" to="/camera/depth/image_raw"/>
+        <remap from="camera_info" to="/camera/depth/camera_info"/>
+        <rosparam command="load" file="$(find robotont_teleop)/config/laser_params.yaml" />
+    </node>
+    <node pkg="robotont_sensors" name="laserscan_to_distance.py" type="laserscan_to_distance.py" output="screen" />
 </launch>

@@ -23,7 +23,9 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(robotont_teleop_joy src/robotont_teleop_joy.cpp start_trajectory.cc src/start_trajectory.cc) 
+add_executable(robotont_teleop_joy src/robotont_teleop_joy.cpp) 
+add_executable(robotont_teleop_joy_china src/robotont_teleop_joy_china.cpp) 
 
 target_link_libraries(robotont_teleop_joy ${catkin_LIBRARIES})
+target_link_libraries(robotont_teleop_joy_china ${catkin_LIBRARIES})
 

@@ -1,4 +1,3 @@
-<?xml version="1.0" ?>
 <!--
   Copyright 2016 The Cartographer Authors
 
@@ -21,43 +20,6 @@
     <arg name="map_frame" default="map"/>
     <env name="ROSCONSOLE_FORMAT" value="[${function}] ${message}" />
     <env name="ROSCONSOLE_CONFIG_FILE" value="$(find robotont_driver)/config/console.conf" />
-    <!-- Convert an xacro and put on parameter server -->
-    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find robotont_description)/xacro/main.urdf.xacro" />
-    <!-- State publishers -->
-    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"></node>
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" ></node>
-
-    <!-- For using with Realsense D435 -->
-    <rosparam>
-    /camera/aligned_depth_to_color/image_raw/compressedDepth/png_level: 5
-  </rosparam>
-    <include file="$(find realsense2_camera)/launch/rs_aligned_depth.launch" >
-        <arg name="camera"	value="camera"/>
-    </include>
-    <include file="$(find robotont_teleop)/launch/cam_throttling.launch" />
-    <node  name="laserscan_kinect" pkg="laserscan_kinect" type="laserscan_kinect" >
-        <remap from="image" to="camera/depth/image_rect_raw"/>
-        <remap from="camera_info" to="camera/depth/camera_info"/>
-        <rosparam command="load" file="$(find robotont_teleop)/config/laser_params.yaml" />
-        <param name="output_frame_id" value="camera_depth_frame"/>
-    </node>
-    <!-- Realsense END -->
-    <!-- Launch driver -->
-
-    <node ns="$(arg robotont_ns)" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
-
-    <param name="odom/child_frame" value="base_footprint"/>
-    <param name="odom/frame" value="odom"/>
-    <node name="cartographer_node" pkg="cartographer_ros"
-      type="cartographer_node" args="
-          -configuration_directory $(find robotont_teleop)/configuration_files
-          -configuration_basename robotont_cartographer_localization_2d.lua"
-      output="screen">
-		<remap from="odom" to="$(arg robotont_ns)/odom"/>
-        <remap from="echoes" to="scan" />
-    </node>
-    <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
-      type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
     <!-- Launch navigation stack -->
     <arg name="no_static_map" default="false"/>
     <arg name="base_global_planner" default="navfn/NavfnROS"/>

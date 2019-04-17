@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="cam_fps" default="5"/>
+  <node ns="robotont" pkg="topic_tools" name="d435_throttle_node" type="throttle" args="messages /camera/aligned_depth_to_color/image_raw $(arg cam_fps) /camera/aligned_depth_to_color/image_raw_throttled" output="screen" />
+  <node ns="robotont" pkg="topic_tools" name="d435_throttle_node_compressedDepth" type="throttle" args="messages /camera/aligned_depth_to_color/image_raw/compressedDepth $(arg cam_fps) /camera/aligned_depth_to_color/image_raw_throttled/compressedDepth" output="screen" />
+
+  <node ns="robotont" pkg="topic_tools" name="d435_throttle_color_node" type="throttle" args="messages /camera/color/image_raw $(arg cam_fps) /camera/color/image_raw_throttled" output="screen" />
+  <node ns="robotont" pkg="topic_tools" name="d435_throttle_color_node_compressed" type="throttle" args="messages /camera/color/image_raw/compressed $(arg cam_fps) /camera/color/image_raw_throttled/compressed" output="screen" />
+</launch>
