@@ -16,11 +16,10 @@ Tere tulemast Clearboti dokumentatsiooni!
    labs/praktikum1
    labs/praktikum2
    labs/praktikum3
-   labs/praktikum4
-..  
+   labs/praktikum4 
    labs/praktikum5
    labs/praktikum6
-..
+
 
 .. Indices and tables
 .. ==================
