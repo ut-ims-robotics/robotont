@@ -1,5 +1,5 @@
-Praktikum 2
-====================================
+Praktikum 2 - Programmeerimise alused: for-tsükkel, funktsioonid
+===================================================================
 
 Giti üles seadmine
 ------------------------

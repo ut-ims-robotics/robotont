@@ -1,5 +1,5 @@
-Praktikum 3
-====================================
+Praktikum 3 - Andurid, if-lause, bang-bang kontroller
+========================================================
 .. include:: ../include/beforethelabrobot.rst
 
 Mis andurid on Clearbotil?

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Praktikum 6 &mdash; Clearbot 0.1 alpha dokumentatsioon</title>
+  <title>Praktikum 6 - 3D kaardistamine &mdash; Clearbot 0.1 alpha dokumentatsioon</title>
   
 
   
@@ -90,14 +90,14 @@
 <p class="caption"><span class="caption-text">Praktikumid</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="praktikum1.html">Praktikum 1 - Linux, ssh, roboti juhtimine klaviatuuriga</a></li>
-<li class="toctree-l1"><a class="reference internal" href="praktikum2.html">Praktikum 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="praktikum3.html">Praktikum 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="praktikum4.html">Praktikum 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum2.html">Praktikum 2 - Programmeerimise alused: for-tsükkel, funktsioonid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum3.html">Praktikum 3 - Andurid, if-lause, bang-bang kontroller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum4.html">Praktikum 4 - AR markerid</a></li>
 <li class="toctree-l1"><a class="reference internal" href="praktikum5.html">Praktikum 5 - 2d kaardistamine, automaatne navigeerimine</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Praktikum 6</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Praktikum 6 - 3D kaardistamine</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#d-kaardistamine">3D kaardistamine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mis-on-punktipilv">Mis on punktipilv?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rtabmapiga-kaardistamine">Rtabmapiga kaardistamine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kaardistamine-toovahendiga-rtab-map">Kaardistamine töövahendiga RTAB-Map</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#proovime-soita-ainult-kaarti-vaadates">Proovime sõita ainult kaarti vaadates</a></li>
 </ul>
 </li>
@@ -131,7 +131,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Praktikum 6</li>
+    <li>Praktikum 6 - 3D kaardistamine</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -145,8 +145,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="praktikum-6">
-<h1>Praktikum 6<a class="headerlink" href="#praktikum-6" title="Püsiviit sellele pealkirjale">¶</a></h1>
+  <div class="section" id="praktikum-6-3d-kaardistamine">
+<h1>Praktikum 6 - 3D kaardistamine<a class="headerlink" href="#praktikum-6-3d-kaardistamine" title="Püsiviit sellele pealkirjale">¶</a></h1>
 <div class="section" id="d-kaardistamine">
 <h2>3D kaardistamine<a class="headerlink" href="#d-kaardistamine" title="Püsiviit sellele pealkirjale">¶</a></h2>
 <p>Kui eelnevalt oleme vaadanud vaid 2D andmeid, laserskanni ja kaugusi ning nende abil robotit liigutanud,
@@ -156,9 +156,9 @@ siis nüüd hakkame kasutama 3D punktipilve, mille jäädvustamiseks meie kaamer
 <h2>Mis on punktipilv?<a class="headerlink" href="#mis-on-punktipilv" title="Püsiviit sellele pealkirjale">¶</a></h2>
 <p>Punktipilv näitab meile takistuste kaugusi kaamerast. Need kaugused saab kombineerida kaamerapildiga, et näha värvilist pilti. Proovime järele.</p>
 <ol class="arabic">
-<li><p class="first">Ava terminal ning loo ssh-ühendus robotisse.</p>
+<li><p class="first">Ava terminaliaken ning loo ssh-ühendus robotisse.</p>
 </li>
-<li><p class="first">Sisesta terminali</p>
+<li><p class="first">Sisesta terminaliaknasse</p>
 <p><strong>roslaunch robotont_teleop teleop_bare_with_camera.launch</strong></p>
 </li>
 <li><p class="first">Ava uus terminaliaken ning trüki sinna</p>
@@ -171,78 +171,78 @@ siis nüüd hakkame kasutama 3D punktipilve, mille jäädvustamiseks meie kaamer
 <ol class="arabic">
 <li><p class="first">Ava terminaliaken ning loo ssh-ühendus robotisse.</p>
 </li>
-<li><p class="first">Trüki terminali</p>
+<li><p class="first">Trüki terminaliaknasse</p>
 <p><strong>roslaunch robotont_teleop teleop_pc_side.launch</strong></p>
-<p>Selles terminalis saad robotit juhtida.</p>
+<p>Selles terminaliaknas saad robotit juhtida.</p>
 </li>
 </ol>
-<p>Kui oled lõpetanud, pane terminalid kinni.</p>
+<p>Kui oled lõpetanud, pane terminaliaknad kinni.</p>
 </div>
-<div class="section" id="rtabmapiga-kaardistamine">
-<h2>Rtabmapiga kaardistamine<a class="headerlink" href="#rtabmapiga-kaardistamine" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<div class="section" id="kaardistamine-toovahendiga-rtab-map">
+<h2>Kaardistamine töövahendiga RTAB-Map<a class="headerlink" href="#kaardistamine-toovahendiga-rtab-map" title="Püsiviit sellele pealkirjale">¶</a></h2>
 <p>Nagu 2D kaardiga, siis saame kaarti genereerida ka 3D vaates.
-Selline protsess on küll palju ressursinõudlikum, kuid saame juurde terve dimensiooni oma kaardile.</p>
+Selline protsess on küll palju ressursinõudlikum, kuid saame oma kaardile juurde terve ruumimõõtme.</p>
 <blockquote>
 <div><div class="figure">
 <a class="reference internal image-reference" href="../_images/3dmap.png"><img alt="../_images/3dmap.png" src="../_images/3dmap.png" style="width: 785.4px; height: 554.4px;" /></a>
 </div>
 </div></blockquote>
 <ol class="arabic">
-<li><p class="first">Ava terminal ning loo ssh-ühendus robotisse.</p>
+<li><p class="first">Ava terminaliaken ning loo ssh-ühendus robotisse.</p>
 </li>
-<li><p class="first">Sisesta terminali</p>
+<li><p class="first">Sisesta terminaliaknasse</p>
 <p><strong>roscore</strong></p>
-<p>See terminal hoolitseb selle eest, et süsteem käimas püsiks, see terminal võib jääda tahaplaanile käima.</p>
+<p>See terminaliaken hoolitseb selle eest, et süsteem käimas püsiks, see terminaliaken võib jääda tahaplaanile käima.</p>
 </li>
-<li><p class="first">Ava terminal ning loo ssh-ühendus robotisse.</p>
+<li><p class="first">Ava terminaliaken ning loo ssh-ühendus robotisse.</p>
 </li>
-<li><p class="first">Sisesta terminali</p>
+<li><p class="first">Sisesta käsureale</p>
 </li>
 </ol>
 <p><strong>roslaunch robotont_teleop teleop_3dmapping.launch</strong></p>
 <ol class="arabic" start="5">
-<li><p class="first">Ava uus terminal ning trüki sinna</p>
+<li><p class="first">Ava uus terminaliaken ning trüki sinna</p>
 <p><strong>roslaunch robotont_description display_3dmapping.launch</strong></p>
 </li>
-<li><p class="first">Ava uus terminal ning trüki sinna</p>
+<li><p class="first">Ava uus terminaliaken ning trüki sinna</p>
 <p><strong>roslaunch robotont_teleop teleop_pc_side.launch</strong></p>
-<p>Selles terminalis saad robotit juhtida</p>
+<p>Selles terminaliaknas saad robotit juhtida</p>
 </li>
 <li><p class="first">Sõida ringi ja kaardista ruumi.</p>
 </li>
 <li><p class="first">Kui oled oma kaardiga rahul, näita juhendajale.</p>
 </li>
 </ol>
-<p>Vaikeväärtustega on näha, et kaart on hõre ja raske on aru saada, mis kus on, kuigi sügavuskaamera näitab ilusat pilti.
+<p>Vaikeväärtustega on näha, et genereeritud kaart on võrdlemisi hõre: objekte ja nende asukohti on keeruline tuvastada, kuigi sügavuskaamera pilt ise on kvaliteetne.
 Seega proovime parandada seda olukorda, muutes mõningaid parameetreid.</p>
 <p><em>linear_update</em> - määrab kaardi uuendamiskiiruse lineaarse liikumise korral</p>
 <p><em>angular_update</em> - määrab kaardi uuendamiskiiruse pööramise korral</p>
 <p><em>cell_size</em> - määrab punktide vahekauguse</p>
 <ol class="arabic">
-<li><p class="first">Võta ette terminal, kus sisestasid</p>
+<li><p class="first">Võta ette terminaliaken, kus sisestasid</p>
 <p><strong>roslaunch robotont_teleop teleop_3dmapping.launch</strong></p>
 </li>
 <li><p class="first">Vajuta Ctrl+C, et lõpetada praegune protsess.</p>
 </li>
-<li><p class="first">Sisesta terminali</p>
+<li><p class="first">Sisesta terminaliaknasse</p>
 <p><strong>roslaunch robotont_teleop teleop_3dmapping.launch angular_update:=0.1 linear_update:=0.1 cell_size:=0.1</strong></p>
-<p>Siin proovi numbreid muuta ja vaata kuidas muutub kaardi genereerimine.</p>
+<p>Ctrl+C abil protsessi seisates, numbreid muutes ning siis uuesti käivitades, proovi aru saada, kuidas muutub genereeritav kaart.</p>
 </li>
-<li><p class="first">Muudatused parameetrides ja vaatlused, kuidas kaardi genereerimine muutub, pane kirja õpimappi.</p>
+<li><p class="first">Muudatused parameetrites ja vaatlused, kuidas kaardi genereerimine muutub, pane kirja oma õpimappi.</p>
 </li>
-<li><p class="first">Korda protsessi kuni kaart on piisavalt selge, et sealt objekte eristada ning näita juhendajale.</p>
+<li><p class="first">Korda protsessi kuni kaart on piisavalt selge, et sealt objekte eristada ning näita lõpptulemust juhendajale.</p>
 </li>
 </ol>
 </div>
 <div class="section" id="proovime-soita-ainult-kaarti-vaadates">
 <h2>Proovime sõita ainult kaarti vaadates<a class="headerlink" href="#proovime-soita-ainult-kaarti-vaadates" title="Püsiviit sellele pealkirjale">¶</a></h2>
-<p>Nüüd kui meil on olemas kaart, siis proovime sõita niimoodi, et vaatame ainult kaarti.
+<p>Nüüd kui meil on olemas kvaliteetne kaart, siis proovime juhtida robotit vaadates ainult arvutiekraanil kaarti.
 Ülesanne on leida, mis on juhendaja öeldud kohtades.
 Sõita tuleb ettevaatlikult, sest robot ei pruugi reageerida nupuvajutustele kohe ning samuti ei pruugi pilt alati reaalajas uueneda.</p>
 <ol class="arabic simple">
 <li>Käivita eelnevalt paika sätitud argumentidega teleop_3dmapping.</li>
-<li>Mine kõrvaltuppa ning kaardista kogu tuba.</li>
-<li>Vaadates arvutist kaarti, näita juhendajale, mis on postide taga.</li>
+<li>Sõiduta robot kõrvatuppa ning kaardista kogu ruum.</li>
+<li>Arvutiekraanilt nähtava kaardi abil selgita juhendajatele, mida võib leida sealt ruumist.</li>
 </ol>
 </div>
 </div>
