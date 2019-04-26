@@ -72,9 +72,9 @@ Selline protsess on küll palju ressursinõudlikum, kuid saame oma kaardile juur
 Vaikeväärtustega on näha, et genereeritud kaart on võrdlemisi hõre: objekte ja nende asukohti on keeruline tuvastada, kuigi sügavuskaamera pilt ise on kvaliteetne. 
 Seega proovime parandada seda olukorda, muutes mõningaid parameetreid.
 
-*linear_update* - määrab kaardi uuendamiskiiruse lineaarse liikumise korral
+*linear_update* - määrab kaardi uuendamiskiiruse lineaarse liikumise korral (mitme meetri järel kaarti uuendatakse)
 
-*angular_update* - määrab kaardi uuendamiskiiruse pööramise korral
+*angular_update* - määrab kaardi uuendamiskiiruse pööramise korral (kui palju peab pöörama, et kaart uueneks)
 
 *cell_size* - määrab punktide vahekauguse
 
