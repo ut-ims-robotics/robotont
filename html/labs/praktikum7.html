@@ -97,6 +97,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#praktikumi-kirjeldus">Praktikumi kirjeldus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ulesanne-1">Ülesanne 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ulesanne-2">Ülesanne 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ulesanne-3">Ülesanne 3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#enne-praktikumi-lopetamist">Enne praktikumi lõpetamist</a></li>
 </ul>
 </li>
@@ -223,34 +224,53 @@ Hüstereesi suuruse võid ise valida, et saavutada parim võimalik lahendus.</p>
 </div>
 <div class="section" id="ulesanne-2">
 <h2>Ülesanne 2<a class="headerlink" href="#ulesanne-2" title="Püsiviit sellele pealkirjale">¶</a></h2>
-<p>Hüstereesiga bang-bang kontrolleri puhul on probleem, et tulemus on ebatäpne. Roboti tegelik kaugus kogu hüstereesiga määratud vahemikus on pole teada. Selleks, et olukorda natuke parandada, saab kasutada proportsionaalset kontrollerit ehk P-kontroller. Selle mõtet võib illustreerida roboti puhul näiteks nõnda, et mida lähemal oleme soovitud kaugusele, seda aeglasemalt sõidame. Ja vastupidiselt, kui robot paikneb soovitud punktist väga kaugel, siis võib liikuda kiiremini. Lühidalt: roboti kiirus on proportsionaalne kaugusega sihtpunktist. Matemaatiliselt võib seda kirjutada kui</p>
+<p>Hüstereesiga <em>bang-bang</em> kontrolleri puhul on probleem, et tulemus on ebatäpne. Roboti tegelik kaugus kogu hüstereesiga määratud vahemikus on pole teada. Selleks, et olukorda natuke parandada, saab kasutada proportsionaalset kontrollerit ehk P-kontroller. Selle mõtet võib illustreerida roboti puhul näiteks nõnda, et mida lähemal oleme soovitud kaugusele, seda aeglasemalt sõidame. Ja vastupidiselt, kui robot paikneb soovitud punktist väga kaugel, siis võib liikuda kiiremini. Lühidalt: roboti kiirus on proportsionaalne kaugusega sihtpunktist. Matemaatiliselt võib seda kirjutada kui</p>
 <div class="math notranslate nohighlight">
 \[v = Kp\cdot e\]</div>
 <p>kus v on kiirus, millega robot sõidab, Kp on enda seatud konstant, mis määrab kuidas kontroller toimib ja e on viga soovitud kauguse ning praeguse kauguse vahel.</p>
-<p>Ülesanne
-Ava terminaliaken ning loo ssh-ühendus robotisse.
-Terminaliaknas sisesta
-roslaunch robotont_teleop teleop_with_laserscan.launch
-Ava uus terminaliaken ning loo ssh-ühendus robotisse
-Terminaliaknas sisesta
-nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum3_bangbang.py
-Kommenteeri koodist välja oma varasem (hüstereesiga) bang-bang kontroller ning kirjelda roboti juhtimiseks  proportsionaalne kontroller, mis hoiab robotit seinast 0,6 m kaugusel.
-Koodi käitamiseks sisesta terminali
-rosrun robotont_blank_scripts praktikum3_bangbang.py
-Ctrl+C paneb programmi kinni.
-Demonstreeri töötavat kontrollerit juhendajale.
-Ülesanne 3
-Ülesannetes 1 ja 2 tutvustatud kontrollereid saab nüüd kasutada, et teha paremaks neljandas praktikumis tehtud AR markerite jälgimine. Ülesanne on muuta oma AR-märgiste  jälgimise programm sujuvamaks kasutades kas proportsionaalset või hüstereesiga bang-bang kontrollerit.</p>
-<p>Ülesanne
-Ava uus terminal, loo ssh-ühendus ning seal ava praktikum4_ar.py fail, kasutades käsku
-nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum4_ar.py
-Otsi koodis kommentaar “CHANGE THIS NUMBER TO YOUR MARKER ID” ja selle rea all muuda marker.id == väärtus end markerile vastavaks
-Muuda kõiki kolme funktsiooni nii, et need kasutaks P-kontrollerit.
-Skriptist väljumiseks Ctrl+X, salvesta ja skripti saad jooksutada käsuga
-rosrun robotont_blank_scripts praktikum4_ar.py
-Ctrl+C, et skript peatada.
-Demonstreeri töötavat kontrollerit juhendajale.
-Robot peab olema võimeline sõitma teise roboti järel.</p>
+<p><strong>Ülesanne</strong>
+1.  Ava terminaliaken ning loo ssh-ühendus robotisse.
+2.  Terminaliaknas sisesta</p>
+<blockquote>
+<div><strong>roslaunch robotont_teleop teleop_with_laserscan.launch</strong></div></blockquote>
+<ol class="arabic" start="3">
+<li><p class="first">Ava uus terminaliaken ning loo ssh-ühendus robotisse</p>
+</li>
+<li><p class="first">Terminaliaknas sisesta</p>
+<p><strong>nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum3_bangbang.py</strong></p>
+</li>
+<li><p class="first">Kommenteeri koodist välja oma varasem (hüstereesiga) bang-bang kontroller ning kirjelda roboti juhtimiseks  proportsionaalne kontroller, mis hoiab robotit seinast 0,6 m kaugusel.</p>
+</li>
+<li><p class="first">Koodi käitamiseks sisesta terminali</p>
+<p><strong>rosrun robotont_blank_scripts praktikum3_bangbang.py</strong></p>
+<p>Ctrl+C paneb programmi kinni.</p>
+</li>
+<li><p class="first">Demonstreeri töötavat kontrollerit juhendajale.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="ulesanne-3">
+<h2>Ülesanne 3<a class="headerlink" href="#ulesanne-3" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>Ülesannetes 1 ja 2 tutvustatud kontrollereid saab nüüd kasutada, et teha paremaks neljandas praktikumis tehtud AR markerite jälgimine.
+Ülesanne on muuta oma AR-märgiste  jälgimise programm sujuvamaks kasutades kas proportsionaalset või hüstereesiga <em>bang-bang</em> kontrollerit.</p>
+<p><strong>Ülesanne</strong></p>
+<ol class="arabic">
+<li><p class="first">Ava uus terminal, loo ssh-ühendus ning seal ava praktikum4_ar.py fail, kasutades käsku</p>
+<p><strong>nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum4_ar.py</strong></p>
+</li>
+<li><p class="first">Otsi koodis kommentaar “CHANGE THIS NUMBER TO YOUR MARKER ID” ja selle rea all muuda <strong>marker.id</strong> == väärtus end markerile vastavaks</p>
+</li>
+<li><p class="first">Muuda kõiki kolme funktsiooni nii, et need kasutaks P-kontrollerit.</p>
+</li>
+<li><p class="first">Nanost väljumiseks Ctrl+X, salvesta ja skripti saad jooksutada käsuga</p>
+<p><strong>rosrun robotont_blank_scripts praktikum4_ar.py</strong></p>
+<p>Ctrl+C, et skript peatada.</p>
+</li>
+<li><p class="first">Demonstreeri töötavat kontrollerit juhendajale.</p>
+</li>
+<li><p class="first">Robot peab olema võimeline sõitma teise roboti järel.</p>
+</li>
+</ol>
 </div>
 <div class="section" id="enne-praktikumi-lopetamist">
 <h2>Enne praktikumi lõpetamist<a class="headerlink" href="#enne-praktikumi-lopetamist" title="Püsiviit sellele pealkirjale">¶</a></h2>
