@@ -58,6 +58,7 @@ Hüstereesiga *bang-bang* kontrolleri puhul on probleem, et tulemus on ebatäpne
 kus v on kiirus, millega robot sõidab, Kp on enda seatud konstant, mis määrab kuidas kontroller toimib ja e on viga soovitud kauguse ning praeguse kauguse vahel.
 
 **Ülesanne**
+
 1.  Ava terminaliaken ning loo ssh-ühendus robotisse.
 2.  Terminaliaknas sisesta 
     
