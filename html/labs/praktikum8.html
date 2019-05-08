@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Enne praktikumi juurde asumist &mdash; Clearbot 0.1 alpha dokumentatsioon</title>
+  <title>Praktikum 6 - 3D kaardistamine &mdash; Clearbot 0.1 alpha dokumentatsioon</title>
   
 
   
@@ -37,7 +37,8 @@
         <link rel="index" title="Indeks"
               href="../genindex.html"/>
         <link rel="search" title="Otsing" href="../search.html"/>
-    <link rel="top" title="Clearbot 0.1 alpha dokumentatsioon" href="../index.html"/> 
+    <link rel="top" title="Clearbot 0.1 alpha dokumentatsioon" href="../index.html"/>
+        <link rel="prev" title="Praktikum 7 - regulaatorid" href="praktikum7.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -83,15 +84,18 @@
             
             
                 <p class="caption"><span class="caption-text">Praktikumid</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../labs/praktikum1.html">Praktikum 1 - Linux, ssh, roboti juhtimine klaviatuuriga</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/praktikum2.html">Praktikum 2 - Programmeerimise alused: for-tsükkel, funktsioonid</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/praktikum3.html">Praktikum 3 - Andurid, if-lause, bang-bang kontroller</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/praktikum4.html">Praktikum 4 - AR markerid</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/praktikum5.html">Praktikum 5 - 2d kaardistamine, automaatne navigeerimine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/praktikum6.html">Praktikum 6 - 3D kaardistamine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/praktikum7.html">Praktikum 7 - regulaatorid</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../labs/praktikum8.html">Praktikum 6 - 3D kaardistamine</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="praktikum1.html">Praktikum 1 - Linux, ssh, roboti juhtimine klaviatuuriga</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum2.html">Praktikum 2 - Programmeerimise alused: for-tsükkel, funktsioonid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum3.html">Praktikum 3 - Andurid, if-lause, bang-bang kontroller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum4.html">Praktikum 4 - AR markerid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum5.html">Praktikum 5 - 2d kaardistamine, automaatne navigeerimine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum6.html">Praktikum 6 - 3D kaardistamine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum7.html">Praktikum 7 - regulaatorid</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Praktikum 6 - 3D kaardistamine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#d-kaardistamine">3D kaardistamine</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -122,11 +126,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Enne praktikumi juurde asumist</li>
+    <li>Praktikum 6 - 3D kaardistamine</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/include/beforethelabrobot.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/labs/praktikum8.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -136,45 +140,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="enne-praktikumi-juurde-asumist">
-<h1>Enne praktikumi juurde asumist<a class="headerlink" href="#enne-praktikumi-juurde-asumist" title="Püsiviit sellele pealkirjale">¶</a></h1>
-<ol class="arabic">
-<li><p class="first">Mine lehele <a class="reference external" href="https://github.com/">https://github.com/</a><strong>sinu kasutajanimi</strong>/robotont_blank_scripts, kus asenda <strong>sinu kasutajanimi</strong> oma kasutajanimega.</p>
-</li>
-<li><p class="first">Vajuta rohelist nuppu “Clone or download”</p>
-</li>
-<li><p class="first">Kopeeri sealt aadress</p>
-</li>
-<li><p class="first">Ava terminal, <strong>loo ssh-ühendus robotisse</strong> ning trüki sinna</p>
-<p><strong>cd catkin_ws/src</strong></p>
-</li>
-<li><p class="first">Seejärel sisesta</p>
-<p><strong>git clone -sinu-kopeeritud-link-</strong></p>
-</li>
-<li><p class="first">Seejärel sisesta</p>
-<p><strong>cd robotont_blank_scripts</strong></p>
-</li>
-<li><p class="first">Seejärel</p>
-<p><strong>git config user.email „YOUR-EMAIL-HERE“</strong></p>
-</li>
-<li><p class="first">Seejärel</p>
-<p><strong>git config user.name „YOUR-NAME-HERE“</strong></p>
-</li>
-<li><p class="first">Seejärel sisesta</p>
-<p><strong>git pull https://github.com/ut-ims-robotics/robotont_blank_scripts.git</strong></p>
-</li>
-<li><p class="first">Nüüd trüki terminali</p>
-<p><strong>catkin build</strong></p>
-</li>
-<li><p class="first">Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.</p>
-</li>
-</ol>
+  <div class="section" id="praktikum-6-3d-kaardistamine">
+<h1>Praktikum 6 - 3D kaardistamine<a class="headerlink" href="#praktikum-6-3d-kaardistamine" title="Püsiviit sellele pealkirjale">¶</a></h1>
+<div class="section" id="d-kaardistamine">
+<h2>3D kaardistamine<a class="headerlink" href="#d-kaardistamine" title="Püsiviit sellele pealkirjale">¶</a></h2>
+</div>
 </div>
 
 
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="praktikum7.html" class="btn btn-neutral" title="Praktikum 7 - regulaatorid" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

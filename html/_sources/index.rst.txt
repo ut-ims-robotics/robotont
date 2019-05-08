@@ -1,11 +1,11 @@
 Tere tulemast Clearboti dokumentatsiooni!
 =========================================
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-   :caption: Sissejuhatus
+.. .. toctree::
+..    :maxdepth: 2
+..    :hidden:
+..    :caption: Sissejuhatus
 
-   intro/introduction
+..    intro/introduction
 
 .. _labs:
 
@@ -19,6 +19,8 @@ Tere tulemast Clearboti dokumentatsiooni!
    labs/praktikum4 
    labs/praktikum5
    labs/praktikum6
+   labs/praktikum7
+   labs/praktikum8
 
 
 .. Indices and tables

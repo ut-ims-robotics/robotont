@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Praktikum 7 - regulaatorid &mdash; Clearbot 0.1 alpha dokumentatsioon</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Indeks"
+              href="../genindex.html"/>
+        <link rel="search" title="Otsing" href="../search.html"/>
+    <link rel="top" title="Clearbot 0.1 alpha dokumentatsioon" href="../index.html"/>
+        <link rel="next" title="Praktikum 6 - 3D kaardistamine" href="praktikum8.html"/>
+        <link rel="prev" title="Praktikum 6 - 3D kaardistamine" href="praktikum6.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Clearbot
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Praktikumid</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="praktikum1.html">Praktikum 1 - Linux, ssh, roboti juhtimine klaviatuuriga</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum2.html">Praktikum 2 - Programmeerimise alused: for-tsükkel, funktsioonid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum3.html">Praktikum 3 - Andurid, if-lause, bang-bang kontroller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum4.html">Praktikum 4 - AR markerid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum5.html">Praktikum 5 - 2d kaardistamine, automaatne navigeerimine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum6.html">Praktikum 6 - 3D kaardistamine</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Praktikum 7 - regulaatorid</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#enne-praktikumi-juurde-asumist">Enne praktikumi juurde asumist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#praktikumi-kirjeldus">Praktikumi kirjeldus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ulesanne-1">Ülesanne 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ulesanne-2">Ülesanne 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enne-praktikumi-lopetamist">Enne praktikumi lõpetamist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum8.html">Praktikum 6 - 3D kaardistamine</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Clearbot</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Praktikum 7 - regulaatorid</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/labs/praktikum7.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="praktikum-7-regulaatorid">
+<h1>Praktikum 7 - regulaatorid<a class="headerlink" href="#praktikum-7-regulaatorid" title="Püsiviit sellele pealkirjale">¶</a></h1>
+<div class="section" id="enne-praktikumi-juurde-asumist">
+<h2>Enne praktikumi juurde asumist<a class="headerlink" href="#enne-praktikumi-juurde-asumist" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Mine lehele <a class="reference external" href="https://github.com/">https://github.com/</a><strong>sinu kasutajanimi</strong>/robotont_blank_scripts, kus asenda <strong>sinu kasutajanimi</strong> oma kasutajanimega.</p>
+</li>
+<li><p class="first">Vajuta rohelist nuppu “Clone or download”</p>
+</li>
+<li><p class="first">Kopeeri sealt aadress</p>
+</li>
+<li><p class="first">Ava terminal, <strong>loo ssh-ühendus robotisse</strong> ning trüki sinna</p>
+<p><strong>cd catkin_ws/src</strong></p>
+</li>
+<li><p class="first">Seejärel sisesta</p>
+<p><strong>git clone -sinu-kopeeritud-link-</strong></p>
+</li>
+<li><p class="first">Seejärel sisesta</p>
+<p><strong>cd robotont_blank_scripts</strong></p>
+</li>
+<li><p class="first">Seejärel</p>
+<p><strong>git config user.email „YOUR-EMAIL-HERE“</strong></p>
+</li>
+<li><p class="first">Seejärel</p>
+<p><strong>git config user.name „YOUR-NAME-HERE“</strong></p>
+</li>
+<li><p class="first">Seejärel sisesta</p>
+<p><strong>git pull https://github.com/ut-ims-robotics/robotont_blank_scripts.git</strong></p>
+</li>
+<li><p class="first">Nüüd trüki terminali</p>
+<p><strong>catkin build</strong></p>
+</li>
+<li><p class="first">Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="praktikumi-kirjeldus">
+<h2>Praktikumi kirjeldus<a class="headerlink" href="#praktikumi-kirjeldus" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>Selles praktikumis on lahendada lisaülesanded. Praktikumi läbimiseks pead lahendama vähemalt 3 ülesannet.</p>
+</div>
+<div class="section" id="ulesanne-1">
+<h2>Ülesanne 1<a class="headerlink" href="#ulesanne-1" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>Kolmandas praktikumis õppisime tegema bang-bang kontrollerit. Aga sellel kontrolleril on probleem - nimelt kipub kauguse hoidmisel robot edasi-tagasi pendeldama.
+Üks lahendus on suurendada piirkonda, kus kontroller suunda vahetab. Seda nimetatakse kui bang-bang kontroller hüstereesiga.
+Näiteks võib tuua radiaatori:</p>
+<ul class="simple">
+<li>Soovitud temperatuuriks paneme 23 kraadi.</li>
+<li>Hüstereesiks seame 2 kraadi.</li>
+<li>Seega kui radiaator on sees, siis välja lülitab ta end kui temperatuur on läinud üle 24 kraadi.</li>
+<li>Sisse tagasi lülitab radiaator end siis, kui temperatuur on langenud alla 22 kraadi.</li>
+</ul>
+<p>Selline implementatsioon väldib olukorda, kus radiaator jääb end kiiresti 23 kraadi juures sisse-välja klõpsima.
+Ülesanne on teha samasugune hüstereesiga bang-bang kontroller, mis hoiab robotit umbes 0,6 meetri kaugusel seinast.
+Hüstereesi suuruse võid ise valida, et saavutada parim võimalik lahendus.</p>
+<p><strong>Ülesanne</strong></p>
+<ol class="arabic">
+<li><p class="first">Ava terminaliaken ning loo ssh-ühendus robotisse.</p>
+</li>
+<li><p class="first">Terminaliaknas sisesta</p>
+<p><strong>roslaunch robotont_teleop teleop_with_laserscan.launch</strong></p>
+</li>
+<li><p class="first">Ava uus terminaliaken ning loo ssh-ühendus robotisse</p>
+</li>
+<li><p class="first">Terminaliaknas sisesta</p>
+<p><strong>nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum3_bangbang.py</strong></p>
+</li>
+<li><p class="first">Selles failis peaks olema su kolmanda praktikumi bang-bang kontroller. Ülesanne on muuta koodi, et see oleks hüstereesiga bang-bang kontroller.</p>
+</li>
+<li><p class="first">Koodi käitamiseks sisesta terminali</p>
+<p><strong>rosrun robotont_blank_scripts praktikum3_bangbang.py</strong></p>
+<p>Ctrl+C paneb programmi kinni.</p>
+</li>
+<li><p class="first">Demonstreeri töötavat kontrollerit juhendajale.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="ulesanne-2">
+<h2>Ülesanne 2<a class="headerlink" href="#ulesanne-2" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>Hüstereesiga bang-bang kontrolleri puhul on probleem, et tulemus on ebatäpne. Roboti tegelik kaugus kogu hüstereesiga määratud vahemikus on pole teada. Selleks, et olukorda natuke parandada, saab kasutada proportsionaalset kontrollerit ehk P-kontroller. Selle mõtet võib illustreerida roboti puhul näiteks nõnda, et mida lähemal oleme soovitud kaugusele, seda aeglasemalt sõidame. Ja vastupidiselt, kui robot paikneb soovitud punktist väga kaugel, siis võib liikuda kiiremini. Lühidalt: roboti kiirus on proportsionaalne kaugusega sihtpunktist. Matemaatiliselt võib seda kirjutada kui</p>
+<div class="math notranslate nohighlight">
+\[v = Kp\cdot e\]</div>
+<p>kus v on kiirus, millega robot sõidab, Kp on enda seatud konstant, mis määrab kuidas kontroller toimib ja e on viga soovitud kauguse ning praeguse kauguse vahel.</p>
+<p>Ülesanne
+Ava terminaliaken ning loo ssh-ühendus robotisse.
+Terminaliaknas sisesta
+roslaunch robotont_teleop teleop_with_laserscan.launch
+Ava uus terminaliaken ning loo ssh-ühendus robotisse
+Terminaliaknas sisesta
+nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum3_bangbang.py
+Kommenteeri koodist välja oma varasem (hüstereesiga) bang-bang kontroller ning kirjelda roboti juhtimiseks  proportsionaalne kontroller, mis hoiab robotit seinast 0,6 m kaugusel.
+Koodi käitamiseks sisesta terminali
+rosrun robotont_blank_scripts praktikum3_bangbang.py
+Ctrl+C paneb programmi kinni.
+Demonstreeri töötavat kontrollerit juhendajale.
+Ülesanne 3
+Ülesannetes 1 ja 2 tutvustatud kontrollereid saab nüüd kasutada, et teha paremaks neljandas praktikumis tehtud AR markerite jälgimine. Ülesanne on muuta oma AR-märgiste  jälgimise programm sujuvamaks kasutades kas proportsionaalset või hüstereesiga bang-bang kontrollerit.</p>
+<p>Ülesanne
+Ava uus terminal, loo ssh-ühendus ning seal ava praktikum4_ar.py fail, kasutades käsku
+nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum4_ar.py
+Otsi koodis kommentaar “CHANGE THIS NUMBER TO YOUR MARKER ID” ja selle rea all muuda marker.id == väärtus end markerile vastavaks
+Muuda kõiki kolme funktsiooni nii, et need kasutaks P-kontrollerit.
+Skriptist väljumiseks Ctrl+X, salvesta ja skripti saad jooksutada käsuga
+rosrun robotont_blank_scripts praktikum4_ar.py
+Ctrl+C, et skript peatada.
+Demonstreeri töötavat kontrollerit juhendajale.
+Robot peab olema võimeline sõitma teise roboti järel.</p>
+</div>
+<div class="section" id="enne-praktikumi-lopetamist">
+<h2>Enne praktikumi lõpetamist<a class="headerlink" href="#enne-praktikumi-lopetamist" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<ol class="arabic simple">
+<li>Ava uus terminal ning <strong>loo ssh-ühendus robotisse</strong></li>
+<li>Sisesta sinna
+<strong>cd catkin_ws/src/robotont_blank_scripts</strong></li>
+<li>Seejärel
+<strong>git add .</strong></li>
+<li>Seejärel
+<strong>git config user.email „YOUR-EMAIL-HERE“</strong></li>
+<li>Seejärel
+<strong>git config user.name „YOUR-NAME-HERE“</strong></li>
+<li>Seejärel
+<strong>git commit -m „kommentaar mis praktikum oli“</strong></li>
+<li>Seejärel
+<strong>git push</strong></li>
+<li>Siin sisesta oma githubi kasutajanimi ja parool.
+Kontrolli, kas sinu github.com lehel uuenesid failid.</li>
+<li>Kui uuenesid, siis loo ssh-ühendus robotisse ning sisesta käsureale <strong>sudo poweroff</strong>.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="praktikum8.html" class="btn btn-neutral float-right" title="Praktikum 6 - 3D kaardistamine" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="praktikum6.html" class="btn btn-neutral" title="Praktikum 6 - 3D kaardistamine" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Autoriõigused 2019, Madis Kaspar Nigol, Veiko Vunder, Renno Raudmäe.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1 alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="../_static/contentui.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
