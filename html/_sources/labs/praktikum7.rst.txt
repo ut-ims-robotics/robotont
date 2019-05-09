@@ -56,6 +56,11 @@ Hüstereesiga *bang-bang* kontrolleri puhul on probleem, et tulemus on ebatäpne
 
 
 kus v on kiirus, millega robot sõidab, Kp on enda seatud konstant, mis määrab kuidas kontroller toimib ja e on viga soovitud kauguse ning praeguse kauguse vahel.
+    
+    .. figure:: ../images/lab07/pcontroller.png
+                :scale: 70 %
+
+                ..
 
 **Ülesanne**
 
