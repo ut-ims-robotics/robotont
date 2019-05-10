@@ -91,20 +91,25 @@ kus v on kiirus, millega robot sõidab, Kp on enda seatud konstant, mis määrab
 
 **Ülesanne**
 
-1.  Ava uus terminal, loo ssh-ühendus ning seal ava praktikum4_ar.py fail, kasutades käsku
+1.  Ava terminaliaken ning loo ssh-ühendus robotisse.
+2.  Terminaliaknas sisesta 
+
+    **roslaunch robotont_training robotont_ar.launch**
+
+3.  Ava uus terminal, loo ssh-ühendus ning seal ava praktikum4_ar.py fail, kasutades käsku
     
     **nano catkin_ws/src/robotont_blank_scripts/scripts/praktikum4_ar.py**
 
-2.  Otsi koodis kommentaar “CHANGE THIS NUMBER TO YOUR MARKER ID” ja selle rea all muuda **marker.id** == väärtus end markerile vastavaks
-3.  Muuda kõiki kolme funktsiooni nii, et need kasutaks P-kontrollerit.
-4.  Nanost väljumiseks Ctrl+X, salvesta ja skripti saad jooksutada käsuga
+4.  Otsi koodis kommentaar “CHANGE THIS NUMBER TO YOUR MARKER ID” ja selle rea all muuda **marker.id** == väärtus end markerile vastavaks
+5.  Muuda kõiki kolme funktsiooni nii, et need kasutaks P-kontrollerit.
+6.  Nanost väljumiseks Ctrl+X, salvesta ja skripti saad jooksutada käsuga
     
     **rosrun robotont_blank_scripts praktikum4_ar.py**
 
     Ctrl+C, et skript peatada.
 
-5.  Demonstreeri töötavat kontrollerit juhendajale.
-6.  Robot peab olema võimeline sõitma teise roboti järel. 
+7.  Demonstreeri töötavat kontrollerit juhendajale.
+8.  Robot peab olema võimeline sõitma teise roboti järel. 
 
 
 
