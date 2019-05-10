@@ -34,7 +34,7 @@ Hüstereesi suuruse võid ise valida, et saavutada parim võimalik lahendus.
 3.  Ava uus terminaliaken ning loo ssh-ühendus robotisse
 4.  Terminaliaknas sisesta 
     
-    **nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum3_bangbang.py**
+    **nano catkin_ws/src/robotont_blank_scripts/scripts/praktikum3_bangbang.py**
 
 5.  Selles failis peaks olema su kolmanda praktikumi bang-bang kontroller. Ülesanne on muuta koodi, et see oleks hüstereesiga bang-bang kontroller.
 6.  Koodi käitamiseks sisesta terminali
@@ -72,7 +72,7 @@ kus v on kiirus, millega robot sõidab, Kp on enda seatud konstant, mis määrab
 3.  Ava uus terminaliaken ning loo ssh-ühendus robotisse
 4.  Terminaliaknas sisesta 
     
-    **nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum3_bangbang.py** 
+    **nano catkin_ws/src/robotont_blank_scripts/scripts/praktikum3_bangbang.py** 
 
 5.  Kommenteeri koodist välja oma varasem (hüstereesiga) bang-bang kontroller ning kirjelda roboti juhtimiseks  proportsionaalne kontroller, mis hoiab robotit seinast 0,6 m kaugusel. 
 6.  Koodi käitamiseks sisesta terminali
@@ -93,7 +93,7 @@ kus v on kiirus, millega robot sõidab, Kp on enda seatud konstant, mis määrab
 
 1.  Ava uus terminal, loo ssh-ühendus ning seal ava praktikum4_ar.py fail, kasutades käsku
     
-    **nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum4_ar.py**
+    **nano catkin_ws/src/robotont_blank_scripts/scripts/praktikum4_ar.py**
 
 2.  Otsi koodis kommentaar “CHANGE THIS NUMBER TO YOUR MARKER ID” ja selle rea all muuda **marker.id** == väärtus end markerile vastavaks
 3.  Muuda kõiki kolme funktsiooni nii, et need kasutaks P-kontrollerit.
