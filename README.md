@@ -5,4 +5,4 @@ Gmapping with realsense camera requires laserscan_kinect package from http://wik
 
 https://ut-ims-robotics.github.io/robotont/html/index.html
 
-![ClearBot Software Architecture](https://github.com/ut-ims-robotics/robotont/blob/gh-pages/source/images/ClearBot_software_architecture.png)
+![ClearBot Software Architecture](https://github.com/ut-ims-robotics/robotont/blob/gh-pages/source/images/ClearBot_software_architecture_gen.png)
