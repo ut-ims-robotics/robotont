@@ -1,4 +1,4 @@
-Praktikum 7 - regulaatorid
+Praktikum 7 - Regulaatorid
 ====================================
 .. include:: ../include/beforethelabrobot.rst
 
@@ -12,16 +12,17 @@ Selles praktikumis on lahendada lisaülesanded. Praktikumi läbimiseks pead lahe
 ------------
 
 Kolmandas praktikumis õppisime tegema bang-bang kontrollerit. Aga sellel kontrolleril on probleem - nimelt kipub kauguse hoidmisel robot edasi-tagasi pendeldama.  
-Üks lahendus on suurendada piirkonda, kus kontroller suunda vahetab. Seda nimetatakse kui bang-bang kontroller hüstereesiga.
-Näiteks võib tuua radiaatori:
+Üks lahendus on suurendada piirkonda, kus kontroller suunda vahetab ning kui anduri näit on selles vahemikus, siis paneme roboti seisma. Seda nimetatakse kolm-punkt regulaatoriks.
+Näiteks võib tuua radiaatori ja jahutuse:
 
 - Soovitud temperatuuriks paneme 23 kraadi.
 - Hüstereesiks seame 2 kraadi.
-- Seega kui radiaator on sees, siis välja lülitab ta end kui temperatuur on läinud üle 24 kraadi.
-- Sisse tagasi lülitab radiaator end siis, kui temperatuur on langenud alla 22 kraadi.
+- Kui temperatuur on alla 22 kraadi, on radiaator sees, jahutus väljas.
+- Kui temperatuur on 22-24 kraadi, on radiaator ja jahutus väljas.
+- Kui temperatuur läheb üle 24 kraadi, on radiaator välja ja jahutus sees.
 
-Selline implementatsioon väldib olukorda, kus radiaator jääb end kiiresti 23 kraadi juures sisse-välja klõpsima. 
-Ülesanne on teha samasugune hüstereesiga bang-bang kontroller, mis hoiab robotit umbes 0,6 meetri kaugusel seinast. 
+Selline implementatsioon väldib olukorda, kus radiaator jääks end kiiresti 23 kraadi juures sisse-välja klõpsima. 
+Ülesanne on teha samasugune kolm-punkt regulaator, mis hoiab robotit umbes 0,6 meetri kaugusel seinast. 
 Hüstereesi suuruse võid ise valida, et saavutada parim võimalik lahendus.
 
 **Ülesanne**
@@ -36,7 +37,7 @@ Hüstereesi suuruse võid ise valida, et saavutada parim võimalik lahendus.
     
     **nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum3_bangbang.py**
 
-5.  Selles failis peaks olema su kolmanda praktikumi bang-bang kontroller. Ülesanne on muuta koodi, et see oleks hüstereesiga bang-bang kontroller.
+5.  Selles failis peaks olema su kolmanda praktikumi bang-bang kontroller ehk kaks-punkt regulaator. Ülesanne on muuta koodi, et see oleks kolm-punkt regulaator.
 6.  Koodi käitamiseks sisesta terminali
     
     **rosrun robotont_blank_scripts praktikum3_bangbang.py**
@@ -48,7 +49,11 @@ Hüstereesi suuruse võid ise valida, et saavutada parim võimalik lahendus.
 Ülesanne 2
 ------------
 
-Hüstereesiga *bang-bang* kontrolleri puhul on probleem, et tulemus on ebatäpne. Roboti tegelik kaugus kogu hüstereesiga määratud vahemikus on pole teada. Selleks, et olukorda natuke parandada, saab kasutada proportsionaalset kontrollerit ehk P-kontroller. Selle mõtet võib illustreerida roboti puhul näiteks nõnda, et mida lähemal oleme soovitud kaugusele, seda aeglasemalt sõidame. Ja vastupidiselt, kui robot paikneb soovitud punktist väga kaugel, siis võib liikuda kiiremini. Lühidalt: roboti kiirus on proportsionaalne kaugusega sihtpunktist. Matemaatiliselt võib seda kirjutada kui 
+Kolm-punkt regulaatori puhul on probleem, et tulemus on ebatäpne. 
+Roboti tegelik kaugus kogu hüstereesiga määratud vahemikus on pole teada. Selleks, et olukorda natuke parandada, saab kasutada proportsionaalset kontrollerit ehk P-kontroller. 
+Selle mõtet võib illustreerida roboti puhul näiteks nõnda, et mida lähemal oleme soovitud kaugusele, seda aeglasemalt sõidame. 
+Ja vastupidiselt, kui robot paikneb soovitud punktist väga kaugel, siis võib liikuda kiiremini. Lühidalt: roboti kiirus on proportsionaalne kaugusega sihtpunktist. 
+Matemaatiliselt võib seda kirjutada kui 
 
 .. math::
 
@@ -74,7 +79,7 @@ kus v on kiirus, millega robot sõidab, Kp on enda seatud konstant, mis määrab
     
     **nano catkin_ws/src/robotont/robotont_blank_scripts/scripts/praktikum3_bangbang.py** 
 
-5.  Kommenteeri koodist välja oma varasem (hüstereesiga) bang-bang kontroller ning kirjelda roboti juhtimiseks  proportsionaalne kontroller, mis hoiab robotit seinast 0,6 m kaugusel. 
+5.  Kommenteeri koodist välja oma varasem kolm-punkt regulaator ning kirjelda roboti juhtimiseks proportsionaalne kontroller, mis hoiab robotit seinast 0,6 m kaugusel. 
 6.  Koodi käitamiseks sisesta terminali
     
     **rosrun robotont_blank_scripts praktikum3_bangbang.py**
@@ -87,7 +92,7 @@ kus v on kiirus, millega robot sõidab, Kp on enda seatud konstant, mis määrab
 ------------
 
 Ülesannetes 1 ja 2 tutvustatud kontrollereid saab nüüd kasutada, et teha paremaks neljandas praktikumis tehtud AR markerite jälgimine. 
-Ülesanne on muuta oma AR-märgiste  jälgimise programm sujuvamaks kasutades kas proportsionaalset või hüstereesiga *bang-bang* kontrollerit.
+Ülesanne on muuta oma AR-märgiste jälgimise programm sujuvamaks, kasutades proportsionaalset regulaatorit.
 
 **Ülesanne**
 
