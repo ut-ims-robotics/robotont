@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Praktikum 3 - Andurid, if-lause, bang-bang kontroller &mdash; Clearbot 0.1 alpha dokumentatsioon</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Indeks"
+              href="../genindex.html"/>
+        <link rel="search" title="Otsing" href="../search.html"/>
+    <link rel="top" title="Clearbot 0.1 alpha dokumentatsioon" href="../index.html"/>
+        <link rel="next" title="Praktikum 4 - AR markerid" href="praktikum4.html"/>
+        <link rel="prev" title="Praktikum 2 - Programmeerimise alused: for-tsükkel, funktsioonid" href="praktikum2.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Clearbot
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Praktikumid</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="praktikum1.html">Praktikum 1 - Linux, ssh, roboti juhtimine klaviatuuriga</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum2.html">Praktikum 2 - Programmeerimise alused: for-tsükkel, funktsioonid</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Praktikum 3 - Andurid, if-lause, bang-bang kontroller</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#enne-praktikumi-juurde-asumist">Enne praktikumi juurde asumist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mis-andurid-on-clearbotil">Mis andurid on Clearbotil?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mis-on-kontroller">Mis on kontroller?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kui-kaugel-on-meist-eespool-paiknevad-asjad">Kui kaugel on meist eespool paiknevad asjad?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#proovime-asjadele-mitte-otsa-soita">Proovime asjadele mitte otsa sõita</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vaatame-kuhu-poole-peaks-soitma-kui-uhes-kohas-asi-ees-on">Vaatame, kuhu poole peaks sõitma kui ühes kohas asi ees on.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enne-praktikumi-lopetamist">Enne praktikumi lõpetamist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum4.html">Praktikum 4 - AR markerid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum5.html">Praktikum 5 - 2d kaardistamine, automaatne navigeerimine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum6.html">Praktikum 6 - 3D kaardistamine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum7.html">Praktikum 7 - Regulaatorid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum8.html">Praktikum 8 - Simulatsioon</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Clearbot</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Praktikum 3 - Andurid, if-lause, bang-bang kontroller</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/labs/praktikum3.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="praktikum-3-andurid-if-lause-bang-bang-kontroller">
+<h1>Praktikum 3 - Andurid, if-lause, bang-bang kontroller<a class="headerlink" href="#praktikum-3-andurid-if-lause-bang-bang-kontroller" title="Püsiviit sellele pealkirjale">¶</a></h1>
+<div class="section" id="enne-praktikumi-juurde-asumist">
+<h2>Enne praktikumi juurde asumist<a class="headerlink" href="#enne-praktikumi-juurde-asumist" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Mine lehele <a class="reference external" href="https://github.com/">https://github.com/</a><strong>sinu kasutajanimi</strong>/robotont_blank_scripts, kus asenda <strong>sinu kasutajanimi</strong> oma kasutajanimega.</p>
+</li>
+<li><p class="first">Vajuta rohelist nuppu “Clone or download”</p>
+</li>
+<li><p class="first">Kopeeri sealt aadress</p>
+</li>
+<li><p class="first">Ava terminal, <strong>loo ssh-ühendus robotisse</strong> ning trüki sinna</p>
+<p><strong>cd catkin_ws/src</strong></p>
+</li>
+<li><p class="first">Seejärel sisesta</p>
+<p><strong>git clone -sinu-kopeeritud-link-</strong></p>
+</li>
+<li><p class="first">Seejärel sisesta</p>
+<p><strong>cd robotont_blank_scripts</strong></p>
+</li>
+<li><p class="first">Seejärel</p>
+<p><strong>git config user.email „YOUR-EMAIL-HERE“</strong></p>
+</li>
+<li><p class="first">Seejärel</p>
+<p><strong>git config user.name „YOUR-NAME-HERE“</strong></p>
+</li>
+<li><p class="first">Seejärel sisesta</p>
+<p><strong>git pull https://github.com/ut-ims-robotics/robotont_blank_scripts.git</strong></p>
+</li>
+<li><p class="first">Nüüd trüki terminali</p>
+<p><strong>catkin build</strong></p>
+</li>
+<li><p class="first">Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="mis-andurid-on-clearbotil">
+<h2>Mis andurid on Clearbotil?<a class="headerlink" href="#mis-andurid-on-clearbotil" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>Clearbotil on peal Realsense D435 3D kaamera, millest saab tavalise kaamerapildi ja sügavuspildi.
+Käesolevas praktikumis kasutame 3D kaamerast sügavuspildi andmeid. Aga mitte toorelt.
+Nimelt on 3D sügavuspildist võetud ainult üks riba ning tehtud sellest 2D laserskann.
+See laserskann on omakorda jagatud kolmeks ja võetud minimaalsed takistuste kaugused paremal, keskel ja vasakul.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/gridlaserscan.png"><img alt="../_images/gridlaserscan.png" src="../_images/gridlaserscan.png" style="width: 1007.9999999999999px; height: 630.6999999999999px;" /></a>
+</div>
+<p>Samuti on roboti ratastel enkoodrid, mis mõõdavad, kui palju ratas on liikunud, kuid seda me veel siin praktikumis ei kasuta.</p>
+</div>
+<div class="section" id="mis-on-kontroller">
+<h2>Mis on kontroller?<a class="headerlink" href="#mis-on-kontroller" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>Eelmises lõigus tutvustati, mis on andurid.
+Nüüd on vaja ka teada, kuidas saame liigutada robotit sõltuvalt andurite näidust.
+Selleks on olemas kontrollerid.
+Kontrollerite ülesanne on sõltuvalt sisendist, näiteks andurite näidust,
+muuta väljundit, näiteks mootorite kiirust.
+Näiteks auto püsikiirusehoidja mõõdab kiirust ning annab selle järgi erinevalt gaasi.
+Kui kiirus on väiksem kui soovitud, annab kontroller gaasi
+ning kui kiirus on suurem kui soovitud, siis laseb gaasi lahti.
+Ka selles praktikumis kirjutame ise kontrolleri.</p>
+</div>
+<div class="section" id="kui-kaugel-on-meist-eespool-paiknevad-asjad">
+<h2>Kui kaugel on meist eespool paiknevad asjad?<a class="headerlink" href="#kui-kaugel-on-meist-eespool-paiknevad-asjad" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>Selleks, et teada, kui kaugel on lähim asi vasakul, keskel ja paremal,
+saame tellida ROS rubriiki “/scan_to_distance”, mis annab meile laserskannist arvutatud väärtused.</p>
+<ol class="arabic">
+<li><p class="first">Ava terminal ning loo ssh-ühendus robotisse.</p>
+</li>
+<li><p class="first">Kirjuta sinna</p>
+<p><strong>roslaunch robotont_teleop teleop_with_laserscan.launch</strong></p>
+<p>Kui väljund on väga punane, kutsu juhendaja</p>
+</li>
+<li><p class="first">Nüüd ava uus terminal</p>
+</li>
+<li><p class="first">Selleks, et vaadata, mis andmeid robot meile annab, kasutame terminalis käsku</p>
+<p><strong>rostopic echo /scan_to_distance</strong></p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/terminal.png"><img alt="../_images/terminal.png" src="../_images/terminal.png" style="width: 512.4px; height: 306.59999999999997px;" /></a>
+</div>
+<p><em>leftMin</em>, <em>centerMin</em> ja <em>rightMin</em> näitavad minimaalset kaugust igas sektoris. Ühikuks on meeter.</p>
+</li>
+<li><p class="first">Liiguta oma kätt kaamera ees ning jälgi kuidas väärtused muutuvad.</p>
+</li>
+</ol>
+<p>Nüüd kui oleme aru saanud, kuidas need kaugused töötavad, on aeg neid kasutada.</p>
+</div>
+<div class="section" id="proovime-asjadele-mitte-otsa-soita">
+<h2>Proovime asjadele mitte otsa sõita<a class="headerlink" href="#proovime-asjadele-mitte-otsa-soita" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p><strong>Võtame lahti faili, kuhu hakkame koodi kirjutama</strong></p>
+<ol class="arabic">
+<li><p class="first">Ava terminal ning loo ssh-ühendus robotisse.</p>
+</li>
+<li><p class="first">Trüki terminali</p>
+<p><strong>nano catkin_ws/src/robotont_blank_scripts/scripts/praktikum3_bangbang.py</strong></p>
+<p>See avab Python’i faili, kus hakkame väärtusi muutma.</p>
+</li>
+</ol>
+<p>Selleks, et me Python’is näeksime ja saaksime kasutada neid kaugusi, on meil muutuja nimega <em>distances</em>.
+Sellel muutujal on meie jaoks olulised kolm väärtust,
+mis on tabelis välja toodud.</p>
+<blockquote>
+<div><div class="figure">
+<a class="reference internal image-reference" href="../_images/tabel.png"><img alt="../_images/tabel.png" src="../_images/tabel.png" style="width: 635.0px; height: 166.0px;" /></a>
+</div>
+</div></blockquote>
+<p>Esialgu kasutame ainult <em>distances.centerMin</em> muutujat ning teeme robotile <em>bang-bang</em> kontrolleri.
+<em>Bang-bang</em> kontroller ehk eestikeeli kaks-punkt reguleerimine on automaatreguleerimine,
+kus lülitatakse seadet kahe oleku vahel, olenevalt anduri näidust.
+Näiteks kui toas on liiga külm, lülitab radiaator end sisse, kui temperatuur on normis või üle,
+lülitab end välja.</p>
+<p>Meie robotiga kasutame <em>bang-bang</em> kontrollerit nõnda:</p>
+<ul class="simple">
+<li>Vaatame kui lähedal on eesolev asi</li>
+<li>Kui asi on piisavalt kaugel või takistus puudub, sõidame otse</li>
+<li>Kui asi on liiga lähedal, tagurdame</li>
+</ul>
+<p><strong>Ülesanne</strong></p>
+<ol class="arabic">
+<li><p class="first">Ava uus terminal ning loo samuti ssh-ühendus robotisse.</p>
+</li>
+<li><p class="first">Terminalis sisesta</p>
+<p><strong>roslaunch robotont_teleop teleop_with_laserscan.launch</strong></p>
+<p>See paneb käima ROSi draiveri, mis kontrollib rataste kiirusi vastavalt meie sõnumitele ning annab ka andmeid eesolevate takistuste kohta.</p>
+</li>
+<li><p class="first">Kasutades <strong>if-else</strong>-lauset (<a class="reference external" href="https://progeopik.cs.ut.ee/03_liitlaused.html">https://progeopik.cs.ut.ee/03_liitlaused.html</a>), kirjuta eelnevalt kirjeldatud <em>bang-bang</em> kontroller eelnevalt avatud <strong>praktikum3_bangbang.py</strong> faili.</p>
+<p>Ülesanne on, et robot hoiaks end näiteks 0.5 meetri kaugusel takistusest.</p>
+</li>
+<li><p class="first">Kasuta väikeseid kiirusi (0.2 m/s või vähem).</p>
+</li>
+<li><p class="first">Salvesta fail, kasutades klahvikombinatsiooni Ctrl+X.</p>
+</li>
+<li><p class="first">Koodi käitamiseks sisesta terminali</p>
+<p><strong>rosrun robotont_blank_scripts praktikum3_bangbang.py</strong></p>
+<p>Ctrl+C paneb programmi kinni.</p>
+</li>
+<li><p class="first">Demonstreeri töötavat kontrollerit juhendajale.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="vaatame-kuhu-poole-peaks-soitma-kui-uhes-kohas-asi-ees-on">
+<h2>Vaatame, kuhu poole peaks sõitma kui ühes kohas asi ees on.<a class="headerlink" href="#vaatame-kuhu-poole-peaks-soitma-kui-uhes-kohas-asi-ees-on" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<p>Selles ülesandes peab robot oskama nurga alt lähenedes avast läbi sõita.</p>
+<ol class="arabic">
+<li><p class="first">Ava terminal ja loo ssh-ühendus robotisse ja sisesta</p>
+<p><strong>roslaunch robotont_teleop teleop_with_laserscan.launch</strong></p>
+<p>VÕI
+kasuta eelmisest ülesandest juba käivat terminali.</p>
+</li>
+<li><p class="first">Võta ette uus terminal ning ava seal fail <strong>praktikum3_betweenposts.py</strong></p>
+</li>
+<li><p class="first">Kasutades teadmisi ja oskusi eelnevast ülesandest, kirjuta koodis ettenähtud kohta oma kood.
+Selle koodi abil peab robot oskama nurga alt avale lähenedes avast läbi sõitma.
+Nüüd on kasutada ka vasaku ja parema sektori kaugused.
+Robot peab suutma avast läbi sõita mõlemal pildil näidatud juhul.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/yl2setup.png"><img alt="../_images/yl2setup.png" src="../_images/yl2setup.png" style="width: 750.4px; height: 281.4px;" /></a>
+</div>
+</li>
+<li><p class="first">Koodi jooksutamiseks sisesta terminali</p>
+<p><strong>rosrun robotont_blank_scripts praktikum3_betweenposts.py</strong></p>
+</li>
+<li><p class="first">Demonstreeri töötavat robotit juhendajale.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="enne-praktikumi-lopetamist">
+<h2>Enne praktikumi lõpetamist<a class="headerlink" href="#enne-praktikumi-lopetamist" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<ol class="arabic simple">
+<li>Ava uus terminal ning <strong>loo ssh-ühendus robotisse</strong></li>
+<li>Sisesta sinna
+<strong>cd catkin_ws/src/robotont_blank_scripts</strong></li>
+<li>Seejärel
+<strong>git add .</strong></li>
+<li>Seejärel
+<strong>git config user.email „YOUR-EMAIL-HERE“</strong></li>
+<li>Seejärel
+<strong>git config user.name „YOUR-NAME-HERE“</strong></li>
+<li>Seejärel
+<strong>git commit -m „kommentaar mis praktikum oli“</strong></li>
+<li>Seejärel
+<strong>git push</strong></li>
+<li>Siin sisesta oma githubi kasutajanimi ja parool.
+Kontrolli, kas sinu github.com lehel uuenesid failid.</li>
+<li>Kui uuenesid, siis loo ssh-ühendus robotisse ning sisesta käsureale <strong>sudo poweroff</strong>.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="praktikum4.html" class="btn btn-neutral float-right" title="Praktikum 4 - AR markerid" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="praktikum2.html" class="btn btn-neutral" title="Praktikum 2 - Programmeerimise alused: for-tsükkel, funktsioonid" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Autoriõigused 2019, Madis Kaspar Nigol, Veiko Vunder, Renno Raudmäe.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1 alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="../_static/contentui.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

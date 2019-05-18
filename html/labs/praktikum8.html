@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Praktikum 8 - Simulatsioon &mdash; Clearbot 0.1 alpha dokumentatsioon</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/hacks.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Indeks"
+              href="../genindex.html"/>
+        <link rel="search" title="Otsing" href="../search.html"/>
+    <link rel="top" title="Clearbot 0.1 alpha dokumentatsioon" href="../index.html"/>
+        <link rel="prev" title="Praktikum 7 - Regulaatorid" href="praktikum7.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Clearbot
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Praktikumid</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="praktikum1.html">Praktikum 1 - Linux, ssh, roboti juhtimine klaviatuuriga</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum2.html">Praktikum 2 - Programmeerimise alused: for-tsükkel, funktsioonid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum3.html">Praktikum 3 - Andurid, if-lause, bang-bang kontroller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum4.html">Praktikum 4 - AR markerid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum5.html">Praktikum 5 - 2d kaardistamine, automaatne navigeerimine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum6.html">Praktikum 6 - 3D kaardistamine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="praktikum7.html">Praktikum 7 - Regulaatorid</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Praktikum 8 - Simulatsioon</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#enne-praktikumi-juurde-asumist">Enne praktikumi juurde asumist</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ulesanne-1">Ülesanne 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ulesanne-2">Ülesanne 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ulesanne-3">Ülesanne 3</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#enne-praktikumi-lopetamist">Enne praktikumi lõpetamist</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Clearbot</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Praktikum 8 - Simulatsioon</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/labs/praktikum8.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="praktikum-8-simulatsioon">
+<h1>Praktikum 8 - Simulatsioon<a class="headerlink" href="#praktikum-8-simulatsioon" title="Püsiviit sellele pealkirjale">¶</a></h1>
+<div class="section" id="enne-praktikumi-juurde-asumist">
+<h2>Enne praktikumi juurde asumist<a class="headerlink" href="#enne-praktikumi-juurde-asumist" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<ol class="arabic simple">
+<li>Mine lehele <a class="reference external" href="https://github.com/">https://github.com/</a><strong>sinu kasutajanimi</strong>/robotont_blank_scripts, kus asenda <strong>sinu kasutajanimi</strong> oma kasutajanimega.</li>
+<li>Vajuta rohelist nuppu “Clone or download”</li>
+<li>Kopeeri sealt aadress</li>
+<li>Ava terminal ning trüki sinna
+<strong>cd catkin_ws/src</strong></li>
+<li>Seejärel sisesta
+<strong>git clone -sinu-kopeeritud-link-</strong></li>
+<li>Nüüd trüki terminali
+<strong>catkin build</strong></li>
+<li>Kui see protsess on lõpetanud edukalt, sulge terminal ja oled valmis praktikumiga jätkama.</li>
+</ol>
+<p>Selles praktikumis teeme tutvust robootika simulatsiooniga.
+Kui varasemalt oleme töötanud füüsilise robotitega, siis tihti on otstarbekam kõigepealt testida oma koodi simulaatoris.
+Käesolevas praktikumis testime oma <strong>kolme varasemat lahendust</strong> kasutades simuleeritud robotit ja maailma.
+Järgnevalt on ette on antud mõned näited, kuid tegelikult võib ise valida need varasemad ülesanded, mida simuleeritud roboti peal katsetada.
+Selles praktikumis pole päris robotit vaja kasutada.</p>
+<div class="section" id="ulesanne-1">
+<h3>Ülesanne 1<a class="headerlink" href="#ulesanne-1" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<p>Käita simulaatori abil oma P-kontrolleriga kaugusehoidmist (7.  praktikumi 2. ülesannet).</p>
+<ol class="arabic">
+<li><p class="first">Selleks ava simulaator käsuga</p>
+<p><strong>roslaunch robotont_description gazebo_teleop_keyboard.launch world:=$(rospack find robotont_description)/worlds/bangbang.world</strong></p>
+</li>
+<li><p class="first">Ava uus terminaliaken ning trüki sinna</p>
+<p><strong>rosrun robotont_blank_scripts praktikum3_bangbang.py</strong></p>
+</li>
+<li><p class="first">Kui robot ei tööta nii nagu peaks, siis ava praktikum3_bangbang.py ja seadista kontrollerit nii, et see ka simulaatoris töötaks.</p>
+</li>
+<li><p class="first">Demonstreeri töötavat kontrollerit juhendajale.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="ulesanne-2">
+<h3>Ülesanne 2<a class="headerlink" href="#ulesanne-2" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<p>Proovime nüüd simulaatoris seinte vahelt läbi sõita.</p>
+<ol class="arabic">
+<li><p class="first">Ava terminaliaken ning trüki sinna</p>
+<p><strong>roslaunch robotont_description gazebo_teleop_keyboard.launch world:=$(rospack find robotont_description)/worlds/between.world</strong></p>
+</li>
+<li><p class="first">Avanenud aknas saad liigutada robotit lineaarselt soovitud kohta, klikkides robotil ning vajutades vasakul üleval nuppu “Translate mode” või vajutades klahvi “T”. Seejärel tekivad nooled, mida tõmmates liigub robot maailmas.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/gazebotranslate.png"><img alt="../_images/gazebotranslate.png" src="../_images/gazebotranslate.png" style="width: 585.1999999999999px; height: 408.79999999999995px;" /></a>
+</div>
+</li>
+<li><p class="first">Vajutades vasakul üleval nuppu “Rotation Mode” või klahvi “R”, saab robotit pöörata. Pööramiseks tiri hiirega värvilisi ringe soovitud suunas.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/gazeborotate.png"><img alt="../_images/gazeborotate.png" src="../_images/gazeborotate.png" style="width: 683.1999999999999px; height: 431.2px;" /></a>
+</div>
+</li>
+<li><p class="first">Roboti liigutamiseks võid ka kasutada klaviatuuri abil juhtimist. Selleks peab aktiivne olema terminaliaken, kus käitasid Gazebo. Kui roboti juhtimiseks kasutavad klahvid on meelest läinud, vaata esimese praktikumijuhendi lõppu.</p>
+</li>
+<li><p class="first">Kui robot on paigas, käita oma kolmanda praktikumi kood</p>
+<p><strong>rosrun robotont_blank_scripts praktikum3_betweenposts.py</strong></p>
+</li>
+<li><p class="first">Kui robot ei käitu nii nagu peab, proovi muuta oma algoritmi <strong>praktikum3_betweenposts.py</strong> failis.</p>
+</li>
+<li><p class="first">Demonstreeri töötavat seinte vahelt sõitvat robotit juhendajale.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="ulesanne-3">
+<h3>Ülesanne 3<a class="headerlink" href="#ulesanne-3" title="Püsiviit sellele pealkirjale">¶</a></h3>
+<p>Proovime koostada simulaatoris 2D kaarti ja seal navigeerida nagu viiendas praktikumis.</p>
+<ol class="arabic">
+<li><p class="first">Ava simulaator käsuga</p>
+<p><strong>roslaunch robotont_description gazebo_teleop_keyboard.launch world:=$(rospack find robotont_description)/worlds/mapping.world</strong></p>
+</li>
+<li><p class="first">Ava kaardistamislõim käsuga</p>
+<p><strong>roslaunch robotont_teleop teleop_carto_with_navstack_gazebo.launch</strong></p>
+</li>
+<li><p class="first">Ava RViz käsuga</p>
+<p><strong>roslaunch robotont_description display_2dmapping.launch</strong></p>
+</li>
+<li><p class="first">Sõida ringi (aktiivne peab olema terminaliaken, kus avasid Gazebo) ning kaardista maailm. Seejärel proovi autonoomselt navigeerida kaardi abil nagu viiendas praktikumis.</p>
+</li>
+<li><p class="first">Demonstreeri juhendajale.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="enne-praktikumi-lopetamist">
+<h2>Enne praktikumi lõpetamist<a class="headerlink" href="#enne-praktikumi-lopetamist" title="Püsiviit sellele pealkirjale">¶</a></h2>
+<ol class="arabic simple">
+<li>Ava uus terminal</li>
+<li>Sisesta sinna
+<strong>cd catkin_ws/src/robotont_blank_scripts</strong></li>
+<li>Seejärel
+<strong>git add .</strong></li>
+<li>Seejärel
+<strong>git config user.email „YOUR-EMAIL-HERE“</strong></li>
+<li>Seejärel
+<strong>git config user.name „YOUR-NAME-HERE“</strong></li>
+<li>Seejärel
+<strong>git commit -m „kommentaar mis praktikum oli“</strong></li>
+<li>Seejärel
+<strong>git push</strong></li>
+<li>Siin sisesta oma githubi kasutajanimi ja parool.
+Kontrolli, kas sinu github.com lehel uuenesid failid.</li>
+<li>Kui uuenesid, siis loo ssh-ühendus robotisse ning sisesta käsureale <strong>sudo poweroff</strong>.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="praktikum7.html" class="btn btn-neutral" title="Praktikum 7 - Regulaatorid" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Autoriõigused 2019, Madis Kaspar Nigol, Veiko Vunder, Renno Raudmäe.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1 alpha',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="../_static/contentui.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
