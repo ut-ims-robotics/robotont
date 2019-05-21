@@ -21,8 +21,8 @@ def setup(app):
 # -- Project information -----------------------------------------------------
 
 project = 'Clearbot'
-copyright = u'2019, Madis Kaspar Nigol, Veiko Vunder, Renno Raudmäe'
-author = u'Madis Kaspar Nigol, Veiko Vunder, Renno Raudmäe'
+copyright = u'2019, Litsents CC BY-ND-NC, Madis Kaspar Nigol, Veiko Vunder, Renno Raudmäe, Karl Kruusamäe'
+author = u'Madis Kaspar Nigol, Veiko Vunder, Renno Raudmäe, Karl Kruusamäe'
 
 # The short X.Y version
 version = ''
