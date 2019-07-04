@@ -11,6 +11,7 @@ public:
   ~RobotontHW();
 
 private:
+  void connect();
   void read(const ros::TimerEvent& event);
   void processPacket();
   void write(const std::string& packet);
