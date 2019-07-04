@@ -1,0 +1,14 @@
+material Robotont/DarkGreen
+    {
+      technique
+      {
+        pass ambient
+        {
+          ambient 0 0.3 0
+          diffuse 0 0.3 0
+          specular 0.1 0.1 0.1 1 1
+        }
+      }
+    }
+
+

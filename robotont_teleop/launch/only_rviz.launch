@@ -1,14 +1,10 @@
 <?xml version="1.0" ?>
 <launch>
-
-  <!--include file="$(find robotont_driver)/launch/driver_teleop_joy.launch" /-->
-  <!--include file="$(find robotont_driver)/launch/driver_teleop_keyboard.launch" /-->
-
-  <param name="robotont/robot_description" textfile="$(find robotont_description)/urdf/robotont_description.urdf" />
-
-  <!--node ns="robotont" name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
-  <node ns="robotont" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /-->
-
-  <node ns="robotont" name="rviz" pkg="rviz" type="rviz" args="-d $(find robotont_description)/config/robotont_description.rviz"/>
-
+    <!--include file="$(find robotont_driver)/launch/driver_teleop_joy.launch" /-->
+    <!--include file="$(find robotont_driver)/launch/driver_teleop_keyboard.launch" /-->
+    <param name="/robotont/robot_description" command="$(find xacro)/xacro --inorder $(find robotont_description)/xacro/main.urdf.xacro" />
+     <node ns="/robotont" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <node ns="/robotont" name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+    <!--node ns="robotont" name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" /><node ns="robotont" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /-->
+    <node ns="robotont" name="rviz" pkg="rviz" type="rviz" args="-d $(find robotont_description)/config/robotont_description.rviz"/>
 </launch>

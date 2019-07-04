@@ -8,7 +8,7 @@ Odom::Odom()
 
   // Set parent and child frame names for odom and its tf
   odom_msg_.header.frame_id = "odom";
-  odom_msg_.child_frame_id = "base_link";
+  odom_msg_.child_frame_id = "base_footprint";
 
   odom_transform_.header.frame_id = odom_msg_.header.frame_id;
   odom_transform_.child_frame_id = odom_msg_.child_frame_id;

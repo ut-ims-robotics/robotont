@@ -15,7 +15,7 @@ RobotontHW::RobotontHW()
   nh_.param("serial/port", robotont_port, std::string("/dev/ttyACM0"));    
   nh_.param("serial/baudrate", robotont_baudrate, 115200);    
   nh_.param("odom/frame", odom_frame, std::string("odom"));    
-  nh_.param("odom/child_frame", odom_child_frame, std::string("base_link"));    
+  nh_.param("odom/child_frame", odom_child_frame, std::string("base_footprint"));    
 
   // configure serial
   serial_.setPort(robotont_port);
