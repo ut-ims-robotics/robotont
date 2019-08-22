@@ -1,3 +1,5 @@
+<a href="https://sisu.ut.ee/robotont"><img src="https://sisu.ut.ee/sites/default/files/robotont/files/robotont_general_unitartu_banner2_0.png" alt="robotont_banner" height="360"></a>
+
 # robotont
 ROS support packages for robotont - an open robotics platform from the University of Tartu.
 
