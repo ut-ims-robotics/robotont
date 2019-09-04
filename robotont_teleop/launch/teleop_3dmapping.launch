@@ -4,6 +4,7 @@
     <arg name="linear_update" default="0.01"/>
     <arg name="angular_update" default="0.01"/>
     <arg name="cell_size" default="0.05"/>
+    <arg name="depth_topic" default="/camera/aligned_depth_to_color/image_raw"/>
     <include file="$(find realsense2_camera)/launch/rs_aligned_depth.launch" />
     <include file="$(find robotont_teleop)/launch/cam_throttling.launch" />
     <rosparam>
