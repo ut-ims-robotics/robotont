@@ -29,10 +29,6 @@
   </node>
   <node  name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" >
   </node>
-  <node pkg="teleop_twist_keyboard" name="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen">
-    <param name='~speed' value="0.1" />
-    <param name='~turn' value="0.3" />
-  </node>
   <!-- For using with Realsense D435 -->
   <rosparam>
     /camera/aligned_depth_to_color/image_raw/compressedDepth/png_level: 5
@@ -56,7 +52,7 @@
   
   <param name="odom/child_frame" value="base_footprint"/>
   <param name="odom/frame" value="odom"/>
-  <node pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
+  <node ns="$(arg robotont_ns)" pkg="robotont_driver" name="driver_node" type="driver_node" output="screen" />
 
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
