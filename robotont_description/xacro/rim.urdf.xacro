@@ -8,7 +8,7 @@
     <xacro:property name="roller_init_angle" value="0" />
     <xacro:macro
 		name="rim_macro"
-		params="name color angle wheel_distance wheel_center_height"
+		params="name color angle wheel_distance wheel_center_height prefix"
 	>
         <link name="rim_${name}_link">
             <inertial>
@@ -41,7 +41,7 @@
 			name="rim_${name}_joint"
 			type="continuous"
 		>
-            <parent link="base_link" />
+            <parent link="$(arg prefix)base_link" />
             <child link="rim_${name}_link" />
             <axis xyz="0 0 1"/>
             <origin
