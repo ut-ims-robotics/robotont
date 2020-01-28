@@ -8,7 +8,7 @@
 #include <sensor_msgs/Joy.h>
 
 #define JOY_TIMEOUT_SEC 0.5
-#define MAX_TRANSLATION_SPEED 0.5
+#define MAX_TRANSLATION_SPEED 0.4
 #define MAX_ROTATION_SPEED 1.57
 
 
