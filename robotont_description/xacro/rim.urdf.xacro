@@ -6,11 +6,9 @@
     <xacro:property name="roller_radial_dist" value="0.0275" />
     <xacro:property name="roller_z_distance" value="0.008" />
     <xacro:property name="roller_init_angle" value="0" />
-    <xacro:macro
-		name="rim_macro"
-		params="name color angle wheel_distance wheel_center_height prefix"
-	>
-        <link name="rim_${name}_link">
+    <xacro:macro name="rim_macro" params="name color angle wheel_distance wheel_center_height prefix">
+        
+		<link name="${prefix}rim_${name}_link">
             <inertial>
                 <origin xyz="0 0 0"/>
                 <mass value="0.00835758"/>
@@ -38,11 +36,11 @@
             </collision>
         </link>
         <joint
-			name="rim_${name}_joint"
+			name="${prefix}rim_${name}_joint"
 			type="continuous"
 		>
-            <parent link="$(arg prefix)base_link" />
-            <child link="rim_${name}_link" />
+            <parent link="${prefix}base_link" />
+            <child link="${prefix}rim_${name}_link" />
             <axis xyz="0 0 1"/>
             <origin
 				xyz="${wheel_distance*sin(angle)} ${-wheel_distance*cos(angle)} ${wheel_center_height}"
@@ -57,6 +55,7 @@
 			z_distance_reflect="-1"
 			init_angle="${roller_init_angle}"
 			no_of_roller="0"
+			prefix="${prefix}"
 		/>
         <xacro:roller_macro
 			parent="${name}"
@@ -65,6 +64,7 @@
 			z_distance_reflect="-1"
 			init_angle="${roller_init_angle}"
 			no_of_roller="1"
+			prefix="${prefix}"
 		/>
         <xacro:roller_macro
 			parent="${name}"
@@ -73,6 +73,7 @@
 			z_distance_reflect="-1"
 			init_angle="${roller_init_angle}"
 			no_of_roller="2"
+			prefix="${prefix}"
 		/>
         <xacro:roller_macro
 			parent="${name}"
@@ -81,6 +82,7 @@
 			z_distance_reflect="-1"
 			init_angle="${roller_init_angle}"
 			no_of_roller="3"
+			prefix="${prefix}"
 		/>
         <xacro:roller_macro
 			parent="${name}"
@@ -89,6 +91,7 @@
 			z_distance_reflect="-1"
 			init_angle="${roller_init_angle}"
 			no_of_roller="4"
+			prefix="${prefix}"
 		/>
         <xacro:roller_macro
 			parent="${name}"
@@ -97,6 +100,7 @@
 			z_distance_reflect="-1"
 			init_angle="${roller_init_angle}"
 			no_of_roller="5"
+			prefix="${prefix}"
 		/>
         <xacro:roller_macro
 			parent="${name}"
@@ -105,6 +109,7 @@
 			z_distance_reflect="-1"
 			init_angle="${roller_init_angle}"
 			no_of_roller="6"
+			prefix="${prefix}"
 		/>
         <!-- Back rollers -->
         <xacro:roller_macro
@@ -114,6 +119,7 @@
 			z_distance_reflect="1"
 			init_angle="${roller_init_angle}"
 			no_of_roller="0"
+			prefix="${prefix}"
 		/>
         <xacro:roller_macro
 			parent="${name}"
@@ -122,6 +128,7 @@
 			z_distance_reflect="1"
 			init_angle="${roller_init_angle}"
 			no_of_roller="1"
+			prefix="${prefix}"
 		/>
         <xacro:roller_macro
 			parent="${name}"
@@ -130,6 +137,7 @@
 			z_distance_reflect="1"
 			init_angle="${roller_init_angle}"
 			no_of_roller="2"
+			prefix="${prefix}"
 		/>
         <xacro:roller_macro
 			parent="${name}"
@@ -138,6 +146,7 @@
 			z_distance_reflect="1"
 			init_angle="${roller_init_angle}"
 			no_of_roller="3"
+			prefix="${prefix}"
 		/>
         <xacro:roller_macro
 			parent="${name}"
@@ -146,6 +155,7 @@
 			z_distance_reflect="1"
 			init_angle="${roller_init_angle}"
 			no_of_roller="4"
+			prefix="${prefix}"
 		/>
         <xacro:roller_macro
 			parent="${name}"
@@ -154,6 +164,7 @@
 			z_distance_reflect="1"
 			init_angle="${roller_init_angle}"
 			no_of_roller="5"
+			prefix="${prefix}"
 		/>
         <xacro:roller_macro
 			parent="${name}"
@@ -162,9 +173,10 @@
 			z_distance_reflect="1"
 			init_angle="${roller_init_angle}"
 			no_of_roller="6"
+			prefix="${prefix}"
 		/>
         <!-- <transmission name="rim_${name}_transmission"><type>transmission_interface/SimpleTransmission</type><joint name="rim_${name}_joint"><hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface></joint><actuator name="rim_${name}_motor"><mechanicalReduction>1</mechanicalReduction></actuator></transmission> -->
-        <gazebo reference="rim_${name}_link">
+        <gazebo reference="${prefix}rim_${name}_link">
             <material>Gazebo/DarkGrey</material>
             <!-- <kp>1000000</kp><kd>100</kd> -->
         </gazebo>
