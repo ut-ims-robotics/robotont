@@ -27,40 +27,46 @@ RobotontHW::RobotontHW()
   odom_.setFrameId(odom_frame);
   odom_.setChildFrameId(odom_child_frame);
 
-
-
-
-  // Try to open the serial port
-  do
-  {
-    try
-    {
-      serial_.open();
-    }
-    catch(serial::IOException e)
-    {
-      ROS_ERROR_STREAM("Unable to open port '" << robotont_port << "': " << e.what());
-    }
-    catch(serial::SerialException e)
-    {
-      ROS_ERROR_STREAM("Unable to open port '" << robotont_port << "': " << e.what());
-    }
-
-    if (serial_.isOpen())
-      ROS_DEBUG("Serial port is open");
-    else
-      ROS_WARN("Failed to open Serial port, retrying after 1 sec...");
-    ros::Duration(1).sleep();
-  }
-  while(!serial_.isOpen());
-  //Port is open, ready to communicate.
-  
+  connect();
+  // Port is open, ready to communicate.
 
   // Create a timer to periodically read data from the serial buffer
   timer_ = nh_.createTimer(ros::Duration(0.01), &RobotontHW::read, this);
 
   // Subscribe to command velocity topic
   cmd_vel_sub_ = nh_.subscribe("cmd_vel", 1, &RobotontHW::cmd_vel_callback, this);
+}
+
+void RobotontHW::connect()
+{
+  if (serial_.isOpen())
+  {
+    // Connection already open, close it before reconnecting
+    serial_.close();
+  }
+
+  do
+  {
+    // Try to open the serial port
+    try
+    {
+      serial_.open();
+    }
+    catch (serial::IOException e)
+    {
+      ROS_ERROR_STREAM("Unable to open port '" << serial_.getPort() << "': " << e.what());
+    }
+    catch (serial::SerialException e)
+    {
+      ROS_ERROR_STREAM("Unable to open port '" << serial_.getPort() << "': " << e.what());
+    }
+
+    if (serial_.isOpen())
+      ROS_DEBUG_STREAM("Connected to serial port '" << serial_.getPort() << "'");
+    else
+      ROS_WARN("Failed to open Serial port, retrying after 1 sec...");
+    ros::Duration(1).sleep();
+  } while (!serial_.isOpen() && ros::ok());
 }
 
 RobotontHW::~RobotontHW()
@@ -72,26 +78,30 @@ RobotontHW::~RobotontHW()
 void RobotontHW::read(const ros::TimerEvent& event)
 {
 
-  if (!serial_.isOpen())
-  {
-    //TODO: reconnect
-    return;
-  }
-
-  size_t bytes_available = serial_.available();
-//  ROS_DEBUG("bytes available: %lu", bytes_available);
-  if(!bytes_available)
-  {
-    return;
-  }
-
-
   std::string buffer = "";
-  serial_.read(buffer, bytes_available);
+
+  try
+  {
+    size_t bytes_available = serial_.available();
+    //  ROS_DEBUG("bytes available: %lu", bytes_available);
+    if (!bytes_available)
+    {
+      return;
+    }
+
+    serial_.read(buffer, bytes_available);
+  }
+  catch(serial::IOException e)
+  {
+    connect();
+  }
+  catch(serial::SerialException e)
+  {
+    connect();
+  }
 
   while(buffer.size())
   {
-
     if(buffer[0] == '\r' || buffer[0] == '\n')
     {
       processPacket();
@@ -165,13 +175,21 @@ void RobotontHW::writeRobotSpeed(float lin_vel_x, float lin_vel_y, float ang_vel
 
 void RobotontHW::write(const std::string& packet)
 {
-  if (!serial_.isOpen())
+  try
   {
-    //TODO: reconnect
-    return;
+    serial_.write(packet);
   }
-
-  serial_.write(packet);
+  catch(serial::IOException e)
+  {
+    connect();
+  }
+  catch(serial::SerialException e)
+  {
+    // something went wrong, make sure we're connected
+    // TODO: maybe not the best style to reconnect here as this will block the callback until reconnected
+    // (same pattern in read())
+    connect();
+  }
 }
 
 void RobotontHW::cmd_vel_callback(const geometry_msgs::Twist& cmd_vel_msg)
