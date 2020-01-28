@@ -28,6 +28,8 @@ private:
   ros::Timer timer; 
   ros::Time last_joy_time;
 
+  double speed = 0.5; // speed multiplier that can be increased/decreased using buttons A and B
+
 };
 
 
@@ -41,8 +43,22 @@ TeleopRobotont::TeleopRobotont()
 
 void TeleopRobotont::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 {
+  // Increase decrease max speed
+  if (joy->buttons[0])
+  {
+    speed-=0.1;
+    speed = std::max(speed,0.1);
+    ros::Duration(0.5).sleep();
+  }
+  if (joy->buttons[1])
+  {
+    speed+=0.1;
+    speed = std::min(speed,1.0);
+    ros::Duration(0.5).sleep();
+  }
+
   // check the deadman's switch
-  if (!joy->buttons[5])
+  if (joy->axes[4] >= 0)
   {
     return; //We have a problem
   }
@@ -50,9 +66,9 @@ void TeleopRobotont::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
   last_joy_time = ros::Time::now();
 
   geometry_msgs::Twist twist;
-  twist.linear.x = joy->axes[1]*MAX_TRANSLATION_SPEED;
-  twist.linear.y = joy->axes[0]*MAX_TRANSLATION_SPEED;
-  twist.angular.z = joy->axes[3]*MAX_ROTATION_SPEED;
+  twist.linear.x = joy->axes[1]*speed*MAX_TRANSLATION_SPEED;
+  twist.linear.y = joy->axes[0]*speed*MAX_TRANSLATION_SPEED;
+  twist.angular.z = joy->axes[2]*speed*MAX_ROTATION_SPEED;
 
   vel_pub_.publish(twist);
   ROS_INFO_STREAM(twist);
