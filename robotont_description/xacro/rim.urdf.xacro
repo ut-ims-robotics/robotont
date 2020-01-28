@@ -6,17 +6,9 @@
     <xacro:property name="roller_radial_dist" value="0.0275" />
     <xacro:property name="roller_z_distance" value="0.008" />
     <xacro:property name="roller_init_angle" value="0" />
-<<<<<<< HEAD
     <xacro:macro name="rim_macro" params="name color angle wheel_distance wheel_center_height prefix">
         
 		<link name="${prefix}rim_${name}_link">
-=======
-    <xacro:macro
-		name="rim_macro"
-		params="name color angle wheel_distance wheel_center_height"
-	>
-        <link name="rim_${name}_link">
->>>>>>> 268d3a832c0d9b758c1fe4e2acb1133db5699fd1
             <inertial>
                 <origin xyz="0 0 0"/>
                 <mass value="0.00835758"/>
@@ -47,13 +39,8 @@
 			name="${prefix}rim_${name}_joint"
 			type="continuous"
 		>
-<<<<<<< HEAD
             <parent link="${prefix}base_link" />
             <child link="${prefix}rim_${name}_link" />
-=======
-            <parent link="base_link" />
-            <child link="rim_${name}_link" />
->>>>>>> 268d3a832c0d9b758c1fe4e2acb1133db5699fd1
             <axis xyz="0 0 1"/>
             <origin
 				xyz="${wheel_distance*sin(angle)} ${-wheel_distance*cos(angle)} ${wheel_center_height}"
