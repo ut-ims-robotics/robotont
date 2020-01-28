@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
-<robot
-    xmlns:xacro="http://ros.org/wiki/xacro"
-	name="robotont"
->
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="robotont">
+  
     <xacro:include filename="$(find robotont_description)/xacro/rim.urdf.xacro"/>
     <xacro:include filename="$(find robotont_description)/xacro/_d435.urdf.xacro"/>
     <xacro:property name="wheel_distance" value="0.146" />
@@ -114,6 +112,7 @@
 		angle="${-1/3*pi + pi/2}"
 		wheel_distance = "${wheel_distance}"
 		wheel_center_height = "${wheel_center_height}"
+
 	/>
     <xacro:rim_macro
 		name="left"
@@ -121,6 +120,7 @@
 		angle="${1/3*pi + pi/2}"
 		wheel_distance = "${wheel_distance}"
 		wheel_center_height = "${wheel_center_height}"
+
 	/>
     <!-- Initialize controller manager and odometry-->
     <!-- libgazebo_ros_planar_move.so -->
