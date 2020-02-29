@@ -1,3 +1,13 @@
+# ATTENTION
+
+**This repository is deprecated!**
+
+**The packages were reorganized into separate repositories under [robotont github](https://github.com/robotont) account.**
+
+<hr>
+
+
+
 <a href="https://sisu.ut.ee/robotont"><img src="https://sisu.ut.ee/sites/default/files/robotont/files/robotont_general_unitartu_banner2_0.png" alt="robotont_banner" height="360"></a>
 
 # robotont
